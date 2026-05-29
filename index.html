@@ -476,13 +476,10 @@ function showToast(name, url){
   t.id='dlToast';
   t.style.cssText='position:fixed;bottom:28px;left:50%;transform:translateX(-50%);background:var(--nv);color:#fff;padding:12px 22px;border-radius:10px;font-size:13px;font-weight:500;box-shadow:0 4px 18px rgba(0,0,0,.22);z-index:9999;display:flex;align-items:center;gap:10px;min-width:280px;max-width:420px;animation:toastIn .25s ease';
   const hasUrl=url&&url!=='#'&&url!=='';
-  t.innerHTML=`<span style="font-size:18px">${hasUrl?'⬇':'📄'}</span><div style="flex:1"><div>${hasUrl?'Descargando...':'Sin enlace configurado'}</div><div style="font-size:11px;opacity:.7;margin-top:2px">${name}</div></div>${hasUrl?'':'<div style="font-size:11px;opacity:.6;background:rgba(255,255,255,.1);border-radius:4px;padding:2px 7px">Configurar en Administración</div>'}`;
+  t.innerHTML=`<span style="font-size:18px">${hasUrl?'⬇':'📄'}</span><div style="flex:1"><div>${hasUrl?'Abriendo plantilla...':'Sin enlace configurado'}</div><div style="font-size:11px;opacity:.7;margin-top:2px">${name}</div></div>${hasUrl?'':'<div style="font-size:11px;opacity:.6;background:rgba(255,255,255,.1);border-radius:4px;padding:2px 7px">Configurar en Administración</div>'}`;
   document.body.appendChild(t);
   if(hasUrl){
-    const a=document.createElement('a');
-    a.href=url; a.download=''; a.style.display='none';
-    document.body.appendChild(a);
-    setTimeout(()=>{ a.click(); a.remove(); },300);
+    setTimeout(()=>{ window.open(url,'_blank','noopener,noreferrer'); },300);
   }
   setTimeout(()=>{ t.style.animation='toastOut .25s ease forwards'; setTimeout(()=>t.remove(),260); },2800);
 }
