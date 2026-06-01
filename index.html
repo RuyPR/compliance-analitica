@@ -144,6 +144,8 @@ tr.hl-row td:first-child{color:var(--g1)!important;font-weight:600}
 .art-btn{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:500;color:var(--nv);background:var(--nv-l);border:1px solid var(--nv-m);border-radius:5px;padding:3px 8px;cursor:pointer;transition:all .15s;text-align:left;width:100%}
 .art-btn:hover{background:var(--nv-m);color:var(--nv2)}
 .art-btn .art-ico{font-size:10px;flex-shrink:0}
+.art-subitems{list-style:none;padding:0;margin:3px 0 4px 10px;display:flex;flex-direction:column;gap:2px}
+.art-subitem{font-size:10.5px;color:var(--tx2);line-height:1.4;padding:1px 0}
 
 /* ADMIN TAB */
 .admin-lock{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:320px;gap:16px}
@@ -155,6 +157,7 @@ tr.hl-row td:first-child{color:var(--g1)!important;font-weight:600}
 .admin-pin:focus{border-color:var(--or)}
 .admin-url-input:focus{border-color:var(--nv)}
 .admin-art-row{flex-wrap:wrap;align-items:flex-start}
+.admin-sub-item{font-size:11.5px;color:var(--tx2);padding:1px 0;line-height:1.45}
 .admin-pin-btn{padding:8px 18px;font-size:13px;font-weight:600;background:var(--nv);color:#fff;border:none;border-radius:var(--rad-s);cursor:pointer;transition:background .15s}
 .admin-pin-btn:hover{background:var(--nv2)}
 .admin-pin-err{font-size:12px;color:var(--r1);display:none}
@@ -332,7 +335,7 @@ tr.hl-row td:first-child{color:var(--g1)!important;font-weight:600}
       <tr data-criterio="prod">   <td>Pruebas funcionales / Pase a producción</td><td class="p-emp">—</td><td class="chk">✔</td><td class="chk">✔</td><td class="chk">✔</td></tr>
       <tr data-criterio="core">   <td>Impacto sobre core del negocio</td>        <td class="p-emp">—</td><td class="chk">✔</td><td class="chk">✔</td><td class="chk">✔</td></tr>
       <tr data-criterio="mon">    <td>Necesidad de monitoreo continuo</td>       <td class="p-emp">—</td><td class="p-emp">—</td><td class="chk">✔</td><td class="chk">✔</td></tr>
-      <tr data-criterio="traz">   <td>Trazabilidad avanzada / explicabilidad</td><td class="p-emp">—</td><td class="p-emp">—</td><td class="p-emp">—</td><td class="chk">✔</td></tr>
+      <tr data-criterio="traz">   <td>Trazabilidad avanzada / explicabilidad IA</td><td class="p-emp">—</td><td class="p-emp">—</td><td class="p-emp">—</td><td class="chk">✔</td></tr>
     </tbody>
   </table>
   </div>
@@ -427,19 +430,57 @@ const CAT_CFG={
 };
 
 const matrizRows=[
-  {name:'Registro de iniciativa',    c:[true, true, true, true], art:['Formulario de iniciativa','Alcance, objetivos y organización']},
-  {name:'LPDP',                      c:[true, true, true, true], art:['Clasificación de datos','Formato LPDP si aplica']},
-  {name:'Seguridad de Información',  c:[true, true, true, true], art:['Arquitectura y ficha técnica','Seguridad funcional y perimetral','Evidencia de pruebas funcionales']},
-  {name:'Arquitectura',              c:[false,true, true, true], art:['Requerimientos funcionales e integraciones','Modelo de Gobernanza','Informe Business-IT (si aplica)']},
-  {name:'Calidad de Datos',          c:[false,true, true, true], art:['Diccionario de datos y reglas de calidad','Informe de calidad de modelos','Trazabilidad de datos']},
-  {name:'Legal',                     c:[false,true, true, true], art:['Evaluación regulatoria y contractual','Documentación LAFT si aplica','Obligaciones con terceros/clientes']},
-  {name:'Procesos',                  c:[false,true, true, true], art:['Reglas de negocio','Situación actual vs propuesta','Documentación MPP o Guías']},
-  {name:'Continuidad de Negocio',    c:[false,true, true, true], art:['Plan de continuidad','SLA y certificados de proveedores','Matriz de soporte y atención']},
-  {name:'Riesgo Operacional',        c:[false,true, true, true], art:['Matriz de riesgos y controles','Informe pentesting','Pruebas de performance y estrés']},
-  {name:'Gestión de proveedores (E)',c:[false,true, true, true], art:['Contratos y SLA de proveedores','RFP y criterios de evaluación','Certificados del proveedor']},
-  {name:'Gestión de Riesgos',        c:[false,false,true, true], art:['Evaluación de riesgo crédito/liquidez/mercado','Dimensionamiento en utilización']},
-  {name:'Contabilidad',              c:[false,false,true, true], art:['Evaluación impacto contable/tributario','Matriz de costos']},
-  {name:'Gobierno IA',               c:[false,false,false,true], art:['Informe de impacto IA (metodología, trazabilidad, explicabilidad)','Definición de human oversight y escalamiento manual','Categorización Gobierno IA / SI IA como impacto ALTO']},
+  {name:'Registro de iniciativa', c:[true,true,true,true], art:[
+    {key:'reg_iniciativa_plantilla', label:'XXXX', items:['Nombre de iniciativa','Alcance, objetivos y organización del proyecto','Carga de presentación KickOff','Carga de RFP']},
+  ]},
+  {name:'LPDP', c:[true,true,true,true], art:[
+    {key:'lpdp_plantilla', label:'XXXX', items:['Clasificación y sensibilidad de datos']},
+  ]},
+  {name:'Compliance Interno', c:[false, true, true, true], art:[
+    {key:'compliance_pretesting', label:'XXXX', items:['Resultados de observabilidad','Resultados de performance','Resultados de pruebas de estrés','Resultados de Ethical Hacking']},
+    {key:'compliance_costos', label:'XXXX', items:['Dimensionamiento y % en funnel','TPS','Latencia','Concurrencia','Tokens','Costos']},
+    {key:'compliance_reporteria', label:'XXXX', items:['Reportería','Observabilidad y monitoreo']},
+  ]},
+  {name:'Seguridad de Información', c:[true,true,true,true], art:[
+    {key:'si_requerimientos_plantilla', label:'XXXX', items:['Flujo funcional de la solución','Requerimientos funcionales']},
+    {key:'si_checklist_plantilla', label:'XXXX', items:['Ficha de estándar de seguridad de la solución','Requerimientos adicionales para sistemas externos','Requerimientos para aplicaciones de uso para clientes']},
+  ]},
+  {name:'Arquitectura', c:[false,true,true,true], art:[
+    {key:'arq_integraciones', label:'XXXX', items:['Diagrama de arquitectura de servicio TI','Integraciones y flujo de datos','Inventario y responsabilidades']},
+    {key:'arq_ficha_tecnica', label:'XXXX', items:['Detalle del proyecto','Despliegue y capacitaciones','Seguimiento y evaluación','Seguimiento y control']},
+    {key:'arq_modelo_gobernanza', label:'XXXX', items:['Roles en operatividad','Funcionalidades habilitadas','Matriz de grupos, roles, perfiles y responsabilidades']},
+  ]},
+  {name:'Calidad de Datos',          c:[true, true, true, true], art:[
+    {key:'calidad_reglas', label:'XXXX', items:['Glosario de datos','Reglas de calidad técnicas y específicas','Trazabilidad']},
+  ]},
+  {name:'Legal', c:[false,true,true,true], art:[
+    {key:'legal_plantilla', label:'XXXX', items:['Evaluación regulatoria y contractual','Documentación LAFT si aplica','Obligaciones con terceros/clientes']},
+  ]},
+  {name:'Procesos', c:[false,true,true,true], art:[
+    {key:'procesos_plantilla', label:'XXXX', items:['Problemática','Alcance del proyecto','Diagrama de situación actual','Diagrama de situación propuesta','Beneficios e impacto en documentación']},
+  ]},
+  {name:'Continuidad de Negocio', c:[false,true,true,true], art:[
+    {key:'continuidad_plantilla', label:'XXXX', items:['Plan de continuidad','SLA y certificados de proveedores','Matriz de soporte y atención']},
+  ]},
+  {name:'Riesgo Operacional', c:[false,true,true,true], art:[
+    {key:'riesgo_op_plantilla', label:'XXXX', items:['Responsables','Fechas de compromiso y de entrega']},
+  ]},
+  {name:'Gestión de proveedores (E)', c:[false,true,true,true], art:[
+    {key:'proveedores_plantilla', label:'XXXX', items:['Contratos y SLA de proveedores','Certificados del proveedor']},
+  ]},
+  {name:'Gestión de Riesgos', c:[false,false,true,true], art:[
+    {key:'gestion_riesgos_plantilla', label:'XXXX', items:['Reglas de negocio']},
+    {key:'gestion_riesgos_dimensionamiento', label:'XXXX', items:['Dimensionamiento en utilización']},
+  ]},
+  {name:'Contabilidad', c:[false,false,true,true], art:[
+    {key:'contabilidad_plantilla', label:'XXXX', items:['Evaluación impacto contable/tributario','Matriz de costos']},
+  ]},
+  {name:'Gobierno IA', c:[false,false,false,true], art:[
+    {key:'gov_ia_plantilla', label:'XXXX', items:['Metodología','Trazabilidad','Explicabilidad']},
+  ]},
+  {name:'Sistemas', c:[false,true,true,true], art:[
+    {key:'sistemas_plantilla', label:'XXXX', items:['Marco teórico','Casos de uso','Beneficios','Riesgos y limitaciones','Marco regulatorio','Framework del gobierno','Plan de acción']},
+  ]},
 ];
 
 // Persistent artifact links (keyed by artifact name slug)
@@ -455,8 +496,8 @@ function buildMatriz(){
       `<td>${v?'<span class="p-chk">✔</span>':'<span class="p-emp">—</span>'}</td>`
     ).join('');
     const artHtml=`<ul class="art-list">${r.art.map(a=>{
-      const k=a.replace(/[^a-zA-Z0-9]/g,'_').toLowerCase().substring(0,40);
-      return `<li><button class="art-btn" data-art-key="${k}" onclick="artClick(this)"><span class="art-ico">📄</span><span>${a}</span></button></li>`;
+      const itemsHtml=a.items.map(it=>`<li class="art-subitem">↳ ${it}</li>`).join('');
+      return `<li><button class="art-btn" data-art-key="${a.key}" onclick="artClick(this)"><span class="art-ico">📄</span><span>${a.label}</span></button><ul class="art-subitems">${itemsHtml}</ul></li>`;
     }).join('')}</ul>`;
     tr.innerHTML=`<td>${r.name}</td>${cells}<td class="art-cell">${artHtml}</td>`;
     tb.appendChild(tr);
@@ -663,6 +704,35 @@ function restoreAdminUrls(){
     const el=document.getElementById('url_'+k);
     if(el) el.value=v;
   });
+  const names=JSON.parse(localStorage.getItem('artNames')||'{}');
+  Object.entries(names).forEach(([k,v])=>{
+    const nameEl=document.getElementById('name_'+k);
+    const lblEl=document.getElementById('lbl_'+k);
+    if(nameEl) nameEl.value=v;
+    if(lblEl) lblEl.textContent=v;
+  });
+  // Also sync matriz buttons
+  matrizRows.forEach(r=>r.art.forEach(a=>{
+    const names=JSON.parse(localStorage.getItem('artNames')||'{}');
+    if(names[a.key]){
+      a.label=names[a.key];
+      // update rendered button text if already built
+      const btns=document.querySelectorAll(`[data-art-key="${a.key}"] span:last-child`);
+      btns.forEach(b=>b.textContent=names[a.key]);
+    }
+  }));
+}
+
+function updateArtLabel(key, val){
+  const names=JSON.parse(localStorage.getItem('artNames')||'{}');
+  names[key]=val;
+  localStorage.setItem('artNames',JSON.stringify(names));
+  // update lbl span
+  const lbl=document.getElementById('lbl_'+key);
+  if(lbl) lbl.textContent=val;
+  // update button text in matriz if rendered
+  const btns=document.querySelectorAll('[data-art-key="'+key+'"] span:last-child');
+  btns.forEach(b=>b.textContent=val||'XXXX');
 }
 
 function checkPin(){
@@ -704,7 +774,7 @@ document.addEventListener('keydown',e=>{
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px">
       <div>
         <div style="font-size:15px;font-weight:700;color:var(--nv)">Administración de artefactos</div>
-        <div style="font-size:12.5px;color:var(--tx2);margin-top:2px">Plantillas descargables por unidad de control</div>
+        <div style="font-size:12.5px;color:var(--tx2);margin-top:2px">Configurá nombre y enlace de descarga por unidad de control</div>
       </div>
       <button onclick="document.getElementById('adminLock').style.display='flex';document.getElementById('adminContent').classList.remove('visible');document.getElementById('adminPin').value='';document.getElementById('adminErr').style.display='none';"
         style="font-size:12px;color:var(--tx3);background:none;border:1px solid var(--bdr);border-radius:5px;padding:5px 12px;cursor:pointer">
@@ -713,468 +783,571 @@ document.addEventListener('keydown',e=>{
     </div>
 
     <div class="admin-section">
-      <div class="admin-section-title">Registro e iniciativa</div>
+      <div class="admin-section-title">Registro de iniciativa</div>
       <div class="admin-art-grid">
         <div class="admin-art-row">
           <div style="flex:1;min-width:0">
-            <div class="admin-art-name">Formulario de iniciativa</div>
-            <div class="admin-art-unit">Registro de iniciativa</div>
-            <div style="display:flex;gap:6px;margin-top:6px;align-items:center">
-              <input type="url" class="admin-url-input" id="url_formulario_de_iniciativa" placeholder="https://..." value="" oninput="artLinks['formulario_de_iniciativa']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
-              <button onclick="copyUrl('formulario_de_iniciativa')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
+            <div class="admin-art-name" style="display:flex;align-items:center;gap:6px">
+              <span style="font-size:10px;background:var(--nv-l);color:var(--nv);border:1px solid var(--nv-m);border-radius:4px;padding:1px 6px;font-weight:700;white-space:nowrap">Plantilla</span>
+              <span id="lbl_reg_iniciativa_plantilla">XXXX</span>
+            </div>
+            <div style="margin:6px 0 4px 8px;display:flex;flex-direction:column;gap:2px">
+              <div class="admin-sub-item">↳ Nombre de iniciativa</div>
+              <div class="admin-sub-item">↳ Alcance, objetivos y organización del proyecto</div>
+              <div class="admin-sub-item">↳ Carga de presentación KickOff</div>
+              <div class="admin-sub-item">↳ Carga de RFP</div>
+            </div>
+            <div style="margin-top:4px;display:flex;align-items:center;gap:6px;padding-top:6px;border-top:1px solid var(--bdr)">
+              <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Nombre plantilla</span>
+              <input type="text" class="admin-url-input" id="name_reg_iniciativa_plantilla" placeholder="Nombre visible del botón..." value="XXXX" oninput="updateArtLabel('reg_iniciativa_plantilla',this.value)" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+            </div>
+            <div style="margin-top:5px;display:flex;gap:6px;align-items:center">
+              <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Enlace</span>
+              <input type="url" class="admin-url-input" id="url_reg_iniciativa_plantilla" placeholder="https://..." value="" oninput="artLinks['reg_iniciativa_plantilla']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+              <button onclick="copyUrl('reg_iniciativa_plantilla')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
             </div>
           </div>
-          <a class="admin-dl-btn" onclick="adminDl('formulario_de_iniciativa','Formulario de iniciativa')" href="javascript:void(0)" style="margin-left:10px;align-self:flex-start;margin-top:2px">⬇ Descargar</a>
-        </div>
-        <div class="admin-art-row">
-          <div style="flex:1;min-width:0">
-            <div class="admin-art-name">Alcance, objetivos y organización del proyecto</div>
-            <div class="admin-art-unit">Registro de iniciativa</div>
-            <div style="display:flex;gap:6px;margin-top:6px;align-items:center">
-              <input type="url" class="admin-url-input" id="url_alcance__objetivos_y_organizaci_n_del_pr" placeholder="https://..." value="" oninput="artLinks['alcance__objetivos_y_organizaci_n_del_pr']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
-              <button onclick="copyUrl('alcance__objetivos_y_organizaci_n_del_pr')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
-            </div>
-          </div>
-          <a class="admin-dl-btn" onclick="adminDl('alcance__objetivos_y_organizaci_n_del_pr','Alcance, objetivos y organización del proyecto')" href="javascript:void(0)" style="margin-left:10px;align-self:flex-start;margin-top:2px">⬇ Descargar</a>
+          <a class="admin-dl-btn" onclick="adminDl('reg_iniciativa_plantilla',document.getElementById('lbl_reg_iniciativa_plantilla').textContent)" href="javascript:void(0)" style="margin-left:10px;align-self:flex-start;margin-top:2px">⬇ Descargar</a>
         </div>
       </div>
     </div>
-
     <div class="admin-section">
       <div class="admin-section-title">LPDP</div>
       <div class="admin-art-grid">
         <div class="admin-art-row">
           <div style="flex:1;min-width:0">
-            <div class="admin-art-name">Clasificación de datos</div>
-            <div class="admin-art-unit">LPDP</div>
-            <div style="display:flex;gap:6px;margin-top:6px;align-items:center">
-              <input type="url" class="admin-url-input" id="url_clasificaci_n_de_datos" placeholder="https://..." value="" oninput="artLinks['clasificaci_n_de_datos']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
-              <button onclick="copyUrl('clasificaci_n_de_datos')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
+            <div class="admin-art-name" style="display:flex;align-items:center;gap:6px">
+              <span style="font-size:10px;background:var(--nv-l);color:var(--nv);border:1px solid var(--nv-m);border-radius:4px;padding:1px 6px;font-weight:700;white-space:nowrap">Plantilla</span>
+              <span id="lbl_lpdp_plantilla">XXXX</span>
+            </div>
+            <div style="margin:6px 0 4px 8px;display:flex;flex-direction:column;gap:2px">
+              <div class="admin-sub-item">↳ Clasificación y sensibilidad de datos</div>
+            </div>
+            <div style="margin-top:4px;display:flex;align-items:center;gap:6px;padding-top:6px;border-top:1px solid var(--bdr)">
+              <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Nombre plantilla</span>
+              <input type="text" class="admin-url-input" id="name_lpdp_plantilla" placeholder="Nombre visible del botón..." value="XXXX" oninput="updateArtLabel('lpdp_plantilla',this.value)" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+            </div>
+            <div style="margin-top:5px;display:flex;gap:6px;align-items:center">
+              <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Enlace</span>
+              <input type="url" class="admin-url-input" id="url_lpdp_plantilla" placeholder="https://..." value="" oninput="artLinks['lpdp_plantilla']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+              <button onclick="copyUrl('lpdp_plantilla')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
             </div>
           </div>
-          <a class="admin-dl-btn" onclick="adminDl('clasificaci_n_de_datos','Clasificación de datos')" href="javascript:void(0)" style="margin-left:10px;align-self:flex-start;margin-top:2px">⬇ Descargar</a>
-        </div>
-        <div class="admin-art-row">
-          <div style="flex:1;min-width:0">
-            <div class="admin-art-name">Formato LPDP</div>
-            <div class="admin-art-unit">LPDP</div>
-            <div style="display:flex;gap:6px;margin-top:6px;align-items:center">
-              <input type="url" class="admin-url-input" id="url_formato_lpdp" placeholder="https://..." value="" oninput="artLinks['formato_lpdp']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
-              <button onclick="copyUrl('formato_lpdp')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
-            </div>
-          </div>
-          <a class="admin-dl-btn" onclick="adminDl('formato_lpdp','Formato LPDP')" href="javascript:void(0)" style="margin-left:10px;align-self:flex-start;margin-top:2px">⬇ Descargar</a>
+          <a class="admin-dl-btn" onclick="adminDl('lpdp_plantilla',document.getElementById('lbl_lpdp_plantilla').textContent)" href="javascript:void(0)" style="margin-left:10px;align-self:flex-start;margin-top:2px">⬇ Descargar</a>
         </div>
       </div>
     </div>
-
+    <div class="admin-section">
+      <div class="admin-section-title">Compliance Interno</div>
+      <div class="admin-art-grid">
+        <div class="admin-art-row">
+          <div style="flex:1;min-width:0">
+            <div class="admin-art-name" style="display:flex;align-items:center;gap:6px">
+              <span style="font-size:10px;background:var(--nv-l);color:var(--nv);border:1px solid var(--nv-m);border-radius:4px;padding:1px 6px;font-weight:700;white-space:nowrap">Plantilla</span>
+              <span id="lbl_compliance_pretesting">XXXX</span>
+            </div>
+            <div style="margin:6px 0 4px 8px;display:flex;flex-direction:column;gap:2px">
+              <div class="admin-sub-item">↳ Resultados de observabilidad</div>
+              <div class="admin-sub-item">↳ Resultados de performance</div>
+              <div class="admin-sub-item">↳ Resultados de pruebas de estrés</div>
+              <div class="admin-sub-item">↳ Resultados de Ethical Hacking</div>
+            </div>
+            <div style="margin-top:4px;display:flex;align-items:center;gap:6px;padding-top:6px;border-top:1px solid var(--bdr)">
+              <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Nombre plantilla</span>
+              <input type="text" class="admin-url-input" id="name_compliance_pretesting" placeholder="Nombre visible del botón..." value="XXXX" oninput="updateArtLabel('compliance_pretesting',this.value)" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+            </div>
+            <div style="margin-top:5px;display:flex;gap:6px;align-items:center">
+              <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Enlace</span>
+              <input type="url" class="admin-url-input" id="url_compliance_pretesting" placeholder="https://..." value="" oninput="artLinks['compliance_pretesting']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+              <button onclick="copyUrl('compliance_pretesting')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
+            </div>
+          </div>
+          <a class="admin-dl-btn" onclick="adminDl('compliance_pretesting',document.getElementById('lbl_compliance_pretesting').textContent)" href="javascript:void(0)" style="margin-left:10px;align-self:flex-start;margin-top:2px">⬇ Descargar</a>
+        </div>
+        <div class="admin-art-row" style="margin-top:8px">
+          <div style="flex:1;min-width:0">
+            <div class="admin-art-name" style="display:flex;align-items:center;gap:6px">
+              <span style="font-size:10px;background:var(--nv-l);color:var(--nv);border:1px solid var(--nv-m);border-radius:4px;padding:1px 6px;font-weight:700;white-space:nowrap">Plantilla</span>
+              <span id="lbl_compliance_costos">XXXX</span>
+            </div>
+            <div style="margin:6px 0 4px 8px;display:flex;flex-direction:column;gap:2px">
+              <div class="admin-sub-item">↳ Dimensionamiento y % en funnel</div>
+              <div class="admin-sub-item">↳ TPS</div>
+              <div class="admin-sub-item">↳ Latencia</div>
+              <div class="admin-sub-item">↳ Concurrencia</div>
+              <div class="admin-sub-item">↳ Tokens</div>
+              <div class="admin-sub-item">↳ Costos</div>
+            </div>
+            <div style="margin-top:4px;display:flex;align-items:center;gap:6px;padding-top:6px;border-top:1px solid var(--bdr)">
+              <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Nombre plantilla</span>
+              <input type="text" class="admin-url-input" id="name_compliance_costos" placeholder="Nombre visible del botón..." value="XXXX" oninput="updateArtLabel('compliance_costos',this.value)" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+            </div>
+            <div style="margin-top:5px;display:flex;gap:6px;align-items:center">
+              <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Enlace</span>
+              <input type="url" class="admin-url-input" id="url_compliance_costos" placeholder="https://..." value="" oninput="artLinks['compliance_costos']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+              <button onclick="copyUrl('compliance_costos')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
+            </div>
+          </div>
+          <a class="admin-dl-btn" onclick="adminDl('compliance_costos',document.getElementById('lbl_compliance_costos').textContent)" href="javascript:void(0)" style="margin-left:10px;align-self:flex-start;margin-top:2px">⬇ Descargar</a>
+        </div>
+        <div class="admin-art-row" style="margin-top:8px">
+          <div style="flex:1;min-width:0">
+            <div class="admin-art-name" style="display:flex;align-items:center;gap:6px">
+              <span style="font-size:10px;background:var(--nv-l);color:var(--nv);border:1px solid var(--nv-m);border-radius:4px;padding:1px 6px;font-weight:700;white-space:nowrap">Plantilla</span>
+              <span id="lbl_compliance_reporteria">XXXX</span>
+            </div>
+            <div style="margin:6px 0 4px 8px;display:flex;flex-direction:column;gap:2px">
+              <div class="admin-sub-item">↳ Reportería</div>
+              <div class="admin-sub-item">↳ Observabilidad y monitoreo</div>
+            </div>
+            <div style="margin-top:4px;display:flex;align-items:center;gap:6px;padding-top:6px;border-top:1px solid var(--bdr)">
+              <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Nombre plantilla</span>
+              <input type="text" class="admin-url-input" id="name_compliance_reporteria" placeholder="Nombre visible del botón..." value="XXXX" oninput="updateArtLabel('compliance_reporteria',this.value)" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+            </div>
+            <div style="margin-top:5px;display:flex;gap:6px;align-items:center">
+              <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Enlace</span>
+              <input type="url" class="admin-url-input" id="url_compliance_reporteria" placeholder="https://..." value="" oninput="artLinks['compliance_reporteria']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+              <button onclick="copyUrl('compliance_reporteria')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
+            </div>
+          </div>
+          <a class="admin-dl-btn" onclick="adminDl('compliance_reporteria',document.getElementById('lbl_compliance_reporteria').textContent)" href="javascript:void(0)" style="margin-left:10px;align-self:flex-start;margin-top:2px">⬇ Descargar</a>
+        </div>
+      </div>
+    </div>
     <div class="admin-section">
       <div class="admin-section-title">Seguridad de Información</div>
       <div class="admin-art-grid">
         <div class="admin-art-row">
           <div style="flex:1;min-width:0">
-            <div class="admin-art-name">Arquitectura y ficha técnica</div>
-            <div class="admin-art-unit">Seguridad de Información</div>
-            <div style="display:flex;gap:6px;margin-top:6px;align-items:center">
-              <input type="url" class="admin-url-input" id="url_arquitectura_y_ficha_t_cnica" placeholder="https://..." value="" oninput="artLinks['arquitectura_y_ficha_t_cnica']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
-              <button onclick="copyUrl('arquitectura_y_ficha_t_cnica')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
+            <div class="admin-art-name" style="display:flex;align-items:center;gap:6px">
+              <span style="font-size:10px;background:var(--nv-l);color:var(--nv);border:1px solid var(--nv-m);border-radius:4px;padding:1px 6px;font-weight:700;white-space:nowrap">Plantilla</span>
+              <span id="lbl_si_requerimientos_plantilla">XXXX</span>
+            </div>
+            <div style="margin:6px 0 4px 8px;display:flex;flex-direction:column;gap:2px">
+              <div class="admin-sub-item">↳ Flujo funcional de la solución</div>
+              <div class="admin-sub-item">↳ Requerimientos funcionales</div>
+            </div>
+            <div style="margin-top:4px;display:flex;align-items:center;gap:6px;padding-top:6px;border-top:1px solid var(--bdr)">
+              <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Nombre plantilla</span>
+              <input type="text" class="admin-url-input" id="name_si_requerimientos_plantilla" placeholder="Nombre visible del botón..." value="XXXX" oninput="updateArtLabel('si_requerimientos_plantilla',this.value)" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+            </div>
+            <div style="margin-top:5px;display:flex;gap:6px;align-items:center">
+              <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Enlace</span>
+              <input type="url" class="admin-url-input" id="url_si_requerimientos_plantilla" placeholder="https://..." value="" oninput="artLinks['si_requerimientos_plantilla']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+              <button onclick="copyUrl('si_requerimientos_plantilla')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
             </div>
           </div>
-          <a class="admin-dl-btn" onclick="adminDl('arquitectura_y_ficha_t_cnica','Arquitectura y ficha técnica')" href="javascript:void(0)" style="margin-left:10px;align-self:flex-start;margin-top:2px">⬇ Descargar</a>
+          <a class="admin-dl-btn" onclick="adminDl('si_requerimientos_plantilla',document.getElementById('lbl_si_requerimientos_plantilla').textContent)" href="javascript:void(0)" style="margin-left:10px;align-self:flex-start;margin-top:2px">⬇ Descargar</a>
         </div>
-        <div class="admin-art-row">
+        <div class="admin-art-row" style="margin-top:8px">
           <div style="flex:1;min-width:0">
-            <div class="admin-art-name">Seguridad funcional y perimetral</div>
-            <div class="admin-art-unit">Seguridad de Información</div>
-            <div style="display:flex;gap:6px;margin-top:6px;align-items:center">
-              <input type="url" class="admin-url-input" id="url_seguridad_funcional_y_perimetral" placeholder="https://..." value="" oninput="artLinks['seguridad_funcional_y_perimetral']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
-              <button onclick="copyUrl('seguridad_funcional_y_perimetral')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
+            <div class="admin-art-name" style="display:flex;align-items:center;gap:6px">
+              <span style="font-size:10px;background:var(--nv-l);color:var(--nv);border:1px solid var(--nv-m);border-radius:4px;padding:1px 6px;font-weight:700;white-space:nowrap">Plantilla</span>
+              <span id="lbl_si_checklist_plantilla">XXXX</span>
+            </div>
+            <div style="margin:6px 0 4px 8px;display:flex;flex-direction:column;gap:2px">
+              <div class="admin-sub-item">↳ Ficha de estándar de seguridad de la solución</div>
+              <div class="admin-sub-item">↳ Requerimientos adicionales para sistemas externos</div>
+              <div class="admin-sub-item">↳ Requerimientos para aplicaciones de uso para clientes</div>
+            </div>
+            <div style="margin-top:4px;display:flex;align-items:center;gap:6px;padding-top:6px;border-top:1px solid var(--bdr)">
+              <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Nombre plantilla</span>
+              <input type="text" class="admin-url-input" id="name_si_checklist_plantilla" placeholder="Nombre visible del botón..." value="XXXX" oninput="updateArtLabel('si_checklist_plantilla',this.value)" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+            </div>
+            <div style="margin-top:5px;display:flex;gap:6px;align-items:center">
+              <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Enlace</span>
+              <input type="url" class="admin-url-input" id="url_si_checklist_plantilla" placeholder="https://..." value="" oninput="artLinks['si_checklist_plantilla']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+              <button onclick="copyUrl('si_checklist_plantilla')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
             </div>
           </div>
-          <a class="admin-dl-btn" onclick="adminDl('seguridad_funcional_y_perimetral','Seguridad funcional y perimetral')" href="javascript:void(0)" style="margin-left:10px;align-self:flex-start;margin-top:2px">⬇ Descargar</a>
-        </div>
-        <div class="admin-art-row">
-          <div style="flex:1;min-width:0">
-            <div class="admin-art-name">Evidencia de pruebas funcionales</div>
-            <div class="admin-art-unit">Seguridad de Información</div>
-            <div style="display:flex;gap:6px;margin-top:6px;align-items:center">
-              <input type="url" class="admin-url-input" id="url_evidencia_de_pruebas_funcionales" placeholder="https://..." value="" oninput="artLinks['evidencia_de_pruebas_funcionales']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
-              <button onclick="copyUrl('evidencia_de_pruebas_funcionales')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
-            </div>
-          </div>
-          <a class="admin-dl-btn" onclick="adminDl('evidencia_de_pruebas_funcionales','Evidencia de pruebas funcionales')" href="javascript:void(0)" style="margin-left:10px;align-self:flex-start;margin-top:2px">⬇ Descargar</a>
+          <a class="admin-dl-btn" onclick="adminDl('si_checklist_plantilla',document.getElementById('lbl_si_checklist_plantilla').textContent)" href="javascript:void(0)" style="margin-left:10px;align-self:flex-start;margin-top:2px">⬇ Descargar</a>
         </div>
       </div>
     </div>
-
     <div class="admin-section">
       <div class="admin-section-title">Arquitectura</div>
       <div class="admin-art-grid">
+
+        <!-- Nivel 1: Integraciones (primero) -->
         <div class="admin-art-row">
           <div style="flex:1;min-width:0">
-            <div class="admin-art-name">Requerimientos funcionales e integraciones</div>
-            <div class="admin-art-unit">Arquitectura</div>
-            <div style="display:flex;gap:6px;margin-top:6px;align-items:center">
-              <input type="url" class="admin-url-input" id="url_requerimientos_funcionales_e_integracion" placeholder="https://..." value="" oninput="artLinks['requerimientos_funcionales_e_integracion']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
-              <button onclick="copyUrl('requerimientos_funcionales_e_integracion')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
+            <div class="admin-art-name" style="display:flex;align-items:center;gap:6px">
+              <span style="font-size:10px;background:var(--nv-l);color:var(--nv);border:1px solid var(--nv-m);border-radius:4px;padding:1px 6px;font-weight:700;white-space:nowrap">Plantilla</span>
+              <span id="lbl_arq_integraciones">XXXX</span>
+            </div>
+            <div style="margin:6px 0 4px 8px;display:flex;flex-direction:column;gap:2px">
+              <div class="admin-sub-item">↳ Diagrama de arquitectura de servicio TI</div>
+              <div class="admin-sub-item">↳ Integraciones y flujo de datos</div>
+              <div class="admin-sub-item">↳ Inventario y responsabilidades</div>
+            </div>
+            <div style="margin-top:4px;display:flex;align-items:center;gap:6px;padding-top:6px;border-top:1px solid var(--bdr)">
+              <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Nombre plantilla</span>
+              <input type="text" class="admin-url-input" id="name_arq_integraciones" placeholder="Nombre visible del botón..." value="XXXX" oninput="updateArtLabel('arq_integraciones',this.value)" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+            </div>
+            <div style="margin-top:5px;display:flex;gap:6px;align-items:center">
+              <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Enlace</span>
+              <input type="url" class="admin-url-input" id="url_arq_integraciones" placeholder="https://..." value="" oninput="artLinks['arq_integraciones']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+              <button onclick="copyUrl('arq_integraciones')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
             </div>
           </div>
-          <a class="admin-dl-btn" onclick="adminDl('requerimientos_funcionales_e_integracion','Requerimientos funcionales e integraciones')" href="javascript:void(0)" style="margin-left:10px;align-self:flex-start;margin-top:2px">⬇ Descargar</a>
+          <a class="admin-dl-btn" onclick="adminDl('arq_integraciones',document.getElementById('lbl_arq_integraciones').textContent)" href="javascript:void(0)" style="margin-left:10px;align-self:flex-start;margin-top:2px">⬇ Descargar</a>
         </div>
-        <div class="admin-art-row">
+
+        <!-- Nivel 1: Ficha técnica de arquitectura (intermedio) -->
+        <div class="admin-art-row" style="margin-top:8px">
           <div style="flex:1;min-width:0">
-            <div class="admin-art-name">Modelo de Gobernanza</div>
-            <div class="admin-art-unit">Arquitectura</div>
-            <div style="display:flex;gap:6px;margin-top:6px;align-items:center">
-              <input type="url" class="admin-url-input" id="url_modelo_de_gobernanza" placeholder="https://..." value="" oninput="artLinks['modelo_de_gobernanza']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
-              <button onclick="copyUrl('modelo_de_gobernanza')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
+            <div class="admin-art-name" style="display:flex;align-items:center;gap:6px">
+              <span style="font-size:10px;background:var(--nv-l);color:var(--nv);border:1px solid var(--nv-m);border-radius:4px;padding:1px 6px;font-weight:700;white-space:nowrap">Plantilla</span>
+              <span id="lbl_arq_ficha_tecnica">XXXX</span>
+            </div>
+            <div style="margin:6px 0 4px 8px;display:flex;flex-direction:column;gap:2px">
+              <div class="admin-sub-item">↳ Detalle del proyecto</div>
+              <div class="admin-sub-item">↳ Despliegue y capacitaciones</div>
+              <div class="admin-sub-item">↳ Seguimiento y evaluación</div>
+              <div class="admin-sub-item">↳ Seguimiento y control</div>
+            </div>
+            <div style="margin-top:4px;display:flex;align-items:center;gap:6px;padding-top:6px;border-top:1px solid var(--bdr)">
+              <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Nombre plantilla</span>
+              <input type="text" class="admin-url-input" id="name_arq_ficha_tecnica" placeholder="Nombre visible del botón..." value="XXXX" oninput="updateArtLabel('arq_ficha_tecnica',this.value)" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+            </div>
+            <div style="margin-top:5px;display:flex;gap:6px;align-items:center">
+              <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Enlace</span>
+              <input type="url" class="admin-url-input" id="url_arq_ficha_tecnica" placeholder="https://..." value="" oninput="artLinks['arq_ficha_tecnica']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+              <button onclick="copyUrl('arq_ficha_tecnica')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
             </div>
           </div>
-          <a class="admin-dl-btn" onclick="adminDl('modelo_de_gobernanza','Modelo de Gobernanza')" href="javascript:void(0)" style="margin-left:10px;align-self:flex-start;margin-top:2px">⬇ Descargar</a>
+          <a class="admin-dl-btn" onclick="adminDl('arq_ficha_tecnica',document.getElementById('lbl_arq_ficha_tecnica').textContent)" href="javascript:void(0)" style="margin-left:10px;align-self:flex-start;margin-top:2px">⬇ Descargar</a>
         </div>
-        <div class="admin-art-row">
+
+        <!-- Nivel 1: Modelo de Gobernanza (último) -->
+        <div class="admin-art-row" style="margin-top:8px">
           <div style="flex:1;min-width:0">
-            <div class="admin-art-name">Informe Business-IT</div>
-            <div class="admin-art-unit">Arquitectura</div>
-            <div style="display:flex;gap:6px;margin-top:6px;align-items:center">
-              <input type="url" class="admin-url-input" id="url_informe_business_it" placeholder="https://..." value="" oninput="artLinks['informe_business_it']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
-              <button onclick="copyUrl('informe_business_it')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
+            <div class="admin-art-name" style="display:flex;align-items:center;gap:6px">
+              <span style="font-size:10px;background:var(--nv-l);color:var(--nv);border:1px solid var(--nv-m);border-radius:4px;padding:1px 6px;font-weight:700;white-space:nowrap">Plantilla</span>
+              <span id="lbl_arq_modelo_gobernanza">XXXX</span>
+            </div>
+            <div style="margin:6px 0 4px 8px;display:flex;flex-direction:column;gap:2px">
+              <div class="admin-sub-item">↳ Roles en operatividad</div>
+              <div class="admin-sub-item">↳ Funcionalidades habilitadas</div>
+              <div class="admin-sub-item">↳ Matriz de grupos, roles, perfiles y responsabilidades</div>
+            </div>
+            <div style="margin-top:4px;display:flex;align-items:center;gap:6px;padding-top:6px;border-top:1px solid var(--bdr)">
+              <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Nombre plantilla</span>
+              <input type="text" class="admin-url-input" id="name_arq_modelo_gobernanza" placeholder="Nombre visible del botón..." value="XXXX" oninput="updateArtLabel('arq_modelo_gobernanza',this.value)" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+            </div>
+            <div style="margin-top:5px;display:flex;gap:6px;align-items:center">
+              <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Enlace</span>
+              <input type="url" class="admin-url-input" id="url_arq_modelo_gobernanza" placeholder="https://..." value="" oninput="artLinks['arq_modelo_gobernanza']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+              <button onclick="copyUrl('arq_modelo_gobernanza')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
             </div>
           </div>
-          <a class="admin-dl-btn" onclick="adminDl('informe_business_it','Informe Business-IT')" href="javascript:void(0)" style="margin-left:10px;align-self:flex-start;margin-top:2px">⬇ Descargar</a>
+          <a class="admin-dl-btn" onclick="adminDl('arq_modelo_gobernanza',document.getElementById('lbl_arq_modelo_gobernanza').textContent)" href="javascript:void(0)" style="margin-left:10px;align-self:flex-start;margin-top:2px">⬇ Descargar</a>
         </div>
+
       </div>
     </div>
-
     <div class="admin-section">
       <div class="admin-section-title">Calidad de Datos</div>
       <div class="admin-art-grid">
         <div class="admin-art-row">
           <div style="flex:1;min-width:0">
-            <div class="admin-art-name">Diccionario de datos y reglas de calidad</div>
-            <div class="admin-art-unit">Calidad de Datos</div>
-            <div style="display:flex;gap:6px;margin-top:6px;align-items:center">
-              <input type="url" class="admin-url-input" id="url_diccionario_de_datos_y_reglas_de_calidad" placeholder="https://..." value="" oninput="artLinks['diccionario_de_datos_y_reglas_de_calidad']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
-              <button onclick="copyUrl('diccionario_de_datos_y_reglas_de_calidad')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
+            <div class="admin-art-name" style="display:flex;align-items:center;gap:6px">
+              <span style="font-size:10px;background:var(--nv-l);color:var(--nv);border:1px solid var(--nv-m);border-radius:4px;padding:1px 6px;font-weight:700;white-space:nowrap">Plantilla</span>
+              <span id="lbl_calidad_reglas">XXXX</span>
+            </div>
+            <div style="margin:6px 0 4px 8px;display:flex;flex-direction:column;gap:2px">
+              <div class="admin-sub-item">↳ Glosario de datos</div>
+              <div class="admin-sub-item">↳ Reglas de calidad técnicas y específicas</div>
+              <div class="admin-sub-item">↳ Trazabilidad</div>
+            </div>
+            <div style="margin-top:4px;display:flex;align-items:center;gap:6px;padding-top:6px;border-top:1px solid var(--bdr)">
+              <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Nombre plantilla</span>
+              <input type="text" class="admin-url-input" id="name_calidad_reglas" placeholder="Nombre visible del botón..." value="XXXX" oninput="updateArtLabel('calidad_reglas',this.value)" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+            </div>
+            <div style="margin-top:5px;display:flex;gap:6px;align-items:center">
+              <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Enlace</span>
+              <input type="url" class="admin-url-input" id="url_calidad_reglas" placeholder="https://..." value="" oninput="artLinks['calidad_reglas']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+              <button onclick="copyUrl('calidad_reglas')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
             </div>
           </div>
-          <a class="admin-dl-btn" onclick="adminDl('diccionario_de_datos_y_reglas_de_calidad','Diccionario de datos y reglas de calidad')" href="javascript:void(0)" style="margin-left:10px;align-self:flex-start;margin-top:2px">⬇ Descargar</a>
-        </div>
-        <div class="admin-art-row">
-          <div style="flex:1;min-width:0">
-            <div class="admin-art-name">Informe de calidad de modelos</div>
-            <div class="admin-art-unit">Calidad de Datos</div>
-            <div style="display:flex;gap:6px;margin-top:6px;align-items:center">
-              <input type="url" class="admin-url-input" id="url_informe_de_calidad_de_modelos" placeholder="https://..." value="" oninput="artLinks['informe_de_calidad_de_modelos']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
-              <button onclick="copyUrl('informe_de_calidad_de_modelos')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
-            </div>
-          </div>
-          <a class="admin-dl-btn" onclick="adminDl('informe_de_calidad_de_modelos','Informe de calidad de modelos')" href="javascript:void(0)" style="margin-left:10px;align-self:flex-start;margin-top:2px">⬇ Descargar</a>
-        </div>
-        <div class="admin-art-row">
-          <div style="flex:1;min-width:0">
-            <div class="admin-art-name">Trazabilidad de datos</div>
-            <div class="admin-art-unit">Calidad de Datos</div>
-            <div style="display:flex;gap:6px;margin-top:6px;align-items:center">
-              <input type="url" class="admin-url-input" id="url_trazabilidad_de_datos" placeholder="https://..." value="" oninput="artLinks['trazabilidad_de_datos']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
-              <button onclick="copyUrl('trazabilidad_de_datos')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
-            </div>
-          </div>
-          <a class="admin-dl-btn" onclick="adminDl('trazabilidad_de_datos','Trazabilidad de datos')" href="javascript:void(0)" style="margin-left:10px;align-self:flex-start;margin-top:2px">⬇ Descargar</a>
+          <a class="admin-dl-btn" onclick="adminDl('calidad_reglas',document.getElementById('lbl_calidad_reglas').textContent)" href="javascript:void(0)" style="margin-left:10px;align-self:flex-start;margin-top:2px">⬇ Descargar</a>
         </div>
       </div>
     </div>
-
     <div class="admin-section">
       <div class="admin-section-title">Legal</div>
       <div class="admin-art-grid">
         <div class="admin-art-row">
           <div style="flex:1;min-width:0">
-            <div class="admin-art-name">Evaluación regulatoria y contractual</div>
-            <div class="admin-art-unit">Legal</div>
-            <div style="display:flex;gap:6px;margin-top:6px;align-items:center">
-              <input type="url" class="admin-url-input" id="url_evaluaci_n_regulatoria_y_contractual" placeholder="https://..." value="" oninput="artLinks['evaluaci_n_regulatoria_y_contractual']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
-              <button onclick="copyUrl('evaluaci_n_regulatoria_y_contractual')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
+            <div class="admin-art-name" style="display:flex;align-items:center;gap:6px">
+              <span style="font-size:10px;background:var(--nv-l);color:var(--nv);border:1px solid var(--nv-m);border-radius:4px;padding:1px 6px;font-weight:700;white-space:nowrap">Plantilla</span>
+              <span id="lbl_legal_plantilla">XXXX</span>
+            </div>
+            <div style="margin:6px 0 4px 8px;display:flex;flex-direction:column;gap:2px">
+              <div class="admin-sub-item">↳ Evaluación regulatoria y contractual</div>
+              <div class="admin-sub-item">↳ Documentación LAFT si aplica</div>
+              <div class="admin-sub-item">↳ Obligaciones con terceros/clientes</div>
+            </div>
+            <div style="margin-top:4px;display:flex;align-items:center;gap:6px;padding-top:6px;border-top:1px solid var(--bdr)">
+              <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Nombre plantilla</span>
+              <input type="text" class="admin-url-input" id="name_legal_plantilla" placeholder="Nombre visible del botón..." value="XXXX" oninput="updateArtLabel('legal_plantilla',this.value)" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+            </div>
+            <div style="margin-top:5px;display:flex;gap:6px;align-items:center">
+              <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Enlace</span>
+              <input type="url" class="admin-url-input" id="url_legal_plantilla" placeholder="https://..." value="" oninput="artLinks['legal_plantilla']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+              <button onclick="copyUrl('legal_plantilla')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
             </div>
           </div>
-          <a class="admin-dl-btn" onclick="adminDl('evaluaci_n_regulatoria_y_contractual','Evaluación regulatoria y contractual')" href="javascript:void(0)" style="margin-left:10px;align-self:flex-start;margin-top:2px">⬇ Descargar</a>
-        </div>
-        <div class="admin-art-row">
-          <div style="flex:1;min-width:0">
-            <div class="admin-art-name">Documentación LAFT</div>
-            <div class="admin-art-unit">Legal</div>
-            <div style="display:flex;gap:6px;margin-top:6px;align-items:center">
-              <input type="url" class="admin-url-input" id="url_documentaci_n_laft" placeholder="https://..." value="" oninput="artLinks['documentaci_n_laft']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
-              <button onclick="copyUrl('documentaci_n_laft')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
-            </div>
-          </div>
-          <a class="admin-dl-btn" onclick="adminDl('documentaci_n_laft','Documentación LAFT')" href="javascript:void(0)" style="margin-left:10px;align-self:flex-start;margin-top:2px">⬇ Descargar</a>
-        </div>
-        <div class="admin-art-row">
-          <div style="flex:1;min-width:0">
-            <div class="admin-art-name">Obligaciones con terceros y clientes</div>
-            <div class="admin-art-unit">Legal</div>
-            <div style="display:flex;gap:6px;margin-top:6px;align-items:center">
-              <input type="url" class="admin-url-input" id="url_obligaciones_con_terceros_y_clientes" placeholder="https://..." value="" oninput="artLinks['obligaciones_con_terceros_y_clientes']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
-              <button onclick="copyUrl('obligaciones_con_terceros_y_clientes')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
-            </div>
-          </div>
-          <a class="admin-dl-btn" onclick="adminDl('obligaciones_con_terceros_y_clientes','Obligaciones con terceros y clientes')" href="javascript:void(0)" style="margin-left:10px;align-self:flex-start;margin-top:2px">⬇ Descargar</a>
+          <a class="admin-dl-btn" onclick="adminDl('legal_plantilla',document.getElementById('lbl_legal_plantilla').textContent)" href="javascript:void(0)" style="margin-left:10px;align-self:flex-start;margin-top:2px">⬇ Descargar</a>
         </div>
       </div>
     </div>
-
     <div class="admin-section">
       <div class="admin-section-title">Procesos</div>
       <div class="admin-art-grid">
         <div class="admin-art-row">
           <div style="flex:1;min-width:0">
-            <div class="admin-art-name">Reglas de negocio</div>
-            <div class="admin-art-unit">Procesos</div>
-            <div style="display:flex;gap:6px;margin-top:6px;align-items:center">
-              <input type="url" class="admin-url-input" id="url_reglas_de_negocio" placeholder="https://..." value="" oninput="artLinks['reglas_de_negocio']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
-              <button onclick="copyUrl('reglas_de_negocio')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
+            <div class="admin-art-name" style="display:flex;align-items:center;gap:6px">
+              <span style="font-size:10px;background:var(--nv-l);color:var(--nv);border:1px solid var(--nv-m);border-radius:4px;padding:1px 6px;font-weight:700;white-space:nowrap">Plantilla</span>
+              <span id="lbl_procesos_plantilla">XXXX</span>
+            </div>
+            <div style="margin:6px 0 4px 8px;display:flex;flex-direction:column;gap:2px">
+              <div class="admin-sub-item">↳ Problemática</div>
+              <div class="admin-sub-item">↳ Alcance del proyecto</div>
+              <div class="admin-sub-item">↳ Diagrama de situación actual</div>
+              <div class="admin-sub-item">↳ Diagrama de situación propuesta</div>
+              <div class="admin-sub-item">↳ Beneficios e impacto en documentación</div>
+            </div>
+            <div style="margin-top:4px;display:flex;align-items:center;gap:6px;padding-top:6px;border-top:1px solid var(--bdr)">
+              <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Nombre plantilla</span>
+              <input type="text" class="admin-url-input" id="name_procesos_plantilla" placeholder="Nombre visible del botón..." value="XXXX" oninput="updateArtLabel('procesos_plantilla',this.value)" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+            </div>
+            <div style="margin-top:5px;display:flex;gap:6px;align-items:center">
+              <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Enlace</span>
+              <input type="url" class="admin-url-input" id="url_procesos_plantilla" placeholder="https://..." value="" oninput="artLinks['procesos_plantilla']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+              <button onclick="copyUrl('procesos_plantilla')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
             </div>
           </div>
-          <a class="admin-dl-btn" onclick="adminDl('reglas_de_negocio','Reglas de negocio')" href="javascript:void(0)" style="margin-left:10px;align-self:flex-start;margin-top:2px">⬇ Descargar</a>
-        </div>
-        <div class="admin-art-row">
-          <div style="flex:1;min-width:0">
-            <div class="admin-art-name">Situación actual vs propuesta</div>
-            <div class="admin-art-unit">Procesos</div>
-            <div style="display:flex;gap:6px;margin-top:6px;align-items:center">
-              <input type="url" class="admin-url-input" id="url_situaci_n_actual_vs_propuesta" placeholder="https://..." value="" oninput="artLinks['situaci_n_actual_vs_propuesta']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
-              <button onclick="copyUrl('situaci_n_actual_vs_propuesta')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
-            </div>
-          </div>
-          <a class="admin-dl-btn" onclick="adminDl('situaci_n_actual_vs_propuesta','Situación actual vs propuesta')" href="javascript:void(0)" style="margin-left:10px;align-self:flex-start;margin-top:2px">⬇ Descargar</a>
-        </div>
-        <div class="admin-art-row">
-          <div style="flex:1;min-width:0">
-            <div class="admin-art-name">Documentación MPP o Guías</div>
-            <div class="admin-art-unit">Procesos</div>
-            <div style="display:flex;gap:6px;margin-top:6px;align-items:center">
-              <input type="url" class="admin-url-input" id="url_documentaci_n_mpp_o_gu_as" placeholder="https://..." value="" oninput="artLinks['documentaci_n_mpp_o_gu_as']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
-              <button onclick="copyUrl('documentaci_n_mpp_o_gu_as')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
-            </div>
-          </div>
-          <a class="admin-dl-btn" onclick="adminDl('documentaci_n_mpp_o_gu_as','Documentación MPP o Guías')" href="javascript:void(0)" style="margin-left:10px;align-self:flex-start;margin-top:2px">⬇ Descargar</a>
+          <a class="admin-dl-btn" onclick="adminDl('procesos_plantilla',document.getElementById('lbl_procesos_plantilla').textContent)" href="javascript:void(0)" style="margin-left:10px;align-self:flex-start;margin-top:2px">⬇ Descargar</a>
         </div>
       </div>
     </div>
-
     <div class="admin-section">
       <div class="admin-section-title">Continuidad de Negocio</div>
       <div class="admin-art-grid">
         <div class="admin-art-row">
           <div style="flex:1;min-width:0">
-            <div class="admin-art-name">Plan de continuidad</div>
-            <div class="admin-art-unit">Continuidad de Negocio</div>
-            <div style="display:flex;gap:6px;margin-top:6px;align-items:center">
-              <input type="url" class="admin-url-input" id="url_plan_de_continuidad" placeholder="https://..." value="" oninput="artLinks['plan_de_continuidad']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
-              <button onclick="copyUrl('plan_de_continuidad')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
+            <div class="admin-art-name" style="display:flex;align-items:center;gap:6px">
+              <span style="font-size:10px;background:var(--nv-l);color:var(--nv);border:1px solid var(--nv-m);border-radius:4px;padding:1px 6px;font-weight:700;white-space:nowrap">Plantilla</span>
+              <span id="lbl_continuidad_plantilla">XXXX</span>
+            </div>
+            <div style="margin:6px 0 4px 8px;display:flex;flex-direction:column;gap:2px">
+              <div class="admin-sub-item">↳ Plan de continuidad</div>
+              <div class="admin-sub-item">↳ SLA y certificados de proveedores</div>
+              <div class="admin-sub-item">↳ Matriz de soporte y atención</div>
+            </div>
+            <div style="margin-top:4px;display:flex;align-items:center;gap:6px;padding-top:6px;border-top:1px solid var(--bdr)">
+              <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Nombre plantilla</span>
+              <input type="text" class="admin-url-input" id="name_continuidad_plantilla" placeholder="Nombre visible del botón..." value="XXXX" oninput="updateArtLabel('continuidad_plantilla',this.value)" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+            </div>
+            <div style="margin-top:5px;display:flex;gap:6px;align-items:center">
+              <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Enlace</span>
+              <input type="url" class="admin-url-input" id="url_continuidad_plantilla" placeholder="https://..." value="" oninput="artLinks['continuidad_plantilla']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+              <button onclick="copyUrl('continuidad_plantilla')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
             </div>
           </div>
-          <a class="admin-dl-btn" onclick="adminDl('plan_de_continuidad','Plan de continuidad')" href="javascript:void(0)" style="margin-left:10px;align-self:flex-start;margin-top:2px">⬇ Descargar</a>
-        </div>
-        <div class="admin-art-row">
-          <div style="flex:1;min-width:0">
-            <div class="admin-art-name">SLA y certificados de proveedores</div>
-            <div class="admin-art-unit">Continuidad de Negocio</div>
-            <div style="display:flex;gap:6px;margin-top:6px;align-items:center">
-              <input type="url" class="admin-url-input" id="url_sla_y_certificados_de_proveedores" placeholder="https://..." value="" oninput="artLinks['sla_y_certificados_de_proveedores']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
-              <button onclick="copyUrl('sla_y_certificados_de_proveedores')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
-            </div>
-          </div>
-          <a class="admin-dl-btn" onclick="adminDl('sla_y_certificados_de_proveedores','SLA y certificados de proveedores')" href="javascript:void(0)" style="margin-left:10px;align-self:flex-start;margin-top:2px">⬇ Descargar</a>
-        </div>
-        <div class="admin-art-row">
-          <div style="flex:1;min-width:0">
-            <div class="admin-art-name">Matriz de soporte y atención</div>
-            <div class="admin-art-unit">Continuidad de Negocio</div>
-            <div style="display:flex;gap:6px;margin-top:6px;align-items:center">
-              <input type="url" class="admin-url-input" id="url_matriz_de_soporte_y_atenci_n" placeholder="https://..." value="" oninput="artLinks['matriz_de_soporte_y_atenci_n']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
-              <button onclick="copyUrl('matriz_de_soporte_y_atenci_n')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
-            </div>
-          </div>
-          <a class="admin-dl-btn" onclick="adminDl('matriz_de_soporte_y_atenci_n','Matriz de soporte y atención')" href="javascript:void(0)" style="margin-left:10px;align-self:flex-start;margin-top:2px">⬇ Descargar</a>
+          <a class="admin-dl-btn" onclick="adminDl('continuidad_plantilla',document.getElementById('lbl_continuidad_plantilla').textContent)" href="javascript:void(0)" style="margin-left:10px;align-self:flex-start;margin-top:2px">⬇ Descargar</a>
         </div>
       </div>
     </div>
-
     <div class="admin-section">
       <div class="admin-section-title">Riesgo Operacional</div>
       <div class="admin-art-grid">
         <div class="admin-art-row">
           <div style="flex:1;min-width:0">
-            <div class="admin-art-name">Matriz de riesgos y controles</div>
-            <div class="admin-art-unit">Riesgo Operacional</div>
-            <div style="display:flex;gap:6px;margin-top:6px;align-items:center">
-              <input type="url" class="admin-url-input" id="url_matriz_de_riesgos_y_controles" placeholder="https://..." value="" oninput="artLinks['matriz_de_riesgos_y_controles']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
-              <button onclick="copyUrl('matriz_de_riesgos_y_controles')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
+            <div class="admin-art-name" style="display:flex;align-items:center;gap:6px">
+              <span style="font-size:10px;background:var(--nv-l);color:var(--nv);border:1px solid var(--nv-m);border-radius:4px;padding:1px 6px;font-weight:700;white-space:nowrap">Plantilla</span>
+              <span id="lbl_riesgo_op_plantilla">XXXX</span>
+            </div>
+            <div style="margin:6px 0 4px 8px;display:flex;flex-direction:column;gap:2px">
+              <div class="admin-sub-item">↳ Responsables</div>
+              <div class="admin-sub-item">↳ Fechas de compromiso y de entrega</div>
+            </div>
+            <div style="margin-top:4px;display:flex;align-items:center;gap:6px;padding-top:6px;border-top:1px solid var(--bdr)">
+              <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Nombre plantilla</span>
+              <input type="text" class="admin-url-input" id="name_riesgo_op_plantilla" placeholder="Nombre visible del botón..." value="XXXX" oninput="updateArtLabel('riesgo_op_plantilla',this.value)" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+            </div>
+            <div style="margin-top:5px;display:flex;gap:6px;align-items:center">
+              <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Enlace</span>
+              <input type="url" class="admin-url-input" id="url_riesgo_op_plantilla" placeholder="https://..." value="" oninput="artLinks['riesgo_op_plantilla']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+              <button onclick="copyUrl('riesgo_op_plantilla')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
             </div>
           </div>
-          <a class="admin-dl-btn" onclick="adminDl('matriz_de_riesgos_y_controles','Matriz de riesgos y controles')" href="javascript:void(0)" style="margin-left:10px;align-self:flex-start;margin-top:2px">⬇ Descargar</a>
-        </div>
-        <div class="admin-art-row">
-          <div style="flex:1;min-width:0">
-            <div class="admin-art-name">Informe pentesting</div>
-            <div class="admin-art-unit">Riesgo Operacional</div>
-            <div style="display:flex;gap:6px;margin-top:6px;align-items:center">
-              <input type="url" class="admin-url-input" id="url_informe_pentesting" placeholder="https://..." value="" oninput="artLinks['informe_pentesting']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
-              <button onclick="copyUrl('informe_pentesting')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
-            </div>
-          </div>
-          <a class="admin-dl-btn" onclick="adminDl('informe_pentesting','Informe pentesting')" href="javascript:void(0)" style="margin-left:10px;align-self:flex-start;margin-top:2px">⬇ Descargar</a>
-        </div>
-        <div class="admin-art-row">
-          <div style="flex:1;min-width:0">
-            <div class="admin-art-name">Pruebas de performance y estrés</div>
-            <div class="admin-art-unit">Riesgo Operacional</div>
-            <div style="display:flex;gap:6px;margin-top:6px;align-items:center">
-              <input type="url" class="admin-url-input" id="url_pruebas_de_performance_y_estr_s" placeholder="https://..." value="" oninput="artLinks['pruebas_de_performance_y_estr_s']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
-              <button onclick="copyUrl('pruebas_de_performance_y_estr_s')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
-            </div>
-          </div>
-          <a class="admin-dl-btn" onclick="adminDl('pruebas_de_performance_y_estr_s','Pruebas de performance y estrés')" href="javascript:void(0)" style="margin-left:10px;align-self:flex-start;margin-top:2px">⬇ Descargar</a>
+          <a class="admin-dl-btn" onclick="adminDl('riesgo_op_plantilla',document.getElementById('lbl_riesgo_op_plantilla').textContent)" href="javascript:void(0)" style="margin-left:10px;align-self:flex-start;margin-top:2px">⬇ Descargar</a>
         </div>
       </div>
     </div>
-
     <div class="admin-section">
-      <div class="admin-section-title">Gestión de proveedores</div>
+      <div class="admin-section-title">Gestión de proveedores (E)</div>
       <div class="admin-art-grid">
         <div class="admin-art-row">
           <div style="flex:1;min-width:0">
-            <div class="admin-art-name">Contratos y SLA de proveedores</div>
-            <div class="admin-art-unit">Gestión de proveedores (E)</div>
-            <div style="display:flex;gap:6px;margin-top:6px;align-items:center">
-              <input type="url" class="admin-url-input" id="url_contratos_y_sla_de_proveedores" placeholder="https://..." value="" oninput="artLinks['contratos_y_sla_de_proveedores']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
-              <button onclick="copyUrl('contratos_y_sla_de_proveedores')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
+            <div class="admin-art-name" style="display:flex;align-items:center;gap:6px">
+              <span style="font-size:10px;background:var(--nv-l);color:var(--nv);border:1px solid var(--nv-m);border-radius:4px;padding:1px 6px;font-weight:700;white-space:nowrap">Plantilla</span>
+              <span id="lbl_proveedores_plantilla">XXXX</span>
+            </div>
+            <div style="margin:6px 0 4px 8px;display:flex;flex-direction:column;gap:2px">
+              <div class="admin-sub-item">↳ Contratos y SLA de proveedores</div>
+              <div class="admin-sub-item">↳ Certificados del proveedor</div>
+            </div>
+            <div style="margin-top:4px;display:flex;align-items:center;gap:6px;padding-top:6px;border-top:1px solid var(--bdr)">
+              <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Nombre plantilla</span>
+              <input type="text" class="admin-url-input" id="name_proveedores_plantilla" placeholder="Nombre visible del botón..." value="XXXX" oninput="updateArtLabel('proveedores_plantilla',this.value)" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+            </div>
+            <div style="margin-top:5px;display:flex;gap:6px;align-items:center">
+              <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Enlace</span>
+              <input type="url" class="admin-url-input" id="url_proveedores_plantilla" placeholder="https://..." value="" oninput="artLinks['proveedores_plantilla']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+              <button onclick="copyUrl('proveedores_plantilla')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
             </div>
           </div>
-          <a class="admin-dl-btn" onclick="adminDl('contratos_y_sla_de_proveedores','Contratos y SLA de proveedores')" href="javascript:void(0)" style="margin-left:10px;align-self:flex-start;margin-top:2px">⬇ Descargar</a>
-        </div>
-        <div class="admin-art-row">
-          <div style="flex:1;min-width:0">
-            <div class="admin-art-name">RFP y criterios de evaluación</div>
-            <div class="admin-art-unit">Gestión de proveedores (E)</div>
-            <div style="display:flex;gap:6px;margin-top:6px;align-items:center">
-              <input type="url" class="admin-url-input" id="url_rfp_y_criterios_de_evaluaci_n" placeholder="https://..." value="" oninput="artLinks['rfp_y_criterios_de_evaluaci_n']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
-              <button onclick="copyUrl('rfp_y_criterios_de_evaluaci_n')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
-            </div>
-          </div>
-          <a class="admin-dl-btn" onclick="adminDl('rfp_y_criterios_de_evaluaci_n','RFP y criterios de evaluación')" href="javascript:void(0)" style="margin-left:10px;align-self:flex-start;margin-top:2px">⬇ Descargar</a>
-        </div>
-        <div class="admin-art-row">
-          <div style="flex:1;min-width:0">
-            <div class="admin-art-name">Certificados del proveedor</div>
-            <div class="admin-art-unit">Gestión de proveedores (E)</div>
-            <div style="display:flex;gap:6px;margin-top:6px;align-items:center">
-              <input type="url" class="admin-url-input" id="url_certificados_del_proveedor" placeholder="https://..." value="" oninput="artLinks['certificados_del_proveedor']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
-              <button onclick="copyUrl('certificados_del_proveedor')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
-            </div>
-          </div>
-          <a class="admin-dl-btn" onclick="adminDl('certificados_del_proveedor','Certificados del proveedor')" href="javascript:void(0)" style="margin-left:10px;align-self:flex-start;margin-top:2px">⬇ Descargar</a>
+          <a class="admin-dl-btn" onclick="adminDl('proveedores_plantilla',document.getElementById('lbl_proveedores_plantilla').textContent)" href="javascript:void(0)" style="margin-left:10px;align-self:flex-start;margin-top:2px">⬇ Descargar</a>
         </div>
       </div>
     </div>
-
     <div class="admin-section">
       <div class="admin-section-title">Gestión de Riesgos</div>
       <div class="admin-art-grid">
         <div class="admin-art-row">
           <div style="flex:1;min-width:0">
-            <div class="admin-art-name">Evaluación de riesgo crédito / liquidez / mercado</div>
-            <div class="admin-art-unit">Gestión de Riesgos</div>
-            <div style="display:flex;gap:6px;margin-top:6px;align-items:center">
-              <input type="url" class="admin-url-input" id="url_evaluaci_n_de_riesgo_cr_dito___liquidez_" placeholder="https://..." value="" oninput="artLinks['evaluaci_n_de_riesgo_cr_dito___liquidez_']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
-              <button onclick="copyUrl('evaluaci_n_de_riesgo_cr_dito___liquidez_')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
+            <div class="admin-art-name" style="display:flex;align-items:center;gap:6px">
+              <span style="font-size:10px;background:var(--nv-l);color:var(--nv);border:1px solid var(--nv-m);border-radius:4px;padding:1px 6px;font-weight:700;white-space:nowrap">Plantilla</span>
+              <span id="lbl_gestion_riesgos_plantilla">XXXX</span>
+            </div>
+            <div style="margin:6px 0 4px 8px;display:flex;flex-direction:column;gap:2px">
+              <div class="admin-sub-item">↳ Reglas de negocio</div>
+            </div>
+            <div style="margin-top:4px;display:flex;align-items:center;gap:6px;padding-top:6px;border-top:1px solid var(--bdr)">
+              <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Nombre plantilla</span>
+              <input type="text" class="admin-url-input" id="name_gestion_riesgos_plantilla" placeholder="Nombre visible del botón..." value="XXXX" oninput="updateArtLabel('gestion_riesgos_plantilla',this.value)" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+            </div>
+            <div style="margin-top:5px;display:flex;gap:6px;align-items:center">
+              <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Enlace</span>
+              <input type="url" class="admin-url-input" id="url_gestion_riesgos_plantilla" placeholder="https://..." value="" oninput="artLinks['gestion_riesgos_plantilla']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+              <button onclick="copyUrl('gestion_riesgos_plantilla')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
             </div>
           </div>
-          <a class="admin-dl-btn" onclick="adminDl('evaluaci_n_de_riesgo_cr_dito___liquidez_','Evaluación de riesgo crédito / liquidez / mercado')" href="javascript:void(0)" style="margin-left:10px;align-self:flex-start;margin-top:2px">⬇ Descargar</a>
+          <a class="admin-dl-btn" onclick="adminDl('gestion_riesgos_plantilla',document.getElementById('lbl_gestion_riesgos_plantilla').textContent)" href="javascript:void(0)" style="margin-left:10px;align-self:flex-start;margin-top:2px">⬇ Descargar</a>
         </div>
-        <div class="admin-art-row">
+        <div class="admin-art-row" style="margin-top:8px">
           <div style="flex:1;min-width:0">
-            <div class="admin-art-name">Dimensionamiento en utilización</div>
-            <div class="admin-art-unit">Gestión de Riesgos</div>
-            <div style="display:flex;gap:6px;margin-top:6px;align-items:center">
-              <input type="url" class="admin-url-input" id="url_dimensionamiento_en_utilizaci_n" placeholder="https://..." value="" oninput="artLinks['dimensionamiento_en_utilizaci_n']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
-              <button onclick="copyUrl('dimensionamiento_en_utilizaci_n')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
+            <div class="admin-art-name" style="display:flex;align-items:center;gap:6px">
+              <span style="font-size:10px;background:var(--nv-l);color:var(--nv);border:1px solid var(--nv-m);border-radius:4px;padding:1px 6px;font-weight:700;white-space:nowrap">Plantilla</span>
+              <span id="lbl_gestion_riesgos_dimensionamiento">XXXX</span>
+            </div>
+            <div style="margin:6px 0 4px 8px;display:flex;flex-direction:column;gap:2px">
+              <div class="admin-sub-item">↳ Dimensionamiento en utilización</div>
+            </div>
+            <div style="margin-top:4px;display:flex;align-items:center;gap:6px;padding-top:6px;border-top:1px solid var(--bdr)">
+              <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Nombre plantilla</span>
+              <input type="text" class="admin-url-input" id="name_gestion_riesgos_dimensionamiento" placeholder="Nombre visible del botón..." value="XXXX" oninput="updateArtLabel('gestion_riesgos_dimensionamiento',this.value)" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+            </div>
+            <div style="margin-top:5px;display:flex;gap:6px;align-items:center">
+              <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Enlace</span>
+              <input type="url" class="admin-url-input" id="url_gestion_riesgos_dimensionamiento" placeholder="https://..." value="" oninput="artLinks['gestion_riesgos_dimensionamiento']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+              <button onclick="copyUrl('gestion_riesgos_dimensionamiento')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
             </div>
           </div>
-          <a class="admin-dl-btn" onclick="adminDl('dimensionamiento_en_utilizaci_n','Dimensionamiento en utilización')" href="javascript:void(0)" style="margin-left:10px;align-self:flex-start;margin-top:2px">⬇ Descargar</a>
+          <a class="admin-dl-btn" onclick="adminDl('gestion_riesgos_dimensionamiento',document.getElementById('lbl_gestion_riesgos_dimensionamiento').textContent)" href="javascript:void(0)" style="margin-left:10px;align-self:flex-start;margin-top:2px">⬇ Descargar</a>
         </div>
       </div>
     </div>
-
     <div class="admin-section">
       <div class="admin-section-title">Contabilidad</div>
       <div class="admin-art-grid">
         <div class="admin-art-row">
           <div style="flex:1;min-width:0">
-            <div class="admin-art-name">Evaluación impacto contable / tributario</div>
-            <div class="admin-art-unit">Contabilidad</div>
-            <div style="display:flex;gap:6px;margin-top:6px;align-items:center">
-              <input type="url" class="admin-url-input" id="url_evaluaci_n_impacto_contable___tributario" placeholder="https://..." value="" oninput="artLinks['evaluaci_n_impacto_contable___tributario']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
-              <button onclick="copyUrl('evaluaci_n_impacto_contable___tributario')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
+            <div class="admin-art-name" style="display:flex;align-items:center;gap:6px">
+              <span style="font-size:10px;background:var(--nv-l);color:var(--nv);border:1px solid var(--nv-m);border-radius:4px;padding:1px 6px;font-weight:700;white-space:nowrap">Plantilla</span>
+              <span id="lbl_contabilidad_plantilla">XXXX</span>
+            </div>
+            <div style="margin:6px 0 4px 8px;display:flex;flex-direction:column;gap:2px">
+              <div class="admin-sub-item">↳ Evaluación impacto contable/tributario</div>
+              <div class="admin-sub-item">↳ Matriz de costos</div>
+            </div>
+            <div style="margin-top:4px;display:flex;align-items:center;gap:6px;padding-top:6px;border-top:1px solid var(--bdr)">
+              <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Nombre plantilla</span>
+              <input type="text" class="admin-url-input" id="name_contabilidad_plantilla" placeholder="Nombre visible del botón..." value="XXXX" oninput="updateArtLabel('contabilidad_plantilla',this.value)" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+            </div>
+            <div style="margin-top:5px;display:flex;gap:6px;align-items:center">
+              <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Enlace</span>
+              <input type="url" class="admin-url-input" id="url_contabilidad_plantilla" placeholder="https://..." value="" oninput="artLinks['contabilidad_plantilla']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+              <button onclick="copyUrl('contabilidad_plantilla')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
             </div>
           </div>
-          <a class="admin-dl-btn" onclick="adminDl('evaluaci_n_impacto_contable___tributario','Evaluación impacto contable / tributario')" href="javascript:void(0)" style="margin-left:10px;align-self:flex-start;margin-top:2px">⬇ Descargar</a>
-        </div>
-        <div class="admin-art-row">
-          <div style="flex:1;min-width:0">
-            <div class="admin-art-name">Matriz de costos</div>
-            <div class="admin-art-unit">Contabilidad</div>
-            <div style="display:flex;gap:6px;margin-top:6px;align-items:center">
-              <input type="url" class="admin-url-input" id="url_matriz_de_costos" placeholder="https://..." value="" oninput="artLinks['matriz_de_costos']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
-              <button onclick="copyUrl('matriz_de_costos')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
-            </div>
-          </div>
-          <a class="admin-dl-btn" onclick="adminDl('matriz_de_costos','Matriz de costos')" href="javascript:void(0)" style="margin-left:10px;align-self:flex-start;margin-top:2px">⬇ Descargar</a>
+          <a class="admin-dl-btn" onclick="adminDl('contabilidad_plantilla',document.getElementById('lbl_contabilidad_plantilla').textContent)" href="javascript:void(0)" style="margin-left:10px;align-self:flex-start;margin-top:2px">⬇ Descargar</a>
         </div>
       </div>
     </div>
-
     <div class="admin-section">
       <div class="admin-section-title">Gobierno IA</div>
       <div class="admin-art-grid">
         <div class="admin-art-row">
           <div style="flex:1;min-width:0">
-            <div class="admin-art-name">Informe de impacto IA (metodología, trazabilidad, explicabilidad)</div>
-            <div class="admin-art-unit">Gobierno IA</div>
-            <div style="display:flex;gap:6px;margin-top:6px;align-items:center">
-              <input type="url" class="admin-url-input" id="url_informe_de_impacto_ia__metodolog_a__traz" placeholder="https://..." value="" oninput="artLinks['informe_de_impacto_ia__metodolog_a__traz']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
-              <button onclick="copyUrl('informe_de_impacto_ia__metodolog_a__traz')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
+            <div class="admin-art-name" style="display:flex;align-items:center;gap:6px">
+              <span style="font-size:10px;background:var(--nv-l);color:var(--nv);border:1px solid var(--nv-m);border-radius:4px;padding:1px 6px;font-weight:700;white-space:nowrap">Plantilla</span>
+              <span id="lbl_gov_ia_plantilla">XXXX</span>
+            </div>
+            <div style="margin:6px 0 4px 8px;display:flex;flex-direction:column;gap:2px">
+              <div class="admin-sub-item">↳ Metodología</div>
+              <div class="admin-sub-item">↳ Trazabilidad</div>
+              <div class="admin-sub-item">↳ Explicabilidad</div>
+            </div>
+            <div style="margin-top:4px;display:flex;align-items:center;gap:6px;padding-top:6px;border-top:1px solid var(--bdr)">
+              <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Nombre plantilla</span>
+              <input type="text" class="admin-url-input" id="name_gov_ia_plantilla" placeholder="Nombre visible del botón..." value="XXXX" oninput="updateArtLabel('gov_ia_plantilla',this.value)" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+            </div>
+            <div style="margin-top:5px;display:flex;gap:6px;align-items:center">
+              <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Enlace</span>
+              <input type="url" class="admin-url-input" id="url_gov_ia_plantilla" placeholder="https://..." value="" oninput="artLinks['gov_ia_plantilla']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+              <button onclick="copyUrl('gov_ia_plantilla')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
             </div>
           </div>
-          <a class="admin-dl-btn" onclick="adminDl('informe_de_impacto_ia__metodolog_a__traz','Informe de impacto IA (metodología, trazabilidad, explicabilidad)')" href="javascript:void(0)" style="margin-left:10px;align-self:flex-start;margin-top:2px">⬇ Descargar</a>
-        </div>
-        <div class="admin-art-row">
-          <div style="flex:1;min-width:0">
-            <div class="admin-art-name">Definición de human oversight y escalamiento manual</div>
-            <div class="admin-art-unit">Gobierno IA</div>
-            <div style="display:flex;gap:6px;margin-top:6px;align-items:center">
-              <input type="url" class="admin-url-input" id="url_definici_n_de_human_oversight_y_escalami" placeholder="https://..." value="" oninput="artLinks['definici_n_de_human_oversight_y_escalami']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
-              <button onclick="copyUrl('definici_n_de_human_oversight_y_escalami')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
-            </div>
-          </div>
-          <a class="admin-dl-btn" onclick="adminDl('definici_n_de_human_oversight_y_escalami','Definición de human oversight y escalamiento manual')" href="javascript:void(0)" style="margin-left:10px;align-self:flex-start;margin-top:2px">⬇ Descargar</a>
-        </div>
-        <div class="admin-art-row">
-          <div style="flex:1;min-width:0">
-            <div class="admin-art-name">Categorización Gobierno IA / SI IA (impacto ALTO)</div>
-            <div class="admin-art-unit">Gobierno IA</div>
-            <div style="display:flex;gap:6px;margin-top:6px;align-items:center">
-              <input type="url" class="admin-url-input" id="url_categorizaci_n_gobierno_ia___si_ia__impa" placeholder="https://..." value="" oninput="artLinks['categorizaci_n_gobierno_ia___si_ia__impa']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
-              <button onclick="copyUrl('categorizaci_n_gobierno_ia___si_ia__impa')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
-            </div>
-          </div>
-          <a class="admin-dl-btn" onclick="adminDl('categorizaci_n_gobierno_ia___si_ia__impa','Categorización Gobierno IA / SI IA (impacto ALTO)')" href="javascript:void(0)" style="margin-left:10px;align-self:flex-start;margin-top:2px">⬇ Descargar</a>
+          <a class="admin-dl-btn" onclick="adminDl('gov_ia_plantilla',document.getElementById('lbl_gov_ia_plantilla').textContent)" href="javascript:void(0)" style="margin-left:10px;align-self:flex-start;margin-top:2px">⬇ Descargar</a>
         </div>
       </div>
     </div>
-
+    <div class="admin-section">
+      <div class="admin-section-title">Sistemas</div>
+      <div class="admin-art-grid">
+        <div class="admin-art-row">
+          <div style="flex:1;min-width:0">
+            <div class="admin-art-name" style="display:flex;align-items:center;gap:6px">
+              <span style="font-size:10px;background:var(--nv-l);color:var(--nv);border:1px solid var(--nv-m);border-radius:4px;padding:1px 6px;font-weight:700;white-space:nowrap">Plantilla</span>
+              <span id="lbl_sistemas_plantilla">XXXX</span>
+            </div>
+            <div style="margin:6px 0 4px 8px;display:flex;flex-direction:column;gap:2px">
+              <div class="admin-sub-item">↳ Marco teórico</div>
+              <div class="admin-sub-item">↳ Casos de uso</div>
+              <div class="admin-sub-item">↳ Beneficios</div>
+              <div class="admin-sub-item">↳ Riesgos y limitaciones</div>
+              <div class="admin-sub-item">↳ Marco regulatorio</div>
+              <div class="admin-sub-item">↳ Framework del gobierno</div>
+              <div class="admin-sub-item">↳ Plan de acción</div>
+            </div>
+            <div style="margin-top:4px;display:flex;align-items:center;gap:6px;padding-top:6px;border-top:1px solid var(--bdr)">
+              <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Nombre plantilla</span>
+              <input type="text" class="admin-url-input" id="name_sistemas_plantilla" placeholder="Nombre visible del botón..." value="XXXX" oninput="updateArtLabel('sistemas_plantilla',this.value)" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+            </div>
+            <div style="margin-top:5px;display:flex;gap:6px;align-items:center">
+              <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Enlace</span>
+              <input type="url" class="admin-url-input" id="url_sistemas_plantilla" placeholder="https://..." value="" oninput="artLinks['sistemas_plantilla']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+              <button onclick="copyUrl('sistemas_plantilla')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
+            </div>
+          </div>
+          <a class="admin-dl-btn" onclick="adminDl('sistemas_plantilla',document.getElementById('lbl_sistemas_plantilla').textContent)" href="javascript:void(0)" style="margin-left:10px;align-self:flex-start;margin-top:2px">⬇ Descargar</a>
+        </div>
+      </div>
+    </div>
   </div><!-- /admin-content -->
 </div>
 </div><!-- /tab-admin -->
