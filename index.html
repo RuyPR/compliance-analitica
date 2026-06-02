@@ -484,7 +484,30 @@ const matrizRows=[
 ];
 
 // Persistent artifact links (keyed by artifact name slug)
-let artLinks = JSON.parse(localStorage.getItem('artLinks')||'{}');
+const defaultArtLinks = {
+  'reg_iniciativa_plantilla':          'https://forms.office.com/r/JBfekCzq45',
+  'lpdp_plantilla':                    'https://raw.githubusercontent.com/RuyPR/compliance-analitica/refs/heads/main/documentos/LPDP%20-%20Inventario%20de%20datos%20personales%20y%20sensibilidad.xlsx',
+  'compliance_pretesting':             'https://raw.githubusercontent.com/RuyPR/compliance-analitica/refs/heads/main/documentos/COMPLIANCE%20-%20Informe%20de%20pre%20testing.docx',
+  'compliance_costos':                 'https://raw.githubusercontent.com/RuyPR/compliance-analitica/refs/heads/main/documentos/COMPLIANCE%20-%20Matriz%20de%20costos.xlsx',
+  'si_requerimientos_plantilla':       'https://raw.githubusercontent.com/RuyPR/compliance-analitica/refs/heads/main/documentos/SEGURIDAD%20-%20Documentaci%C3%B3n%20de%20requerimientos%20t%C3%A9cnicos%20y%20funcionales.docx',
+  'si_checklist_plantilla':            'https://raw.githubusercontent.com/RuyPR/compliance-analitica/refs/heads/main/documentos/SEGURIDAD%20-%20Checklist%20de%20Seguridad%20de%20Informaci%C3%B3n.xlsx',
+  'arq_integraciones':                 'https://raw.githubusercontent.com/RuyPR/compliance-analitica/refs/heads/main/documentos/AQUITECTURA%20-%20Arquitectura%20del%20Caso%20de%20Uso.docx',
+  'arq_ficha_tecnica':                 'https://raw.githubusercontent.com/RuyPR/compliance-analitica/refs/heads/main/documentos/ARQUITECTURA%20-%20Diagrama%20y%20ficha%20t%C3%A9cnica.xlsx?token=GHSAT0AAAAAAD6YR4LWHWFHVE2TK6DEJGVO2Q7BICA',
+  'arq_modelo_gobernanza':             'https://raw.githubusercontent.com/RuyPR/compliance-analitica/refs/heads/main/documentos/ARQUITECTURA%20-%20Modelo%20de%20Gobernanza.pptx?token=GHSAT0AAAAAAD6YR4LWTSUIUOYGKL3PREC62Q7BIWQ',
+  'calidad_reglas':                    'https://raw.githubusercontent.com/RuyPR/compliance-analitica/refs/heads/main/documentos/CALIDAD%20-%20Documentaci%C3%B3n%20de%20reglas%20de%20calidad%20y%20trazabilidad.xlsx',
+  'legal_plantilla':                   '',
+  'procesos_plantilla':                'https://raw.githubusercontent.com/RuyPR/compliance-analitica/refs/heads/main/documentos/PROCESOS%20-%20Documentaci%C3%B3n%20de%20situaci%C3%B3n%20actual%20vs%20propuesta.docx',
+  'continuidad_plantilla':             '',
+  'riesgo_op_plantilla':               'https://raw.githubusercontent.com/RuyPR/compliance-analitica/refs/heads/main/documentos/RO%20-%20Checklist%20RO%20Evaluaci%C3%B3n%20GIR.xlsx',
+  'proveedores_plantilla':             'https://raw.githubusercontent.com/RuyPR/compliance-analitica/refs/heads/main/documentos/PROVEEDORES%20-%20Gesti%C3%B3n%20de%20proveedores.xlsx',
+  'gestion_riesgos_plantilla':         'https://raw.githubusercontent.com/RuyPR/compliance-analitica/refs/heads/main/documentos/RIESGOS%20-%20Documentaci%C3%B3n%20de%20reglas%20de%20negocio.docx',
+  'gestion_riesgos_dimensionamiento':  'https://raw.githubusercontent.com/RuyPR/compliance-analitica/refs/heads/main/documentos/RIESGOS%20-%20Ficha%20t%C3%A9cnica.docx',
+  'contabilidad_plantilla':            '',
+  'gov_ia_plantilla':                  '',
+  'sistemas_plantilla':                '',
+  'compliance_reporteria':             '',
+};
+let artLinks = Object.assign({}, defaultArtLinks, JSON.parse(localStorage.getItem('artLinks')||'{}'));
 
 function saveArtLinks(){ localStorage.setItem('artLinks',JSON.stringify(artLinks)); }
 
@@ -833,7 +856,7 @@ document.addEventListener('keydown',e=>{
             </div>
             <div style="margin-top:5px;display:flex;gap:6px;align-items:center">
               <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Enlace</span>
-              <input type="url" class="admin-url-input" id="url_lpdp_plantilla" placeholder="https://..." value="https://efectivasa-my.sharepoint.com/:x:/g/personal/rparedesr_efectiva_com_pe/IQAiSc0ocQvMR4CQz9eYnT6CAbdJmXSN229__0TqRKpcxmk?e=aXIoP1" oninput="artLinks['lpdp_plantilla']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+              <input type="url" class="admin-url-input" id="url_lpdp_plantilla" placeholder="https://..." value="https://raw.githubusercontent.com/RuyPR/compliance-analitica/refs/heads/main/documentos/LPDP%20-%20Inventario%20de%20datos%20personales%20y%20sensibilidad.xlsx" oninput="artLinks['lpdp_plantilla']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
               <button onclick="copyUrl('lpdp_plantilla')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
             </div>
           </div>
@@ -862,7 +885,7 @@ document.addEventListener('keydown',e=>{
             </div>
             <div style="margin-top:5px;display:flex;gap:6px;align-items:center">
               <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Enlace</span>
-              <input type="url" class="admin-url-input" id="url_compliance_pretesting" placeholder="https://..." value="https://raw.githubusercontent.com/efectiva-riesgos-lab/compliance-analitica/refs/heads/main/documentos/COMPLIANCE%20-%20Informe%20de%20pre%20testing.docx" oninput="artLinks['compliance_pretesting']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+              <input type="url" class="admin-url-input" id="url_compliance_pretesting" placeholder="https://..." value="https://raw.githubusercontent.com/RuyPR/compliance-analitica/refs/heads/main/documentos/COMPLIANCE%20-%20Informe%20de%20pre%20testing.docx" oninput="artLinks['compliance_pretesting']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
               <button onclick="copyUrl('compliance_pretesting')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
             </div>
           </div>
@@ -888,7 +911,7 @@ document.addEventListener('keydown',e=>{
             </div>
             <div style="margin-top:5px;display:flex;gap:6px;align-items:center">
               <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Enlace</span>
-              <input type="url" class="admin-url-input" id="url_compliance_costos" placeholder="https://..." value="https://raw.githubusercontent.com/efectiva-riesgos-lab/compliance-analitica/refs/heads/main/documentos/COMPLIANCE%20-%20Matriz%20de%20costos.xlsx" oninput="artLinks['compliance_costos']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+              <input type="url" class="admin-url-input" id="url_compliance_costos" placeholder="https://..." value="https://raw.githubusercontent.com/RuyPR/compliance-analitica/refs/heads/main/documentos/COMPLIANCE%20-%20Matriz%20de%20costos.xlsx" oninput="artLinks['compliance_costos']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
               <button onclick="copyUrl('compliance_costos')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
             </div>
           </div>
@@ -937,7 +960,7 @@ document.addEventListener('keydown',e=>{
             </div>
             <div style="margin-top:5px;display:flex;gap:6px;align-items:center">
               <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Enlace</span>
-              <input type="url" class="admin-url-input" id="url_si_requerimientos_plantilla" placeholder="https://..." value="https://efectivasa-my.sharepoint.com/:w:/g/personal/rparedesr_efectiva_com_pe/IQBxNW1cVT53RLa-EM3E7IgIAclfbzIYK5fqo3x0ildeaXY?e=AI80et" oninput="artLinks['si_requerimientos_plantilla']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+              <input type="url" class="admin-url-input" id="url_si_requerimientos_plantilla" placeholder="https://..." value="https://raw.githubusercontent.com/RuyPR/compliance-analitica/refs/heads/main/documentos/SEGURIDAD%20-%20Documentaci%C3%B3n%20de%20requerimientos%20t%C3%A9cnicos%20y%20funcionales.docx" oninput="artLinks['si_requerimientos_plantilla']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
               <button onclick="copyUrl('si_requerimientos_plantilla')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
             </div>
           </div>
@@ -960,7 +983,7 @@ document.addEventListener('keydown',e=>{
             </div>
             <div style="margin-top:5px;display:flex;gap:6px;align-items:center">
               <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Enlace</span>
-              <input type="url" class="admin-url-input" id="url_si_checklist_plantilla" placeholder="https://..." value="https://raw.githubusercontent.com/efectiva-riesgos-lab/compliance-analitica/refs/heads/main/documentos/SEGURIDAD%20-%20Checklist%20de%20Seguridad%20de%20Informaci%C3%B3n.xlsx" oninput="artLinks['si_checklist_plantilla']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+              <input type="url" class="admin-url-input" id="url_si_checklist_plantilla" placeholder="https://..." value="https://raw.githubusercontent.com/RuyPR/compliance-analitica/refs/heads/main/documentos/SEGURIDAD%20-%20Checklist%20de%20Seguridad%20de%20Informaci%C3%B3n.xlsx" oninput="artLinks['si_checklist_plantilla']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
               <button onclick="copyUrl('si_checklist_plantilla')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
             </div>
           </div>
@@ -990,7 +1013,7 @@ document.addEventListener('keydown',e=>{
             </div>
             <div style="margin-top:5px;display:flex;gap:6px;align-items:center">
               <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Enlace</span>
-              <input type="url" class="admin-url-input" id="url_arq_integraciones" placeholder="https://..." value="https://raw.githubusercontent.com/efectiva-riesgos-lab/compliance-analitica/refs/heads/main/documentos/AQUITECTURA%20-%20Arquitectura%20del%20Caso%20de%20Uso.docx" oninput="artLinks['arq_integraciones']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+              <input type="url" class="admin-url-input" id="url_arq_integraciones" placeholder="https://..." value="https://raw.githubusercontent.com/RuyPR/compliance-analitica/refs/heads/main/documentos/AQUITECTURA%20-%20Arquitectura%20del%20Caso%20de%20Uso.docx" oninput="artLinks['arq_integraciones']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
               <button onclick="copyUrl('arq_integraciones')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
             </div>
           </div>
@@ -1020,7 +1043,7 @@ document.addEventListener('keydown',e=>{
             </div>
             <div style="margin-top:5px;display:flex;gap:6px;align-items:center">
               <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Enlace</span>
-              <input type="url" class="admin-url-input" id="url_arq_ficha_tecnica" placeholder="https://..." value="https://raw.githubusercontent.com/efectiva-riesgos-lab/compliance-analitica/refs/heads/main/documentos/ARQUITECTURA%20-%20Diagrama%20y%20ficha%20t%C3%A9cnica.xlsx" oninput="artLinks['arq_ficha_tecnica']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+              <input type="url" class="admin-url-input" id="url_arq_ficha_tecnica" placeholder="https://..." value="https://raw.githubusercontent.com/RuyPR/compliance-analitica/refs/heads/main/documentos/ARQUITECTURA%20-%20Diagrama%20y%20ficha%20t%C3%A9cnica.xlsx?token=GHSAT0AAAAAAD6YR4LWHWFHVE2TK6DEJGVO2Q7BICA" oninput="artLinks['arq_ficha_tecnica']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
               <button onclick="copyUrl('arq_ficha_tecnica')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
             </div>
           </div>
@@ -1045,7 +1068,7 @@ document.addEventListener('keydown',e=>{
             </div>
             <div style="margin-top:5px;display:flex;gap:6px;align-items:center">
               <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Enlace</span>
-              <input type="url" class="admin-url-input" id="url_arq_modelo_gobernanza" placeholder="https://..." value="https://raw.githubusercontent.com/efectiva-riesgos-lab/compliance-analitica/refs/heads/main/documentos/ARQUITECTURA%20-%20Modelo%20de%20Gobernanza.pptx" oninput="artLinks['arq_modelo_gobernanza']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+              <input type="url" class="admin-url-input" id="url_arq_modelo_gobernanza" placeholder="https://..." value="https://raw.githubusercontent.com/RuyPR/compliance-analitica/refs/heads/main/documentos/ARQUITECTURA%20-%20Modelo%20de%20Gobernanza.pptx?token=GHSAT0AAAAAAD6YR4LWTSUIUOYGKL3PREC62Q7BIWQ" oninput="artLinks['arq_modelo_gobernanza']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
               <button onclick="copyUrl('arq_modelo_gobernanza')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
             </div>
           </div>
@@ -1074,7 +1097,7 @@ document.addEventListener('keydown',e=>{
             </div>
             <div style="margin-top:5px;display:flex;gap:6px;align-items:center">
               <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Enlace</span>
-              <input type="url" class="admin-url-input" id="url_calidad_reglas" placeholder="https://..." value="https://raw.githubusercontent.com/efectiva-riesgos-lab/compliance-analitica/refs/heads/main/documentos/CALIDAD%20-%20Documentaci%C3%B3n%20de%20reglas%20de%20calidad%20y%20trazabilidad.xlsx" oninput="artLinks['calidad_reglas']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+              <input type="url" class="admin-url-input" id="url_calidad_reglas" placeholder="https://..." value="https://raw.githubusercontent.com/RuyPR/compliance-analitica/refs/heads/main/documentos/CALIDAD%20-%20Documentaci%C3%B3n%20de%20reglas%20de%20calidad%20y%20trazabilidad.xlsx" oninput="artLinks['calidad_reglas']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
               <button onclick="copyUrl('calidad_reglas')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
             </div>
           </div>
@@ -1132,7 +1155,7 @@ document.addEventListener('keydown',e=>{
             </div>
             <div style="margin-top:5px;display:flex;gap:6px;align-items:center">
               <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Enlace</span>
-              <input type="url" class="admin-url-input" id="url_procesos_plantilla" placeholder="https://..." value="https://raw.githubusercontent.com/efectiva-riesgos-lab/compliance-analitica/refs/heads/main/documentos/PROCESOS%20-%20Documentaci%C3%B3n%20de%20situaci%C3%B3n%20actual%20vs%20propuesta.docx" oninput="artLinks['procesos_plantilla']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+              <input type="url" class="admin-url-input" id="url_procesos_plantilla" placeholder="https://..." value="https://raw.githubusercontent.com/RuyPR/compliance-analitica/refs/heads/main/documentos/PROCESOS%20-%20Documentaci%C3%B3n%20de%20situaci%C3%B3n%20actual%20vs%20propuesta.docx" oninput="artLinks['procesos_plantilla']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
               <button onclick="copyUrl('procesos_plantilla')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
             </div>
           </div>
@@ -1187,7 +1210,7 @@ document.addEventListener('keydown',e=>{
             </div>
             <div style="margin-top:5px;display:flex;gap:6px;align-items:center">
               <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Enlace</span>
-              <input type="url" class="admin-url-input" id="url_riesgo_op_plantilla" placeholder="https://..." value="https://raw.githubusercontent.com/efectiva-riesgos-lab/compliance-analitica/refs/heads/main/documentos/RO%20-%20Checklist%20RO%20Evaluaci%C3%B3n%20GIR.xlsx" oninput="artLinks['riesgo_op_plantilla']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+              <input type="url" class="admin-url-input" id="url_riesgo_op_plantilla" placeholder="https://..." value="https://raw.githubusercontent.com/RuyPR/compliance-analitica/refs/heads/main/documentos/RO%20-%20Checklist%20RO%20Evaluaci%C3%B3n%20GIR.xlsx" oninput="artLinks['riesgo_op_plantilla']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
               <button onclick="copyUrl('riesgo_op_plantilla')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
             </div>
           </div>
@@ -1214,7 +1237,7 @@ document.addEventListener('keydown',e=>{
             </div>
             <div style="margin-top:5px;display:flex;gap:6px;align-items:center">
               <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Enlace</span>
-              <input type="url" class="admin-url-input" id="url_proveedores_plantilla" placeholder="https://..." value="https://raw.githubusercontent.com/efectiva-riesgos-lab/compliance-analitica/refs/heads/main/documentos/PROVEEDORES%20-%20Gesti%C3%B3n%20de%20proveedores.xlsx" oninput="artLinks['proveedores_plantilla']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+              <input type="url" class="admin-url-input" id="url_proveedores_plantilla" placeholder="https://..." value="https://raw.githubusercontent.com/RuyPR/compliance-analitica/refs/heads/main/documentos/PROVEEDORES%20-%20Gesti%C3%B3n%20de%20proveedores.xlsx" oninput="artLinks['proveedores_plantilla']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
               <button onclick="copyUrl('proveedores_plantilla')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
             </div>
           </div>
@@ -1240,7 +1263,7 @@ document.addEventListener('keydown',e=>{
             </div>
             <div style="margin-top:5px;display:flex;gap:6px;align-items:center">
               <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Enlace</span>
-              <input type="url" class="admin-url-input" id="url_gestion_riesgos_plantilla" placeholder="https://..." value="https://raw.githubusercontent.com/efectiva-riesgos-lab/compliance-analitica/refs/heads/main/documentos/RIESGOS%20-%20Documentaci%C3%B3n%20de%20reglas%20de%20negocio.docx" oninput="artLinks['gestion_riesgos_plantilla']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+              <input type="url" class="admin-url-input" id="url_gestion_riesgos_plantilla" placeholder="https://..." value="https://raw.githubusercontent.com/RuyPR/compliance-analitica/refs/heads/main/documentos/RIESGOS%20-%20Documentaci%C3%B3n%20de%20reglas%20de%20negocio.docx" oninput="artLinks['gestion_riesgos_plantilla']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
               <button onclick="copyUrl('gestion_riesgos_plantilla')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
             </div>
           </div>
@@ -1264,7 +1287,7 @@ document.addEventListener('keydown',e=>{
             </div>
             <div style="margin-top:5px;display:flex;gap:6px;align-items:center">
               <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Enlace</span>
-              <input type="url" class="admin-url-input" id="url_gestion_riesgos_dimensionamiento" placeholder="https://..." value="https://raw.githubusercontent.com/efectiva-riesgos-lab/compliance-analitica/refs/heads/main/documentos/RIESGOS%20-%20Ficha%20t%C3%A9cnica.docx" oninput="artLinks['gestion_riesgos_dimensionamiento']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+              <input type="url" class="admin-url-input" id="url_gestion_riesgos_dimensionamiento" placeholder="https://..." value="https://raw.githubusercontent.com/RuyPR/compliance-analitica/refs/heads/main/documentos/RIESGOS%20-%20Ficha%20t%C3%A9cnica.docx" oninput="artLinks['gestion_riesgos_dimensionamiento']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
               <button onclick="copyUrl('gestion_riesgos_dimensionamiento')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
             </div>
           </div>
