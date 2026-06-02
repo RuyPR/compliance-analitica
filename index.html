@@ -197,6 +197,9 @@ tr.hl-row td:first-child{color:var(--g1)!important;font-weight:600}
 .admin-sub-tab.active{color:var(--nv);border-bottom-color:var(--or);font-weight:600}
 .cat-card:hover,.cat-card:focus{box-shadow:0 4px 18px rgba(0,0,0,.13);border-color:var(--bdr2);outline:none;transform:translateY(-2px)}
 .cat-card:focus{box-shadow:0 0 0 3px rgba(244,121,32,.25),0 4px 18px rgba(0,0,0,.1)}
+.cat-item{border-radius:4px;padding:2px 4px;margin:-2px -4px;transition:background .15s;cursor:default}
+.cat-item:hover{background:rgba(0,0,0,.06)}
+.cat-item:focus{background:rgba(244,121,32,.12);outline:none}
 </style>
 </head>
 <body>
@@ -297,18 +300,18 @@ tr.hl-row td:first-child{color:var(--g1)!important;font-weight:600}
       <div style="font-size:12px;color:var(--tx2);margin-bottom:10px;line-height:1.55">Iniciativas de uso exclusivamente interno, sin exposición ni impacto directo sobre clientes.</div>
       <div style="font-size:11.5px;font-weight:600;color:var(--tx3);margin-bottom:5px;text-transform:uppercase;letter-spacing:.05em">Ejemplos</div>
       <ul style="list-style:none;display:flex;flex-direction:column;gap:4px">
-        <li style="font-size:12.5px;color:var(--tx2);display:flex;gap:7px"><span style="color:var(--cat1b);flex-shrink:0">▸</span>Automatizaciones internas simples</li>
-        <li style="font-size:12.5px;color:var(--tx2);display:flex;gap:7px"><span style="color:var(--cat1b);flex-shrink:0">▸</span>Asistentes internos de productividad</li>
-        <li style="font-size:12.5px;color:var(--tx2);display:flex;gap:7px"><span style="color:var(--cat1b);flex-shrink:0">▸</span>Dashboards internos</li>
-        <li style="font-size:12.5px;color:var(--tx2);display:flex;gap:7px"><span style="color:var(--cat1b);flex-shrink:0">▸</span>PoCs controladas en sandbox</li>
+        <li class="cat-item" tabindex="0" style="font-size:12.5px;color:var(--tx2);display:flex;gap:7px"><span style="color:var(--cat1b);flex-shrink:0">▸</span>Automatizaciones internas simples</li>
+        <li class="cat-item" tabindex="0" style="font-size:12.5px;color:var(--tx2);display:flex;gap:7px"><span style="color:var(--cat1b);flex-shrink:0">▸</span>Asistentes internos de productividad</li>
+        <li class="cat-item" tabindex="0" style="font-size:12.5px;color:var(--tx2);display:flex;gap:7px"><span style="color:var(--cat1b);flex-shrink:0">▸</span>Dashboards internos</li>
+        <li class="cat-item" tabindex="0" style="font-size:12.5px;color:var(--tx2);display:flex;gap:7px"><span style="color:var(--cat1b);flex-shrink:0">▸</span>PoCs controladas en sandbox</li>
       </ul>
       <div style="margin-top:12px;padding-top:10px;border-top:1px solid var(--bdr)">
         <div style="font-size:11.5px;font-weight:600;color:var(--tx3);margin-bottom:5px;text-transform:uppercase;letter-spacing:.05em">Características</div>
         <ul style="list-style:none;display:flex;flex-direction:column;gap:3px">
-          <li style="font-size:12px;color:var(--tx2);display:flex;gap:6px"><span style="color:var(--bdr2)">·</span>Sin exposición externa</li>
-          <li style="font-size:12px;color:var(--tx2);display:flex;gap:6px"><span style="color:var(--bdr2)">·</span>Sin datos sensibles ni confidenciales</li>
-          <li style="font-size:12px;color:var(--tx2);display:flex;gap:6px"><span style="color:var(--bdr2)">·</span>Sin impacto directo sobre clientes</li>
-          <li style="font-size:12px;color:var(--tx2);display:flex;gap:6px"><span style="color:var(--bdr2)">·</span>Baja criticidad sobre el core del negocio</li>
+          <li class="cat-item" tabindex="0" style="font-size:12px;color:var(--tx2);display:flex;gap:6px"><span style="color:var(--bdr2)">·</span>Sin exposición externa</li>
+          <li class="cat-item" tabindex="0" style="font-size:12px;color:var(--tx2);display:flex;gap:6px"><span style="color:var(--bdr2)">·</span>Sin datos sensibles ni confidenciales</li>
+          <li class="cat-item" tabindex="0" style="font-size:12px;color:var(--tx2);display:flex;gap:6px"><span style="color:var(--bdr2)">·</span>Sin impacto directo sobre clientes</li>
+          <li class="cat-item" tabindex="0" style="font-size:12px;color:var(--tx2);display:flex;gap:6px"><span style="color:var(--bdr2)">·</span>Baja criticidad sobre el core del negocio</li>
         </ul>
       </div>
     </div>
@@ -322,18 +325,18 @@ tr.hl-row td:first-child{color:var(--g1)!important;font-weight:600}
       <div style="font-size:12px;color:var(--tx2);margin-bottom:10px;line-height:1.55">Iniciativas que se integran con múltiples áreas o sistemas internos, manejan datos sensibles y tienen visión de pase a producción.</div>
       <div style="font-size:11.5px;font-weight:600;color:var(--tx3);margin-bottom:5px;text-transform:uppercase;letter-spacing:.05em">Ejemplos</div>
       <ul style="list-style:none;display:flex;flex-direction:column;gap:4px">
-        <li style="font-size:12.5px;color:var(--tx2);display:flex;gap:7px"><span style="color:var(--cat2b);flex-shrink:0">▸</span>Integraciones corporativas y consumo de APIs internas</li>
-        <li style="font-size:12.5px;color:var(--tx2);display:flex;gap:7px"><span style="color:var(--cat2b);flex-shrink:0">▸</span>Automatizaciones transversales entre áreas</li>
-        <li style="font-size:12.5px;color:var(--tx2);display:flex;gap:7px"><span style="color:var(--cat2b);flex-shrink:0">▸</span>Plataformas compartidas entre áreas</li>
+        <li class="cat-item" tabindex="0" style="font-size:12.5px;color:var(--tx2);display:flex;gap:7px"><span style="color:var(--cat2b);flex-shrink:0">▸</span>Integraciones corporativas y consumo de APIs internas</li>
+        <li class="cat-item" tabindex="0" style="font-size:12.5px;color:var(--tx2);display:flex;gap:7px"><span style="color:var(--cat2b);flex-shrink:0">▸</span>Automatizaciones transversales entre áreas</li>
+        <li class="cat-item" tabindex="0" style="font-size:12.5px;color:var(--tx2);display:flex;gap:7px"><span style="color:var(--cat2b);flex-shrink:0">▸</span>Plataformas compartidas entre áreas</li>
       </ul>
       <div style="margin-top:12px;padding-top:10px;border-top:1px solid var(--bdr)">
         <div style="font-size:11.5px;font-weight:600;color:var(--tx3);margin-bottom:5px;text-transform:uppercase;letter-spacing:.05em">Características</div>
         <ul style="list-style:none;display:flex;flex-direction:column;gap:3px">
-          <li style="font-size:12px;color:var(--tx2);display:flex;gap:6px"><span style="color:var(--bdr2)">·</span>Sin exposición externa</li>
-          <li style="font-size:12px;color:var(--tx2);display:flex;gap:6px"><span style="color:var(--bdr2)">·</span>Uso de datos sensibles o confidenciales</li>
-          <li style="font-size:12px;color:var(--tx2);display:flex;gap:6px"><span style="color:var(--bdr2)">·</span>Integración operativa multiárea</li>
-          <li style="font-size:12px;color:var(--tx2);display:flex;gap:6px"><span style="color:var(--bdr2)">·</span>Medio-alto impacto operacional sobre el negocio</li>
-          <li style="font-size:12px;color:var(--tx2);display:flex;gap:6px"><span style="color:var(--bdr2)">·</span>Con visión de pase a producción</li>
+          <li class="cat-item" tabindex="0" style="font-size:12px;color:var(--tx2);display:flex;gap:6px"><span style="color:var(--bdr2)">·</span>Sin exposición externa</li>
+          <li class="cat-item" tabindex="0" style="font-size:12px;color:var(--tx2);display:flex;gap:6px"><span style="color:var(--bdr2)">·</span>Uso de datos sensibles o confidenciales</li>
+          <li class="cat-item" tabindex="0" style="font-size:12px;color:var(--tx2);display:flex;gap:6px"><span style="color:var(--bdr2)">·</span>Integración operativa multiárea</li>
+          <li class="cat-item" tabindex="0" style="font-size:12px;color:var(--tx2);display:flex;gap:6px"><span style="color:var(--bdr2)">·</span>Medio-alto impacto operacional sobre el negocio</li>
+          <li class="cat-item" tabindex="0" style="font-size:12px;color:var(--tx2);display:flex;gap:6px"><span style="color:var(--bdr2)">·</span>Con visión de pase a producción</li>
         </ul>
       </div>
     </div>
@@ -347,18 +350,18 @@ tr.hl-row td:first-child{color:var(--g1)!important;font-weight:600}
       <div style="font-size:12px;color:var(--tx2);margin-bottom:10px;line-height:1.55">Iniciativas con exposición a clientes o terceros, procesos regulados o alta criticidad operativa.</div>
       <div style="font-size:11.5px;font-weight:600;color:var(--tx3);margin-bottom:5px;text-transform:uppercase;letter-spacing:.05em">Ejemplos</div>
       <ul style="list-style:none;display:flex;flex-direction:column;gap:4px">
-        <li style="font-size:12.5px;color:var(--tx2);display:flex;gap:7px"><span style="color:var(--cat3b);flex-shrink:0">▸</span>Soluciones y plataformas para clientes</li>
-        <li style="font-size:12.5px;color:var(--tx2);display:flex;gap:7px"><span style="color:var(--cat3b);flex-shrink:0">▸</span>Automatizaciones con impacto financiero</li>
-        <li style="font-size:12.5px;color:var(--tx2);display:flex;gap:7px"><span style="color:var(--cat3b);flex-shrink:0">▸</span>Procesos regulados e integraciones con entidades externas</li>
-        <li style="font-size:12.5px;color:var(--tx2);display:flex;gap:7px"><span style="color:var(--cat3b);flex-shrink:0">▸</span>Plataformas en operación productiva con alta disponibilidad</li>
+        <li class="cat-item" tabindex="0" style="font-size:12.5px;color:var(--tx2);display:flex;gap:7px"><span style="color:var(--cat3b);flex-shrink:0">▸</span>Soluciones y plataformas para clientes</li>
+        <li class="cat-item" tabindex="0" style="font-size:12.5px;color:var(--tx2);display:flex;gap:7px"><span style="color:var(--cat3b);flex-shrink:0">▸</span>Automatizaciones con impacto financiero</li>
+        <li class="cat-item" tabindex="0" style="font-size:12.5px;color:var(--tx2);display:flex;gap:7px"><span style="color:var(--cat3b);flex-shrink:0">▸</span>Procesos regulados e integraciones con entidades externas</li>
+        <li class="cat-item" tabindex="0" style="font-size:12.5px;color:var(--tx2);display:flex;gap:7px"><span style="color:var(--cat3b);flex-shrink:0">▸</span>Plataformas en operación productiva con alta disponibilidad</li>
       </ul>
       <div style="margin-top:12px;padding-top:10px;border-top:1px solid var(--bdr)">
         <div style="font-size:11.5px;font-weight:600;color:var(--tx3);margin-bottom:5px;text-transform:uppercase;letter-spacing:.05em">Características</div>
         <ul style="list-style:none;display:flex;flex-direction:column;gap:3px">
-          <li style="font-size:12px;color:var(--tx2);display:flex;gap:6px"><span style="color:var(--bdr2)">·</span>Con exposición externa</li>
-          <li style="font-size:12px;color:var(--tx2);display:flex;gap:6px"><span style="color:var(--bdr2)">·</span>Impacto reputacional, financiero y/o regulatorio</li>
-          <li style="font-size:12px;color:var(--tx2);display:flex;gap:6px"><span style="color:var(--bdr2)">·</span>Alta criticidad sobre el core del negocio (ventas)</li>
-          <li style="font-size:12px;color:var(--tx2);display:flex;gap:6px"><span style="color:var(--bdr2)">·</span>Sin clasificación IA de alto impacto</li>
+          <li class="cat-item" tabindex="0" style="font-size:12px;color:var(--tx2);display:flex;gap:6px"><span style="color:var(--bdr2)">·</span>Con exposición externa</li>
+          <li class="cat-item" tabindex="0" style="font-size:12px;color:var(--tx2);display:flex;gap:6px"><span style="color:var(--bdr2)">·</span>Impacto reputacional, financiero y/o regulatorio</li>
+          <li class="cat-item" tabindex="0" style="font-size:12px;color:var(--tx2);display:flex;gap:6px"><span style="color:var(--bdr2)">·</span>Alta criticidad sobre el core del negocio (ventas)</li>
+          <li class="cat-item" tabindex="0" style="font-size:12px;color:var(--tx2);display:flex;gap:6px"><span style="color:var(--bdr2)">·</span>Sin clasificación IA de alto impacto</li>
         </ul>
       </div>
     </div>
@@ -372,18 +375,18 @@ tr.hl-row td:first-child{color:var(--g1)!important;font-weight:600}
       <div style="font-size:12px;color:var(--tx2);margin-bottom:10px;line-height:1.55">Iniciativas con IA clasificada de alto impacto, decisiones automatizadas sin supervisión humana o máxima criticidad regulatoria.</div>
       <div style="font-size:11.5px;font-weight:600;color:var(--tx3);margin-bottom:5px;text-transform:uppercase;letter-spacing:.05em">Ejemplos</div>
       <ul style="list-style:none;display:flex;flex-direction:column;gap:4px">
-        <li style="font-size:12.5px;color:var(--tx2);display:flex;gap:7px"><span style="color:var(--cat4b);flex-shrink:0">▸</span>Modelos de scoring crediticio y detección de fraude</li>
-        <li style="font-size:12.5px;color:var(--tx2);display:flex;gap:7px"><span style="color:var(--cat4b);flex-shrink:0">▸</span>LLMs con razonamiento automático para decisiones de negocio</li>
-        <li style="font-size:12.5px;color:var(--tx2);display:flex;gap:7px"><span style="color:var(--cat4b);flex-shrink:0">▸</span>Motores de decisión masiva (créditos, bloqueos, clasificación)</li>
-        <li style="font-size:12.5px;color:var(--tx2);display:flex;gap:7px"><span style="color:var(--cat4b);flex-shrink:0">▸</span>Sistemas de prevención de LAFT</li>
+        <li class="cat-item" tabindex="0" style="font-size:12.5px;color:var(--tx2);display:flex;gap:7px"><span style="color:var(--cat4b);flex-shrink:0">▸</span>Modelos de scoring crediticio y detección de fraude</li>
+        <li class="cat-item" tabindex="0" style="font-size:12.5px;color:var(--tx2);display:flex;gap:7px"><span style="color:var(--cat4b);flex-shrink:0">▸</span>LLMs con razonamiento automático para decisiones de negocio</li>
+        <li class="cat-item" tabindex="0" style="font-size:12.5px;color:var(--tx2);display:flex;gap:7px"><span style="color:var(--cat4b);flex-shrink:0">▸</span>Motores de decisión masiva (créditos, bloqueos, clasificación)</li>
+        <li class="cat-item" tabindex="0" style="font-size:12.5px;color:var(--tx2);display:flex;gap:7px"><span style="color:var(--cat4b);flex-shrink:0">▸</span>Sistemas de prevención de LAFT</li>
       </ul>
       <div style="margin-top:12px;padding-top:10px;border-top:1px solid var(--bdr)">
         <div style="font-size:11.5px;font-weight:600;color:var(--tx3);margin-bottom:5px;text-transform:uppercase;letter-spacing:.05em">Características</div>
         <ul style="list-style:none;display:flex;flex-direction:column;gap:3px">
-          <li style="font-size:12px;color:var(--tx2);display:flex;gap:6px"><span style="color:var(--bdr2)">·</span>IA clasificada de alto impacto</li>
-          <li style="font-size:12px;color:var(--tx2);display:flex;gap:6px"><span style="color:var(--bdr2)">·</span>Decisiones automatizadas sin revisión humana previa</li>
-          <li style="font-size:12px;color:var(--tx2);display:flex;gap:6px"><span style="color:var(--bdr2)">·</span>Máxima criticidad regulatoria y operativa</li>
-          <li style="font-size:12px;color:var(--tx2);display:flex;gap:6px"><span style="color:var(--bdr2)">·</span>Requiere explicabilidad y human oversight obligatorio</li>
+          <li class="cat-item" tabindex="0" style="font-size:12px;color:var(--tx2);display:flex;gap:6px"><span style="color:var(--bdr2)">·</span>IA clasificada de alto impacto</li>
+          <li class="cat-item" tabindex="0" style="font-size:12px;color:var(--tx2);display:flex;gap:6px"><span style="color:var(--bdr2)">·</span>Decisiones automatizadas sin revisión humana previa</li>
+          <li class="cat-item" tabindex="0" style="font-size:12px;color:var(--tx2);display:flex;gap:6px"><span style="color:var(--bdr2)">·</span>Máxima criticidad regulatoria y operativa</li>
+          <li class="cat-item" tabindex="0" style="font-size:12px;color:var(--tx2);display:flex;gap:6px"><span style="color:var(--bdr2)">·</span>Requiere explicabilidad y human oversight obligatorio</li>
         </ul>
       </div>
     </div>
@@ -598,56 +601,56 @@ const CAT_CFG={
 
 const matrizRows=[
   {name:'Registro de iniciativa', c:[true,true,true,true], art:[
-    {key:'reg_iniciativa_plantilla', label:'Formulario para registro de iniciativa', items:['Nombre de iniciativa','Alcance, objetivos y organización del proyecto','Carga de presentación KickOff','Carga de RFP']},
+    {key:'reg_iniciativa_plantilla', label:'Formulario para registro de iniciativa', items:['Nombre de iniciativa§1§2§3§4','Alcance, objetivos y organización del proyecto§1§2§3§4','Carga de presentación KickOff§1§2§3§4','Carga de RFP§1§2§3§4']},
   ]},
   {name:'LPDP', c:[true,true,true,true], art:[
-    {key:'lpdp_plantilla', label:'Inventario de datos personales y sensibilidad', items:['Definición','Tipo de dato y flag de sensible y criticidad','Tratamiento, retención y seguridad','Fuente','Uso de IA']},
+    {key:'lpdp_plantilla', label:'Inventario de datos personales y sensibilidad', items:['Identificación y clasificación del dato (Definición, Tipo, Flag de sensibilidad y criticidad)§1§2§3§4','Ciclo de vida del dato (Tratamiento, retención, seguridad y fuente)§1§2§3§4','Uso de IA§1§2§3§4']},
   ]},
   {name:'Calidad de Datos',          c:[true, true, true, true], art:[
-    {key:'calidad_reglas', label:'Documentación de reglas de calidad y trazabilidad', items:['Glosario de datos','Reglas de calidad técnicas y específicas','Trazabilidad']},
+    {key:'calidad_reglas', label:'Documentación de reglas de calidad y trazabilidad', items:['Glosario de datos§1§2§3§4','Reglas de calidad técnicas y específicas§1§2§3§4','Trazabilidad§1§2§3§4']},
   ]},
   {name:'Compliance Interno', c:[false, true, true, true], art:[
-    {key:'compliance_pretesting', label:'Informe de pre testing', items:['Resultados de observabilidad','Resultados de performance','Resultados de pruebas de estrés','Resultados de Ethical Hacking']},
-    {key:'compliance_costos', label:'Matriz de costos', items:['Dimensionamiento y % en funnel','TPS','Latencia','Concurrencia','Tokens','Costos']},
-    {key:'compliance_reporteria', label:'XXXX', items:['Reportería','Observabilidad y monitoreo']},
+    {key:'compliance_pretesting', label:'Informe de pre testing', items:['Resultados de observabilidad§2§3§4','Resultados de performance y pruebas de estrés§2§3§4','Resultados de Ethical Hacking§2§3§4']},
+    {key:'compliance_costos', label:'Matriz de costos', items:['Dimensionamiento y capacidad (% en funnel, TPS, Concurrencia)§2§3§4','Performance (Latencia, Tokens)§2§3§4','Estructura de costos§2§3§4']},
+    {key:'compliance_reporteria', label:'XXXX', items:['Reportería§2§3§4','Observabilidad y monitoreo§2§3§4']},
   ]},
   {name:'Seguridad de Información', c:[true,true,true,true], art:[
-    {key:'si_requerimientos_plantilla', label:'Documentación de requerimientos técnicos y funcionales', items:['Flujo funcional de la solución','Requerimientos funcionales']},
-    {key:'si_checklist_plantilla', label:'Checklist Seguridad de Información', items:['Ficha de estándar de seguridad de la solución','Requerimientos adicionales para sistemas externos','Requerimientos para aplicaciones de uso para clientes']},
+    {key:'si_requerimientos_plantilla', label:'Documentación de requerimientos técnicos y funcionales', items:['Flujo funcional de la solución§2§3§4','Requerimientos funcionales§2§3§4']},
+    {key:'si_checklist_plantilla', label:'Checklist Seguridad de Información', items:['Ficha de estándar de seguridad de la solución§3§4','Requerimientos adicionales para sistemas externos§3§4','Requerimientos para aplicaciones de uso para clientes§3§4']},
   ]},
   {name:'Arquitectura', c:[false,true,true,true], art:[
-    {key:'arq_integraciones', label:'Arquitectura del Caso de Uso', items:['Diagrama de arquitectura de servicio TI','Integraciones y flujo de datos','Inventario y responsabilidades']},
-    {key:'arq_ficha_tecnica', label:'Diagrama y ficha técnica', items:['Detalle de aplicación','Responsabilidades','Data Center','Infraestructura','Servidor de aplicación','Servidor de Base de Datos','Seguridad y accesos','Usuarios']},
-    {key:'arq_modelo_gobernanza', label:'Modelo de Gobernanza', items:['Roles en operatividad','Funcionalidades habilitadas','Matriz de grupos, roles, perfiles y responsabilidades']},
+    {key:'arq_integraciones', label:'Arquitectura del Caso de Uso', items:['Diagrama de arquitectura e integraciones§1§2§3§4','Inventario de componentes, integraciones y responsabilidades§1§2§3§4']},
+    {key:'arq_ficha_tecnica', label:'Diagrama y ficha técnica', items:['Detalle de aplicación y responsabilidades§2§3§4','Infraestructura (Data Center, Servidores de aplicación y BD)§2§3§4','Seguridad, accesos y usuarios§2§3§4']},
+    {key:'arq_modelo_gobernanza', label:'Modelo de Gobernanza', items:['Roles en operatividad§2§3§4','Funcionalidades habilitadas§2§3§4','Matriz de grupos, roles, perfiles y responsabilidades§2§3§4']},
   ]},
   {name:'Legal', c:[false,true,true,true], art:[
-    {key:'legal_plantilla', label:'XXXX', items:['Impacto en cumplimiento normativo','Impacto LAFT','Impacto en conducta de mercado','Obligaciones con terceros']},
+    {key:'legal_plantilla', label:'XXXX', items:['Impacto en cumplimiento normativo§3§4','Impacto LAFT§3§4','Impacto en conducta de mercado§3§4','Obligaciones con terceros§2§3§4']},
   ]},
   {name:'Procesos', c:[false,false,true,true], art:[
-    {key:'procesos_plantilla', label:'Documentación de situación actual vs propuesta', items:['Problemática','Alcance del proyecto','Diagrama de situación actual','Diagrama de situación propuesta','Beneficios e impacto en documentación']},
+    {key:'procesos_plantilla', label:'Documentación de situación actual vs propuesta', items:['Problemática§3§4','Alcance del proyecto§3§4','Diagrama de situación actual§3§4','Diagrama de situación propuesta§3§4','Beneficios e impacto en documentación§3§4']},
   ]},
   {name:'Continuidad de Negocio', c:[false,false,true,true], art:[
-    {key:'continuidad_plantilla', label:'XXXX', items:['Plan de continuidad','SLA y certificados de proveedores','Matriz de soporte y atención']},
+    {key:'continuidad_plantilla', label:'XXXX', items:['Plan de continuidad§3§4','SLA y certificados de proveedores§3§4','Matriz de soporte y atención§3§4']},
   ]},
   {name:'Riesgo Operacional', c:[false,true,true,true], art:[
-    {key:'riesgo_op_plantilla', label:'Checklist RO Evaluación GIR', items:['Responsables','Fechas de compromiso y de entrega']},
+    {key:'riesgo_op_plantilla', label:'Checklist RO Evaluación GIR', items:['Responsables§2§3§4','Fechas de compromiso y de entrega§2§3§4']},
   ]},
   {name:'Gestión de proveedores (E)', c:[false,true,true,true], art:[
-    {key:'proveedores_plantilla', label:'Gestión de proveedores', items:['Contratos y SLA de proveedores','Certificados del proveedor']},
+    {key:'proveedores_plantilla', label:'Gestión de proveedores', items:['Contratos y SLA de proveedores§2§3§4','Certificados del proveedor§2§3§4']},
   ]},
   {name:'Gestión de Riesgos', c:[false,false,true,true], art:[
-    {key:'gestion_riesgos_plantilla', label:'Documentación de reglas de negocio', items:['Reglas de negocio']},
-    {key:'gestion_riesgos_dimensionamiento', label:'Ficha técnica', items:['Detalle del proyecto','Despliegue y capacitaciones','Seguimiento y evaluación','Seguimiento y control']},
-    {key:'gestion_riesgos_regulatorio', label:'XXXX', items:['Impacto regulatorio']},
+    {key:'gestion_riesgos_plantilla', label:'Documentación de reglas de negocio', items:['Reglas de negocio§3§4']},
+    {key:'gestion_riesgos_dimensionamiento', label:'Ficha técnica', items:['Detalle del proyecto§3§4','Despliegue y capacitaciones§3§4','Seguimiento y evaluación§3§4','Seguimiento y control§3§4']},
+    {key:'gestion_riesgos_regulatorio', label:'XXXX', items:['Impacto regulatorio§3§4']},
   ]},
   {name:'Contabilidad', c:[false,false,true,true], art:[
-    {key:'contabilidad_plantilla', label:'XXXX', items:['Impacto contable','Impacto tributario']},
+    {key:'contabilidad_plantilla', label:'XXXX', items:['Impacto contable§3§4','Impacto tributario§3§4']},
   ]},
   {name:'Gobierno IA', c:[false,false,false,true], art:[
-    {key:'gov_ia_plantilla', label:'XXXX', items:['Metodología','Trazabilidad','Explicabilidad']},
+    {key:'gov_ia_plantilla', label:'XXXX', items:['Metodología§4','Trazabilidad§4','Explicabilidad§4']},
   ]},
   {name:'Sistemas', c:[false,true,true,true], art:[
-    {key:'sistemas_plantilla', label:'Modelo Business-IT Gobierno para el Desarrollo de Aplicaciones', items:['Marco teórico','Casos de uso','Beneficios','Riesgos y limitaciones','Marco regulatorio','Framework del gobierno','Plan de acción']},
+    {key:'sistemas_plantilla', label:'Modelo Business-IT Gobierno para el Desarrollo de Aplicaciones', items:['Marco teórico§2§3§4','Casos de uso§2§3§4','Beneficios§2§3§4','Riesgos y limitaciones§2§3§4','Marco regulatorio§2§3§4','Framework del gobierno§2§3§4','Plan de acción§2§3§4']},
   ]},
 ];
 
@@ -687,7 +690,15 @@ function buildMatriz(){
       `<td>${v?'<span class="p-chk">✔</span>':'<span class="p-emp">—</span>'}</td>`
     ).join('');
     const artHtml=`<ul class="art-list">${r.art.map(a=>{
-      const itemsHtml=a.items.map(it=>`<li class="art-subitem">↳ ${it}</li>`).join('');
+      const itemsHtml=a.items.map(it=>{
+        const parts=it.split('§');
+        const txt=parts[0];
+        const catNums=parts.slice(1);
+        const catColors={'1':['var(--cat1l)','var(--cat1)'],'2':['var(--cat2l)','var(--cat2)'],'3':['var(--cat3l)','var(--cat3)'],'4':['var(--cat4l)','var(--cat4)']};
+        const flags=catNums.map(c=>`<span style="font-size:9px;font-weight:700;background:${catColors[c][0]};color:${catColors[c][1]};border-radius:99px;padding:1px 5px;white-space:nowrap">C${c}</span>`).join('');
+        const flagWrap=flags?`<span style="display:inline-flex;gap:2px;margin-left:4px">${flags}</span>`:'';
+        return `<li class="art-subitem" style="display:flex;align-items:center;justify-content:space-between;gap:4px"><span>↳ ${txt}</span>${flagWrap}</li>`;
+      }).join('');
       return `<li><button class="art-btn" data-art-key="${a.key}" onclick="artClick(this)"><span class="art-ico">📄</span><span>${a.label}</span></button><ul class="art-subitems">${itemsHtml}</ul></li>`;
     }).join('')}</ul>`;
     tr.innerHTML=`<td>${r.name}</td>${cells}<td class="art-cell">${artHtml}</td>`;
@@ -1045,10 +1056,10 @@ document.addEventListener('keydown',e=>{
               <span id="lbl_reg_iniciativa_plantilla">Formulario para registro de iniciativa</span>
             </div>
             <div style="margin:6px 0 4px 8px;display:flex;flex-direction:column;gap:2px">
-              <div class="admin-sub-item">↳ Nombre de iniciativa</div>
-              <div class="admin-sub-item">↳ Alcance, objetivos y organización del proyecto</div>
-              <div class="admin-sub-item">↳ Carga de presentación KickOff</div>
-              <div class="admin-sub-item">↳ Carga de RFP</div>
+              <div class="admin-sub-item" style="display:flex;align-items:center;justify-content:space-between;gap:6px"><span>↳ Nombre de iniciativa</span><span style="display:inline-flex;gap:2px;align-items:center;margin-left:4px"><span style="font-size:9px;font-weight:700;background:var(--cat1l);color:var(--cat1);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C1</span><span style="font-size:9px;font-weight:700;background:var(--cat2l);color:var(--cat2);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C2</span><span style="font-size:9px;font-weight:700;background:var(--cat3l);color:var(--cat3);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C3</span><span style="font-size:9px;font-weight:700;background:var(--cat4l);color:var(--cat4);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C4</span></span></div>
+              <div class="admin-sub-item" style="display:flex;align-items:center;justify-content:space-between;gap:6px"><span>↳ Alcance, objetivos y organización del proyecto</span><span style="display:inline-flex;gap:2px;align-items:center;margin-left:4px"><span style="font-size:9px;font-weight:700;background:var(--cat1l);color:var(--cat1);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C1</span><span style="font-size:9px;font-weight:700;background:var(--cat2l);color:var(--cat2);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C2</span><span style="font-size:9px;font-weight:700;background:var(--cat3l);color:var(--cat3);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C3</span><span style="font-size:9px;font-weight:700;background:var(--cat4l);color:var(--cat4);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C4</span></span></div>
+              <div class="admin-sub-item" style="display:flex;align-items:center;justify-content:space-between;gap:6px"><span>↳ Carga de presentación KickOff</span><span style="display:inline-flex;gap:2px;align-items:center;margin-left:4px"><span style="font-size:9px;font-weight:700;background:var(--cat1l);color:var(--cat1);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C1</span><span style="font-size:9px;font-weight:700;background:var(--cat2l);color:var(--cat2);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C2</span><span style="font-size:9px;font-weight:700;background:var(--cat3l);color:var(--cat3);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C3</span><span style="font-size:9px;font-weight:700;background:var(--cat4l);color:var(--cat4);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C4</span></span></div>
+              <div class="admin-sub-item" style="display:flex;align-items:center;justify-content:space-between;gap:6px"><span>↳ Carga de RFP</span><span style="display:inline-flex;gap:2px;align-items:center;margin-left:4px"><span style="font-size:9px;font-weight:700;background:var(--cat1l);color:var(--cat1);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C1</span><span style="font-size:9px;font-weight:700;background:var(--cat2l);color:var(--cat2);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C2</span><span style="font-size:9px;font-weight:700;background:var(--cat3l);color:var(--cat3);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C3</span><span style="font-size:9px;font-weight:700;background:var(--cat4l);color:var(--cat4);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C4</span></span></div>
             </div>
             <div style="margin-top:4px;display:flex;align-items:center;gap:6px;padding-top:6px;border-top:1px solid var(--bdr)">
               <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Nombre plantilla</span>
@@ -1074,11 +1085,9 @@ document.addEventListener('keydown',e=>{
               <span id="lbl_lpdp_plantilla">Inventario de datos personales y sensibilidad</span>
             </div>
             <div style="margin:6px 0 4px 8px;display:flex;flex-direction:column;gap:2px">
-              <div class="admin-sub-item">↳ Definición</div>
-              <div class="admin-sub-item">↳ Tipo de dato y flag de sensible y criticidad</div>
-              <div class="admin-sub-item">↳ Tratamiento, retención y seguridad</div>
-              <div class="admin-sub-item">↳ Fuente</div>
-              <div class="admin-sub-item">↳ Uso de IA</div>
+              <div class="admin-sub-item" style="display:flex;align-items:center;justify-content:space-between;gap:6px"><span>↳ Identificación y clasificación del dato (Definición, Tipo, Flag de sensibilidad y criticidad)</span><span style="display:inline-flex;gap:2px;align-items:center;margin-left:4px"><span style="font-size:9px;font-weight:700;background:var(--cat1l);color:var(--cat1);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C1</span><span style="font-size:9px;font-weight:700;background:var(--cat2l);color:var(--cat2);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C2</span><span style="font-size:9px;font-weight:700;background:var(--cat3l);color:var(--cat3);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C3</span><span style="font-size:9px;font-weight:700;background:var(--cat4l);color:var(--cat4);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C4</span></span></div>
+              <div class="admin-sub-item" style="display:flex;align-items:center;justify-content:space-between;gap:6px"><span>↳ Ciclo de vida del dato (Tratamiento, retención, seguridad y fuente)</span><span style="display:inline-flex;gap:2px;align-items:center;margin-left:4px"><span style="font-size:9px;font-weight:700;background:var(--cat1l);color:var(--cat1);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C1</span><span style="font-size:9px;font-weight:700;background:var(--cat2l);color:var(--cat2);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C2</span><span style="font-size:9px;font-weight:700;background:var(--cat3l);color:var(--cat3);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C3</span><span style="font-size:9px;font-weight:700;background:var(--cat4l);color:var(--cat4);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C4</span></span></div>
+              <div class="admin-sub-item" style="display:flex;align-items:center;justify-content:space-between;gap:6px"><span>↳ Uso de IA</span><span style="display:inline-flex;gap:2px;align-items:center;margin-left:4px"><span style="font-size:9px;font-weight:700;background:var(--cat1l);color:var(--cat1);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C1</span><span style="font-size:9px;font-weight:700;background:var(--cat2l);color:var(--cat2);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C2</span><span style="font-size:9px;font-weight:700;background:var(--cat3l);color:var(--cat3);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C3</span><span style="font-size:9px;font-weight:700;background:var(--cat4l);color:var(--cat4);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C4</span></span></div>
             </div>
             <div style="margin-top:4px;display:flex;align-items:center;gap:6px;padding-top:6px;border-top:1px solid var(--bdr)">
               <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Nombre plantilla</span>
@@ -1104,10 +1113,9 @@ document.addEventListener('keydown',e=>{
               <span id="lbl_compliance_pretesting">Informe de pre testing</span>
             </div>
             <div style="margin:6px 0 4px 8px;display:flex;flex-direction:column;gap:2px">
-              <div class="admin-sub-item">↳ Resultados de observabilidad</div>
-              <div class="admin-sub-item">↳ Resultados de performance</div>
-              <div class="admin-sub-item">↳ Resultados de pruebas de estrés</div>
-              <div class="admin-sub-item">↳ Resultados de Ethical Hacking</div>
+              <div class="admin-sub-item" style="display:flex;align-items:center;justify-content:space-between;gap:6px"><span>↳ Resultados de observabilidad</span><span style="display:inline-flex;gap:2px;align-items:center;margin-left:4px"><span style="font-size:9px;font-weight:700;background:var(--cat2l);color:var(--cat2);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C2</span><span style="font-size:9px;font-weight:700;background:var(--cat3l);color:var(--cat3);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C3</span><span style="font-size:9px;font-weight:700;background:var(--cat4l);color:var(--cat4);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C4</span></span></div>
+              <div class="admin-sub-item" style="display:flex;align-items:center;justify-content:space-between;gap:6px"><span>↳ Resultados de performance y pruebas de estrés</span><span style="display:inline-flex;gap:2px;align-items:center;margin-left:4px"><span style="font-size:9px;font-weight:700;background:var(--cat2l);color:var(--cat2);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C2</span><span style="font-size:9px;font-weight:700;background:var(--cat3l);color:var(--cat3);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C3</span><span style="font-size:9px;font-weight:700;background:var(--cat4l);color:var(--cat4);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C4</span></span></div>
+              <div class="admin-sub-item" style="display:flex;align-items:center;justify-content:space-between;gap:6px"><span>↳ Resultados de Ethical Hacking</span><span style="display:inline-flex;gap:2px;align-items:center;margin-left:4px"><span style="font-size:9px;font-weight:700;background:var(--cat2l);color:var(--cat2);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C2</span><span style="font-size:9px;font-weight:700;background:var(--cat3l);color:var(--cat3);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C3</span><span style="font-size:9px;font-weight:700;background:var(--cat4l);color:var(--cat4);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C4</span></span></div>
             </div>
             <div style="margin-top:4px;display:flex;align-items:center;gap:6px;padding-top:6px;border-top:1px solid var(--bdr)">
               <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Nombre plantilla</span>
@@ -1128,12 +1136,9 @@ document.addEventListener('keydown',e=>{
               <span id="lbl_compliance_costos">Matriz de costos</span>
             </div>
             <div style="margin:6px 0 4px 8px;display:flex;flex-direction:column;gap:2px">
-              <div class="admin-sub-item">↳ Dimensionamiento y % en funnel</div>
-              <div class="admin-sub-item">↳ TPS</div>
-              <div class="admin-sub-item">↳ Latencia</div>
-              <div class="admin-sub-item">↳ Concurrencia</div>
-              <div class="admin-sub-item">↳ Tokens</div>
-              <div class="admin-sub-item">↳ Costos</div>
+              <div class="admin-sub-item" style="display:flex;align-items:center;justify-content:space-between;gap:6px"><span>↳ Dimensionamiento y capacidad (% en funnel, TPS, Concurrencia)</span><span style="display:inline-flex;gap:2px;align-items:center;margin-left:4px"><span style="font-size:9px;font-weight:700;background:var(--cat2l);color:var(--cat2);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C2</span><span style="font-size:9px;font-weight:700;background:var(--cat3l);color:var(--cat3);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C3</span><span style="font-size:9px;font-weight:700;background:var(--cat4l);color:var(--cat4);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C4</span></span></div>
+              <div class="admin-sub-item" style="display:flex;align-items:center;justify-content:space-between;gap:6px"><span>↳ Performance (Latencia, Tokens)</span><span style="display:inline-flex;gap:2px;align-items:center;margin-left:4px"><span style="font-size:9px;font-weight:700;background:var(--cat2l);color:var(--cat2);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C2</span><span style="font-size:9px;font-weight:700;background:var(--cat3l);color:var(--cat3);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C3</span><span style="font-size:9px;font-weight:700;background:var(--cat4l);color:var(--cat4);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C4</span></span></div>
+              <div class="admin-sub-item" style="display:flex;align-items:center;justify-content:space-between;gap:6px"><span>↳ Estructura de costos</span><span style="display:inline-flex;gap:2px;align-items:center;margin-left:4px"><span style="font-size:9px;font-weight:700;background:var(--cat2l);color:var(--cat2);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C2</span><span style="font-size:9px;font-weight:700;background:var(--cat3l);color:var(--cat3);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C3</span><span style="font-size:9px;font-weight:700;background:var(--cat4l);color:var(--cat4);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C4</span></span></div>
             </div>
             <div style="margin-top:4px;display:flex;align-items:center;gap:6px;padding-top:6px;border-top:1px solid var(--bdr)">
               <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Nombre plantilla</span>
@@ -1154,8 +1159,8 @@ document.addEventListener('keydown',e=>{
               <span id="lbl_compliance_reporteria">XXXX</span>
             </div>
             <div style="margin:6px 0 4px 8px;display:flex;flex-direction:column;gap:2px">
-              <div class="admin-sub-item">↳ Reportería</div>
-              <div class="admin-sub-item">↳ Observabilidad y monitoreo</div>
+              <div class="admin-sub-item" style="display:flex;align-items:center;justify-content:space-between;gap:6px"><span>↳ Reportería</span><span style="display:inline-flex;gap:2px;align-items:center;margin-left:4px"><span style="font-size:9px;font-weight:700;background:var(--cat2l);color:var(--cat2);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C2</span><span style="font-size:9px;font-weight:700;background:var(--cat3l);color:var(--cat3);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C3</span><span style="font-size:9px;font-weight:700;background:var(--cat4l);color:var(--cat4);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C4</span></span></div>
+              <div class="admin-sub-item" style="display:flex;align-items:center;justify-content:space-between;gap:6px"><span>↳ Observabilidad y monitoreo</span><span style="display:inline-flex;gap:2px;align-items:center;margin-left:4px"><span style="font-size:9px;font-weight:700;background:var(--cat2l);color:var(--cat2);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C2</span><span style="font-size:9px;font-weight:700;background:var(--cat3l);color:var(--cat3);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C3</span><span style="font-size:9px;font-weight:700;background:var(--cat4l);color:var(--cat4);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C4</span></span></div>
             </div>
             <div style="margin-top:4px;display:flex;align-items:center;gap:6px;padding-top:6px;border-top:1px solid var(--bdr)">
               <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Nombre plantilla</span>
@@ -1181,8 +1186,8 @@ document.addEventListener('keydown',e=>{
               <span id="lbl_si_requerimientos_plantilla">Documentación de requerimientos técnicos y funcionales</span>
             </div>
             <div style="margin:6px 0 4px 8px;display:flex;flex-direction:column;gap:2px">
-              <div class="admin-sub-item">↳ Flujo funcional de la solución</div>
-              <div class="admin-sub-item">↳ Requerimientos funcionales</div>
+              <div class="admin-sub-item" style="display:flex;align-items:center;justify-content:space-between;gap:6px"><span>↳ Flujo funcional de la solución</span><span style="display:inline-flex;gap:2px;align-items:center;margin-left:4px"><span style="font-size:9px;font-weight:700;background:var(--cat2l);color:var(--cat2);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C2</span><span style="font-size:9px;font-weight:700;background:var(--cat3l);color:var(--cat3);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C3</span><span style="font-size:9px;font-weight:700;background:var(--cat4l);color:var(--cat4);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C4</span></span></div>
+              <div class="admin-sub-item" style="display:flex;align-items:center;justify-content:space-between;gap:6px"><span>↳ Requerimientos funcionales</span><span style="display:inline-flex;gap:2px;align-items:center;margin-left:4px"><span style="font-size:9px;font-weight:700;background:var(--cat2l);color:var(--cat2);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C2</span><span style="font-size:9px;font-weight:700;background:var(--cat3l);color:var(--cat3);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C3</span><span style="font-size:9px;font-weight:700;background:var(--cat4l);color:var(--cat4);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C4</span></span></div>
             </div>
             <div style="margin-top:4px;display:flex;align-items:center;gap:6px;padding-top:6px;border-top:1px solid var(--bdr)">
               <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Nombre plantilla</span>
@@ -1203,9 +1208,9 @@ document.addEventListener('keydown',e=>{
               <span id="lbl_si_checklist_plantilla">Checklist Seguridad de Información</span>
             </div>
             <div style="margin:6px 0 4px 8px;display:flex;flex-direction:column;gap:2px">
-              <div class="admin-sub-item">↳ Ficha de estándar de seguridad de la solución</div>
-              <div class="admin-sub-item">↳ Requerimientos adicionales para sistemas externos</div>
-              <div class="admin-sub-item">↳ Requerimientos para aplicaciones de uso para clientes</div>
+                                          <div class="admin-sub-item" style="display:flex;align-items:center;justify-content:space-between;gap:6px"><span>↳ Ficha de estándar de seguridad de la solución</span><span style="display:inline-flex;gap:2px;align-items:center;margin-left:4px"><span style="font-size:9px;font-weight:700;background:var(--cat3l);color:var(--cat3);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C3</span><span style="font-size:9px;font-weight:700;background:var(--cat4l);color:var(--cat4);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C4</span></span></div>
+                            <div class="admin-sub-item" style="display:flex;align-items:center;justify-content:space-between;gap:6px"><span>↳ Requerimientos adicionales para sistemas externos</span><span style="display:inline-flex;gap:2px;align-items:center;margin-left:4px"><span style="font-size:9px;font-weight:700;background:var(--cat3l);color:var(--cat3);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C3</span><span style="font-size:9px;font-weight:700;background:var(--cat4l);color:var(--cat4);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C4</span></span></div>
+                            <div class="admin-sub-item" style="display:flex;align-items:center;justify-content:space-between;gap:6px"><span>↳ Requerimientos para aplicaciones de uso para clientes</span><span style="display:inline-flex;gap:2px;align-items:center;margin-left:4px"><span style="font-size:9px;font-weight:700;background:var(--cat3l);color:var(--cat3);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C3</span><span style="font-size:9px;font-weight:700;background:var(--cat4l);color:var(--cat4);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C4</span></span></div>
             </div>
             <div style="margin-top:4px;display:flex;align-items:center;gap:6px;padding-top:6px;border-top:1px solid var(--bdr)">
               <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Nombre plantilla</span>
@@ -1233,9 +1238,8 @@ document.addEventListener('keydown',e=>{
               <span id="lbl_arq_integraciones">Arquitectura del Caso de Uso</span>
             </div>
             <div style="margin:6px 0 4px 8px;display:flex;flex-direction:column;gap:2px">
-              <div class="admin-sub-item">↳ Diagrama de arquitectura de servicio TI</div>
-              <div class="admin-sub-item">↳ Integraciones y flujo de datos</div>
-              <div class="admin-sub-item">↳ Inventario y responsabilidades</div>
+              <div class="admin-sub-item" style="display:flex;align-items:center;justify-content:space-between;gap:6px"><span>↳ Diagrama de arquitectura e integraciones</span><span style="display:inline-flex;gap:2px;align-items:center;margin-left:4px"><span style="font-size:9px;font-weight:700;background:var(--cat1l);color:var(--cat1);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C1</span><span style="font-size:9px;font-weight:700;background:var(--cat2l);color:var(--cat2);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C2</span><span style="font-size:9px;font-weight:700;background:var(--cat3l);color:var(--cat3);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C3</span><span style="font-size:9px;font-weight:700;background:var(--cat4l);color:var(--cat4);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C4</span></span></div>
+                            <div class="admin-sub-item" style="display:flex;align-items:center;justify-content:space-between;gap:6px"><span>↳ Inventario de componentes, integraciones y responsabilidades</span><span style="display:inline-flex;gap:2px;align-items:center;margin-left:4px"><span style="font-size:9px;font-weight:700;background:var(--cat1l);color:var(--cat1);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C1</span><span style="font-size:9px;font-weight:700;background:var(--cat2l);color:var(--cat2);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C2</span><span style="font-size:9px;font-weight:700;background:var(--cat3l);color:var(--cat3);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C3</span><span style="font-size:9px;font-weight:700;background:var(--cat4l);color:var(--cat4);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C4</span></span></div>
             </div>
             <div style="margin-top:4px;display:flex;align-items:center;gap:6px;padding-top:6px;border-top:1px solid var(--bdr)">
               <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Nombre plantilla</span>
@@ -1258,14 +1262,9 @@ document.addEventListener('keydown',e=>{
               <span id="lbl_arq_ficha_tecnica">Diagrama y ficha técnica</span>
             </div>
             <div style="margin:6px 0 4px 8px;display:flex;flex-direction:column;gap:2px">
-              <div class="admin-sub-item">↳ Detalle de aplicación</div>
-              <div class="admin-sub-item">↳ Responsabilidades</div>
-              <div class="admin-sub-item">↳ Data Center</div>
-              <div class="admin-sub-item">↳ Infraestructura</div>
-              <div class="admin-sub-item">↳ Servidor de aplicación</div>
-              <div class="admin-sub-item">↳ Servidor de Base de Datos</div>
-              <div class="admin-sub-item">↳ Seguridad y accesos</div>
-              <div class="admin-sub-item">↳ Usuarios</div>
+              <div class="admin-sub-item" style="display:flex;align-items:center;justify-content:space-between;gap:6px"><span>↳ Detalle de aplicación y responsabilidades</span><span style="display:inline-flex;gap:2px;align-items:center;margin-left:4px"><span style="font-size:9px;font-weight:700;background:var(--cat2l);color:var(--cat2);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C2</span><span style="font-size:9px;font-weight:700;background:var(--cat3l);color:var(--cat3);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C3</span><span style="font-size:9px;font-weight:700;background:var(--cat4l);color:var(--cat4);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C4</span></span></div>
+              <div class="admin-sub-item" style="display:flex;align-items:center;justify-content:space-between;gap:6px"><span>↳ Infraestructura (Data Center, Servidores de aplicación y BD)</span><span style="display:inline-flex;gap:2px;align-items:center;margin-left:4px"><span style="font-size:9px;font-weight:700;background:var(--cat2l);color:var(--cat2);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C2</span><span style="font-size:9px;font-weight:700;background:var(--cat3l);color:var(--cat3);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C3</span><span style="font-size:9px;font-weight:700;background:var(--cat4l);color:var(--cat4);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C4</span></span></div>
+              <div class="admin-sub-item" style="display:flex;align-items:center;justify-content:space-between;gap:6px"><span>↳ Seguridad, accesos y usuarios</span><span style="display:inline-flex;gap:2px;align-items:center;margin-left:4px"><span style="font-size:9px;font-weight:700;background:var(--cat2l);color:var(--cat2);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C2</span><span style="font-size:9px;font-weight:700;background:var(--cat3l);color:var(--cat3);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C3</span><span style="font-size:9px;font-weight:700;background:var(--cat4l);color:var(--cat4);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C4</span></span></div>
             </div>
             <div style="margin-top:4px;display:flex;align-items:center;gap:6px;padding-top:6px;border-top:1px solid var(--bdr)">
               <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Nombre plantilla</span>
@@ -1288,9 +1287,9 @@ document.addEventListener('keydown',e=>{
               <span id="lbl_arq_modelo_gobernanza">Modelo de Gobernanza</span>
             </div>
             <div style="margin:6px 0 4px 8px;display:flex;flex-direction:column;gap:2px">
-              <div class="admin-sub-item">↳ Roles en operatividad</div>
-              <div class="admin-sub-item">↳ Funcionalidades habilitadas</div>
-              <div class="admin-sub-item">↳ Matriz de grupos, roles, perfiles y responsabilidades</div>
+              <div class="admin-sub-item" style="display:flex;align-items:center;justify-content:space-between;gap:6px"><span>↳ Roles en operatividad</span><span style="display:inline-flex;gap:2px;align-items:center;margin-left:4px"><span style="font-size:9px;font-weight:700;background:var(--cat2l);color:var(--cat2);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C2</span><span style="font-size:9px;font-weight:700;background:var(--cat3l);color:var(--cat3);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C3</span><span style="font-size:9px;font-weight:700;background:var(--cat4l);color:var(--cat4);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C4</span></span></div>
+              <div class="admin-sub-item" style="display:flex;align-items:center;justify-content:space-between;gap:6px"><span>↳ Funcionalidades habilitadas</span><span style="display:inline-flex;gap:2px;align-items:center;margin-left:4px"><span style="font-size:9px;font-weight:700;background:var(--cat2l);color:var(--cat2);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C2</span><span style="font-size:9px;font-weight:700;background:var(--cat3l);color:var(--cat3);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C3</span><span style="font-size:9px;font-weight:700;background:var(--cat4l);color:var(--cat4);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C4</span></span></div>
+              <div class="admin-sub-item" style="display:flex;align-items:center;justify-content:space-between;gap:6px"><span>↳ Matriz de grupos, roles, perfiles y responsabilidades</span><span style="display:inline-flex;gap:2px;align-items:center;margin-left:4px"><span style="font-size:9px;font-weight:700;background:var(--cat2l);color:var(--cat2);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C2</span><span style="font-size:9px;font-weight:700;background:var(--cat3l);color:var(--cat3);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C3</span><span style="font-size:9px;font-weight:700;background:var(--cat4l);color:var(--cat4);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C4</span></span></div>
             </div>
             <div style="margin-top:4px;display:flex;align-items:center;gap:6px;padding-top:6px;border-top:1px solid var(--bdr)">
               <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Nombre plantilla</span>
@@ -1317,9 +1316,9 @@ document.addEventListener('keydown',e=>{
               <span id="lbl_calidad_reglas">Documentación de reglas de calidad y trazabilidad</span>
             </div>
             <div style="margin:6px 0 4px 8px;display:flex;flex-direction:column;gap:2px">
-              <div class="admin-sub-item">↳ Glosario de datos</div>
-              <div class="admin-sub-item">↳ Reglas de calidad técnicas y específicas</div>
-              <div class="admin-sub-item">↳ Trazabilidad</div>
+              <div class="admin-sub-item" style="display:flex;align-items:center;justify-content:space-between;gap:6px"><span>↳ Glosario de datos</span><span style="display:inline-flex;gap:2px;align-items:center;margin-left:4px"><span style="font-size:9px;font-weight:700;background:var(--cat1l);color:var(--cat1);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C1</span><span style="font-size:9px;font-weight:700;background:var(--cat2l);color:var(--cat2);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C2</span><span style="font-size:9px;font-weight:700;background:var(--cat3l);color:var(--cat3);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C3</span><span style="font-size:9px;font-weight:700;background:var(--cat4l);color:var(--cat4);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C4</span></span></div>
+              <div class="admin-sub-item" style="display:flex;align-items:center;justify-content:space-between;gap:6px"><span>↳ Reglas de calidad técnicas y específicas</span><span style="display:inline-flex;gap:2px;align-items:center;margin-left:4px"><span style="font-size:9px;font-weight:700;background:var(--cat1l);color:var(--cat1);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C1</span><span style="font-size:9px;font-weight:700;background:var(--cat2l);color:var(--cat2);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C2</span><span style="font-size:9px;font-weight:700;background:var(--cat3l);color:var(--cat3);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C3</span><span style="font-size:9px;font-weight:700;background:var(--cat4l);color:var(--cat4);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C4</span></span></div>
+              <div class="admin-sub-item" style="display:flex;align-items:center;justify-content:space-between;gap:6px"><span>↳ Trazabilidad</span><span style="display:inline-flex;gap:2px;align-items:center;margin-left:4px"><span style="font-size:9px;font-weight:700;background:var(--cat1l);color:var(--cat1);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C1</span><span style="font-size:9px;font-weight:700;background:var(--cat2l);color:var(--cat2);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C2</span><span style="font-size:9px;font-weight:700;background:var(--cat3l);color:var(--cat3);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C3</span><span style="font-size:9px;font-weight:700;background:var(--cat4l);color:var(--cat4);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C4</span></span></div>
             </div>
             <div style="margin-top:4px;display:flex;align-items:center;gap:6px;padding-top:6px;border-top:1px solid var(--bdr)">
               <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Nombre plantilla</span>
@@ -1345,10 +1344,10 @@ document.addEventListener('keydown',e=>{
               <span id="lbl_legal_plantilla">XXXX</span>
             </div>
             <div style="margin:6px 0 4px 8px;display:flex;flex-direction:column;gap:2px">
-              <div class="admin-sub-item">↳ Impacto en cumplimiento normativo</div>
-              <div class="admin-sub-item">↳ Impacto LAFT</div>
-              <div class="admin-sub-item">↳ Impacto en conducta de mercado</div>
-              <div class="admin-sub-item">↳ Obligaciones con terceros</div>
+                            <div class="admin-sub-item" style="display:flex;align-items:center;justify-content:space-between;gap:6px"><span>↳ Impacto en cumplimiento normativo</span><span style="display:inline-flex;gap:2px;align-items:center;margin-left:4px"><span style="font-size:9px;font-weight:700;background:var(--cat3l);color:var(--cat3);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C3</span><span style="font-size:9px;font-weight:700;background:var(--cat4l);color:var(--cat4);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C4</span></span></div>
+              <div class="admin-sub-item" style="display:flex;align-items:center;justify-content:space-between;gap:6px"><span>↳ Impacto LAFT</span><span style="display:inline-flex;gap:2px;align-items:center;margin-left:4px"><span style="font-size:9px;font-weight:700;background:var(--cat3l);color:var(--cat3);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C3</span><span style="font-size:9px;font-weight:700;background:var(--cat4l);color:var(--cat4);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C4</span></span></div>
+              <div class="admin-sub-item" style="display:flex;align-items:center;justify-content:space-between;gap:6px"><span>↳ Impacto en conducta de mercado</span><span style="display:inline-flex;gap:2px;align-items:center;margin-left:4px"><span style="font-size:9px;font-weight:700;background:var(--cat3l);color:var(--cat3);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C3</span><span style="font-size:9px;font-weight:700;background:var(--cat4l);color:var(--cat4);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C4</span></span></div>
+              <div class="admin-sub-item" style="display:flex;align-items:center;justify-content:space-between;gap:6px"><span>↳ Obligaciones con terceros</span><span style="display:inline-flex;gap:2px;align-items:center;margin-left:4px"><span style="font-size:9px;font-weight:700;background:var(--cat2l);color:var(--cat2);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C2</span><span style="font-size:9px;font-weight:700;background:var(--cat3l);color:var(--cat3);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C3</span><span style="font-size:9px;font-weight:700;background:var(--cat4l);color:var(--cat4);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C4</span></span></div>
             </div>
             <div style="margin-top:4px;display:flex;align-items:center;gap:6px;padding-top:6px;border-top:1px solid var(--bdr)">
               <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Nombre plantilla</span>
@@ -1374,11 +1373,11 @@ document.addEventListener('keydown',e=>{
               <span id="lbl_procesos_plantilla">Documentación de situación actual vs propuesta</span>
             </div>
             <div style="margin:6px 0 4px 8px;display:flex;flex-direction:column;gap:2px">
-              <div class="admin-sub-item">↳ Problemática</div>
-              <div class="admin-sub-item">↳ Alcance del proyecto</div>
-              <div class="admin-sub-item">↳ Diagrama de situación actual</div>
-              <div class="admin-sub-item">↳ Diagrama de situación propuesta</div>
-              <div class="admin-sub-item">↳ Beneficios e impacto en documentación</div>
+              <div class="admin-sub-item" style="display:flex;align-items:center;justify-content:space-between;gap:6px"><span>↳ Problemática</span><span style="display:inline-flex;gap:2px;align-items:center;margin-left:4px"><span style="font-size:9px;font-weight:700;background:var(--cat3l);color:var(--cat3);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C3</span><span style="font-size:9px;font-weight:700;background:var(--cat4l);color:var(--cat4);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C4</span></span></div>
+              <div class="admin-sub-item" style="display:flex;align-items:center;justify-content:space-between;gap:6px"><span>↳ Alcance del proyecto</span><span style="display:inline-flex;gap:2px;align-items:center;margin-left:4px"><span style="font-size:9px;font-weight:700;background:var(--cat3l);color:var(--cat3);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C3</span><span style="font-size:9px;font-weight:700;background:var(--cat4l);color:var(--cat4);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C4</span></span></div>
+              <div class="admin-sub-item" style="display:flex;align-items:center;justify-content:space-between;gap:6px"><span>↳ Diagrama de situación actual</span><span style="display:inline-flex;gap:2px;align-items:center;margin-left:4px"><span style="font-size:9px;font-weight:700;background:var(--cat3l);color:var(--cat3);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C3</span><span style="font-size:9px;font-weight:700;background:var(--cat4l);color:var(--cat4);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C4</span></span></div>
+              <div class="admin-sub-item" style="display:flex;align-items:center;justify-content:space-between;gap:6px"><span>↳ Diagrama de situación propuesta</span><span style="display:inline-flex;gap:2px;align-items:center;margin-left:4px"><span style="font-size:9px;font-weight:700;background:var(--cat3l);color:var(--cat3);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C3</span><span style="font-size:9px;font-weight:700;background:var(--cat4l);color:var(--cat4);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C4</span></span></div>
+              <div class="admin-sub-item" style="display:flex;align-items:center;justify-content:space-between;gap:6px"><span>↳ Beneficios e impacto en documentación</span><span style="display:inline-flex;gap:2px;align-items:center;margin-left:4px"><span style="font-size:9px;font-weight:700;background:var(--cat3l);color:var(--cat3);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C3</span><span style="font-size:9px;font-weight:700;background:var(--cat4l);color:var(--cat4);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C4</span></span></div>
             </div>
             <div style="margin-top:4px;display:flex;align-items:center;gap:6px;padding-top:6px;border-top:1px solid var(--bdr)">
               <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Nombre plantilla</span>
@@ -1404,9 +1403,9 @@ document.addEventListener('keydown',e=>{
               <span id="lbl_continuidad_plantilla">XXXX</span>
             </div>
             <div style="margin:6px 0 4px 8px;display:flex;flex-direction:column;gap:2px">
-              <div class="admin-sub-item">↳ Plan de continuidad</div>
-              <div class="admin-sub-item">↳ SLA y certificados de proveedores</div>
-              <div class="admin-sub-item">↳ Matriz de soporte y atención</div>
+              <div class="admin-sub-item" style="display:flex;align-items:center;justify-content:space-between;gap:6px"><span>↳ Plan de continuidad</span><span style="display:inline-flex;gap:2px;align-items:center;margin-left:4px"><span style="font-size:9px;font-weight:700;background:var(--cat3l);color:var(--cat3);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C3</span><span style="font-size:9px;font-weight:700;background:var(--cat4l);color:var(--cat4);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C4</span></span></div>
+              <div class="admin-sub-item" style="display:flex;align-items:center;justify-content:space-between;gap:6px"><span>↳ SLA y certificados de proveedores</span><span style="display:inline-flex;gap:2px;align-items:center;margin-left:4px"><span style="font-size:9px;font-weight:700;background:var(--cat3l);color:var(--cat3);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C3</span><span style="font-size:9px;font-weight:700;background:var(--cat4l);color:var(--cat4);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C4</span></span></div>
+              <div class="admin-sub-item" style="display:flex;align-items:center;justify-content:space-between;gap:6px"><span>↳ Matriz de soporte y atención</span><span style="display:inline-flex;gap:2px;align-items:center;margin-left:4px"><span style="font-size:9px;font-weight:700;background:var(--cat3l);color:var(--cat3);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C3</span><span style="font-size:9px;font-weight:700;background:var(--cat4l);color:var(--cat4);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C4</span></span></div>
             </div>
             <div style="margin-top:4px;display:flex;align-items:center;gap:6px;padding-top:6px;border-top:1px solid var(--bdr)">
               <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Nombre plantilla</span>
@@ -1432,8 +1431,8 @@ document.addEventListener('keydown',e=>{
               <span id="lbl_riesgo_op_plantilla">Checklist RO Evaluación GIR</span>
             </div>
             <div style="margin:6px 0 4px 8px;display:flex;flex-direction:column;gap:2px">
-              <div class="admin-sub-item">↳ Responsables</div>
-              <div class="admin-sub-item">↳ Fechas de compromiso y de entrega</div>
+              <div class="admin-sub-item" style="display:flex;align-items:center;justify-content:space-between;gap:6px"><span>↳ Responsables</span><span style="display:inline-flex;gap:2px;align-items:center;margin-left:4px"><span style="font-size:9px;font-weight:700;background:var(--cat2l);color:var(--cat2);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C2</span><span style="font-size:9px;font-weight:700;background:var(--cat3l);color:var(--cat3);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C3</span><span style="font-size:9px;font-weight:700;background:var(--cat4l);color:var(--cat4);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C4</span></span></div>
+              <div class="admin-sub-item" style="display:flex;align-items:center;justify-content:space-between;gap:6px"><span>↳ Fechas de compromiso y de entrega</span><span style="display:inline-flex;gap:2px;align-items:center;margin-left:4px"><span style="font-size:9px;font-weight:700;background:var(--cat2l);color:var(--cat2);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C2</span><span style="font-size:9px;font-weight:700;background:var(--cat3l);color:var(--cat3);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C3</span><span style="font-size:9px;font-weight:700;background:var(--cat4l);color:var(--cat4);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C4</span></span></div>
             </div>
             <div style="margin-top:4px;display:flex;align-items:center;gap:6px;padding-top:6px;border-top:1px solid var(--bdr)">
               <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Nombre plantilla</span>
@@ -1459,8 +1458,8 @@ document.addEventListener('keydown',e=>{
               <span id="lbl_proveedores_plantilla">Gestión de proveedores</span>
             </div>
             <div style="margin:6px 0 4px 8px;display:flex;flex-direction:column;gap:2px">
-              <div class="admin-sub-item">↳ Contratos y SLA de proveedores</div>
-              <div class="admin-sub-item">↳ Certificados del proveedor</div>
+              <div class="admin-sub-item" style="display:flex;align-items:center;justify-content:space-between;gap:6px"><span>↳ Contratos y SLA de proveedores</span><span style="display:inline-flex;gap:2px;align-items:center;margin-left:4px"><span style="font-size:9px;font-weight:700;background:var(--cat2l);color:var(--cat2);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C2</span><span style="font-size:9px;font-weight:700;background:var(--cat3l);color:var(--cat3);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C3</span><span style="font-size:9px;font-weight:700;background:var(--cat4l);color:var(--cat4);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C4</span></span></div>
+              <div class="admin-sub-item" style="display:flex;align-items:center;justify-content:space-between;gap:6px"><span>↳ Certificados del proveedor</span><span style="display:inline-flex;gap:2px;align-items:center;margin-left:4px"><span style="font-size:9px;font-weight:700;background:var(--cat2l);color:var(--cat2);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C2</span><span style="font-size:9px;font-weight:700;background:var(--cat3l);color:var(--cat3);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C3</span><span style="font-size:9px;font-weight:700;background:var(--cat4l);color:var(--cat4);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C4</span></span></div>
             </div>
             <div style="margin-top:4px;display:flex;align-items:center;gap:6px;padding-top:6px;border-top:1px solid var(--bdr)">
               <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Nombre plantilla</span>
@@ -1486,7 +1485,7 @@ document.addEventListener('keydown',e=>{
               <span id="lbl_gestion_riesgos_plantilla">Documentación de reglas de negocio</span>
             </div>
             <div style="margin:6px 0 4px 8px;display:flex;flex-direction:column;gap:2px">
-              <div class="admin-sub-item">↳ Reglas de negocio</div>
+              <div class="admin-sub-item" style="display:flex;align-items:center;justify-content:space-between;gap:6px"><span>↳ Reglas de negocio</span><span style="display:inline-flex;gap:2px;align-items:center;margin-left:4px"><span style="font-size:9px;font-weight:700;background:var(--cat3l);color:var(--cat3);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C3</span><span style="font-size:9px;font-weight:700;background:var(--cat4l);color:var(--cat4);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C4</span></span></div>
             </div>
             <div style="margin-top:4px;display:flex;align-items:center;gap:6px;padding-top:6px;border-top:1px solid var(--bdr)">
               <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Nombre plantilla</span>
@@ -1507,10 +1506,10 @@ document.addEventListener('keydown',e=>{
               <span id="lbl_gestion_riesgos_dimensionamiento">Ficha técnica</span>
             </div>
             <div style="margin:6px 0 4px 8px;display:flex;flex-direction:column;gap:2px">
-              <div class="admin-sub-item">↳ Detalle del proyecto</div>
-              <div class="admin-sub-item">↳ Despliegue y capacitaciones</div>
-              <div class="admin-sub-item">↳ Seguimiento y evaluación</div>
-              <div class="admin-sub-item">↳ Seguimiento y control</div>
+              <div class="admin-sub-item" style="display:flex;align-items:center;justify-content:space-between;gap:6px"><span>↳ Detalle del proyecto</span><span style="display:inline-flex;gap:2px;align-items:center;margin-left:4px"><span style="font-size:9px;font-weight:700;background:var(--cat3l);color:var(--cat3);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C3</span><span style="font-size:9px;font-weight:700;background:var(--cat4l);color:var(--cat4);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C4</span></span></div>
+              <div class="admin-sub-item" style="display:flex;align-items:center;justify-content:space-between;gap:6px"><span>↳ Despliegue y capacitaciones</span><span style="display:inline-flex;gap:2px;align-items:center;margin-left:4px"><span style="font-size:9px;font-weight:700;background:var(--cat3l);color:var(--cat3);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C3</span><span style="font-size:9px;font-weight:700;background:var(--cat4l);color:var(--cat4);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C4</span></span></div>
+              <div class="admin-sub-item" style="display:flex;align-items:center;justify-content:space-between;gap:6px"><span>↳ Seguimiento y evaluación</span><span style="display:inline-flex;gap:2px;align-items:center;margin-left:4px"><span style="font-size:9px;font-weight:700;background:var(--cat3l);color:var(--cat3);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C3</span><span style="font-size:9px;font-weight:700;background:var(--cat4l);color:var(--cat4);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C4</span></span></div>
+              <div class="admin-sub-item" style="display:flex;align-items:center;justify-content:space-between;gap:6px"><span>↳ Seguimiento y control</span><span style="display:inline-flex;gap:2px;align-items:center;margin-left:4px"><span style="font-size:9px;font-weight:700;background:var(--cat3l);color:var(--cat3);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C3</span><span style="font-size:9px;font-weight:700;background:var(--cat4l);color:var(--cat4);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C4</span></span></div>
             </div>
             <div style="margin-top:4px;display:flex;align-items:center;gap:6px;padding-top:6px;border-top:1px solid var(--bdr)">
               <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Nombre plantilla</span>
@@ -1531,7 +1530,7 @@ document.addEventListener('keydown',e=>{
               <span id="lbl_gestion_riesgos_regulatorio">XXXX</span>
             </div>
             <div style="margin:6px 0 4px 8px;display:flex;flex-direction:column;gap:2px">
-              <div class="admin-sub-item">↳ Impacto regulatorio</div>
+              <div class="admin-sub-item" style="display:flex;align-items:center;justify-content:space-between;gap:6px"><span>↳ Impacto regulatorio</span><span style="display:inline-flex;gap:2px;align-items:center;margin-left:4px"><span style="font-size:9px;font-weight:700;background:var(--cat3l);color:var(--cat3);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C3</span><span style="font-size:9px;font-weight:700;background:var(--cat4l);color:var(--cat4);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C4</span></span></div>
             </div>
             <div style="margin-top:4px;display:flex;align-items:center;gap:6px;padding-top:6px;border-top:1px solid var(--bdr)">
               <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Nombre plantilla</span>
@@ -1557,8 +1556,8 @@ document.addEventListener('keydown',e=>{
               <span id="lbl_contabilidad_plantilla">XXXX</span>
             </div>
             <div style="margin:6px 0 4px 8px;display:flex;flex-direction:column;gap:2px">
-              <div class="admin-sub-item">↳ Impacto contable</div>
-              <div class="admin-sub-item">↳ Impacto tributario</div>
+              <div class="admin-sub-item" style="display:flex;align-items:center;justify-content:space-between;gap:6px"><span>↳ Impacto contable</span><span style="display:inline-flex;gap:2px;align-items:center;margin-left:4px"><span style="font-size:9px;font-weight:700;background:var(--cat3l);color:var(--cat3);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C3</span><span style="font-size:9px;font-weight:700;background:var(--cat4l);color:var(--cat4);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C4</span></span></div>
+              <div class="admin-sub-item" style="display:flex;align-items:center;justify-content:space-between;gap:6px"><span>↳ Impacto tributario</span><span style="display:inline-flex;gap:2px;align-items:center;margin-left:4px"><span style="font-size:9px;font-weight:700;background:var(--cat3l);color:var(--cat3);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C3</span><span style="font-size:9px;font-weight:700;background:var(--cat4l);color:var(--cat4);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C4</span></span></div>
             </div>
             <div style="margin-top:4px;display:flex;align-items:center;gap:6px;padding-top:6px;border-top:1px solid var(--bdr)">
               <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Nombre plantilla</span>
@@ -1584,9 +1583,9 @@ document.addEventListener('keydown',e=>{
               <span id="lbl_gov_ia_plantilla">XXXX</span>
             </div>
             <div style="margin:6px 0 4px 8px;display:flex;flex-direction:column;gap:2px">
-              <div class="admin-sub-item">↳ Metodología</div>
-              <div class="admin-sub-item">↳ Trazabilidad</div>
-              <div class="admin-sub-item">↳ Explicabilidad</div>
+              <div class="admin-sub-item" style="display:flex;align-items:center;justify-content:space-between;gap:6px"><span>↳ Metodología</span><span style="display:inline-flex;gap:2px;align-items:center;margin-left:4px"><span style="font-size:9px;font-weight:700;background:var(--cat4l);color:var(--cat4);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C4</span></span></div>
+                            <div class="admin-sub-item" style="display:flex;align-items:center;justify-content:space-between;gap:6px"><span>↳ Trazabilidad</span><span style="display:inline-flex;gap:2px;align-items:center;margin-left:4px"><span style="font-size:9px;font-weight:700;background:var(--cat4l);color:var(--cat4);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C4</span></span></div>
+              <div class="admin-sub-item" style="display:flex;align-items:center;justify-content:space-between;gap:6px"><span>↳ Explicabilidad</span><span style="display:inline-flex;gap:2px;align-items:center;margin-left:4px"><span style="font-size:9px;font-weight:700;background:var(--cat4l);color:var(--cat4);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C4</span></span></div>
             </div>
             <div style="margin-top:4px;display:flex;align-items:center;gap:6px;padding-top:6px;border-top:1px solid var(--bdr)">
               <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Nombre plantilla</span>
@@ -1612,13 +1611,13 @@ document.addEventListener('keydown',e=>{
               <span id="lbl_sistemas_plantilla">Modelo Business-IT Gobierno para el Desarrollo de Aplicaciones</span>
             </div>
             <div style="margin:6px 0 4px 8px;display:flex;flex-direction:column;gap:2px">
-              <div class="admin-sub-item">↳ Marco teórico</div>
-              <div class="admin-sub-item">↳ Casos de uso</div>
-              <div class="admin-sub-item">↳ Beneficios</div>
-              <div class="admin-sub-item">↳ Riesgos y limitaciones</div>
-              <div class="admin-sub-item">↳ Marco regulatorio</div>
-              <div class="admin-sub-item">↳ Framework del gobierno</div>
-              <div class="admin-sub-item">↳ Plan de acción</div>
+              <div class="admin-sub-item" style="display:flex;align-items:center;justify-content:space-between;gap:6px"><span>↳ Marco teórico</span><span style="display:inline-flex;gap:2px;align-items:center;margin-left:4px"><span style="font-size:9px;font-weight:700;background:var(--cat2l);color:var(--cat2);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C2</span><span style="font-size:9px;font-weight:700;background:var(--cat3l);color:var(--cat3);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C3</span><span style="font-size:9px;font-weight:700;background:var(--cat4l);color:var(--cat4);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C4</span></span></div>
+              <div class="admin-sub-item" style="display:flex;align-items:center;justify-content:space-between;gap:6px"><span>↳ Casos de uso</span><span style="display:inline-flex;gap:2px;align-items:center;margin-left:4px"><span style="font-size:9px;font-weight:700;background:var(--cat2l);color:var(--cat2);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C2</span><span style="font-size:9px;font-weight:700;background:var(--cat3l);color:var(--cat3);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C3</span><span style="font-size:9px;font-weight:700;background:var(--cat4l);color:var(--cat4);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C4</span></span></div>
+              <div class="admin-sub-item" style="display:flex;align-items:center;justify-content:space-between;gap:6px"><span>↳ Beneficios</span><span style="display:inline-flex;gap:2px;align-items:center;margin-left:4px"><span style="font-size:9px;font-weight:700;background:var(--cat2l);color:var(--cat2);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C2</span><span style="font-size:9px;font-weight:700;background:var(--cat3l);color:var(--cat3);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C3</span><span style="font-size:9px;font-weight:700;background:var(--cat4l);color:var(--cat4);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C4</span></span></div>
+              <div class="admin-sub-item" style="display:flex;align-items:center;justify-content:space-between;gap:6px"><span>↳ Riesgos y limitaciones</span><span style="display:inline-flex;gap:2px;align-items:center;margin-left:4px"><span style="font-size:9px;font-weight:700;background:var(--cat2l);color:var(--cat2);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C2</span><span style="font-size:9px;font-weight:700;background:var(--cat3l);color:var(--cat3);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C3</span><span style="font-size:9px;font-weight:700;background:var(--cat4l);color:var(--cat4);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C4</span></span></div>
+              <div class="admin-sub-item" style="display:flex;align-items:center;justify-content:space-between;gap:6px"><span>↳ Marco regulatorio</span><span style="display:inline-flex;gap:2px;align-items:center;margin-left:4px"><span style="font-size:9px;font-weight:700;background:var(--cat2l);color:var(--cat2);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C2</span><span style="font-size:9px;font-weight:700;background:var(--cat3l);color:var(--cat3);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C3</span><span style="font-size:9px;font-weight:700;background:var(--cat4l);color:var(--cat4);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C4</span></span></div>
+              <div class="admin-sub-item" style="display:flex;align-items:center;justify-content:space-between;gap:6px"><span>↳ Framework del gobierno</span><span style="display:inline-flex;gap:2px;align-items:center;margin-left:4px"><span style="font-size:9px;font-weight:700;background:var(--cat2l);color:var(--cat2);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C2</span><span style="font-size:9px;font-weight:700;background:var(--cat3l);color:var(--cat3);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C3</span><span style="font-size:9px;font-weight:700;background:var(--cat4l);color:var(--cat4);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C4</span></span></div>
+              <div class="admin-sub-item" style="display:flex;align-items:center;justify-content:space-between;gap:6px"><span>↳ Plan de acción</span><span style="display:inline-flex;gap:2px;align-items:center;margin-left:4px"><span style="font-size:9px;font-weight:700;background:var(--cat2l);color:var(--cat2);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C2</span><span style="font-size:9px;font-weight:700;background:var(--cat3l);color:var(--cat3);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C3</span><span style="font-size:9px;font-weight:700;background:var(--cat4l);color:var(--cat4);border-radius:99px;padding:1px 5px;flex-shrink:0;white-space:nowrap">C4</span></span></div>
             </div>
             <div style="margin-top:4px;display:flex;align-items:center;gap:6px;padding-top:6px;border-top:1px solid var(--bdr)">
               <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Nombre plantilla</span>
