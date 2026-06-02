@@ -431,46 +431,46 @@ const CAT_CFG={
 
 const matrizRows=[
   {name:'Registro de iniciativa', c:[true,true,true,true], art:[
-    {key:'reg_iniciativa_plantilla', label:'XXXX', items:['Nombre de iniciativa','Alcance, objetivos y organización del proyecto','Carga de presentación KickOff','Carga de RFP']},
+    {key:'reg_iniciativa_plantilla', label:'Formulario para registro de iniciativa', items:['Nombre de iniciativa','Alcance, objetivos y organización del proyecto','Carga de presentación KickOff','Carga de RFP']},
   ]},
   {name:'LPDP', c:[true,true,true,true], art:[
-    {key:'lpdp_plantilla', label:'XXXX', items:['Clasificación y sensibilidad de datos']},
+    {key:'lpdp_plantilla', label:'Inventario de datos personales y sensibilidad', items:['Definición','Tipo de dato y flag de sensible y criticidad','Tratamiento, retención y seguridad','Fuente','Uso de IA']},
   ]},
   {name:'Compliance Interno', c:[false, true, true, true], art:[
-    {key:'compliance_pretesting', label:'XXXX', items:['Resultados de observabilidad','Resultados de performance','Resultados de pruebas de estrés','Resultados de Ethical Hacking']},
-    {key:'compliance_costos', label:'XXXX', items:['Dimensionamiento y % en funnel','TPS','Latencia','Concurrencia','Tokens','Costos']},
+    {key:'compliance_pretesting', label:'Informe de pre testing', items:['Resultados de observabilidad','Resultados de performance','Resultados de pruebas de estrés','Resultados de Ethical Hacking']},
+    {key:'compliance_costos', label:'Matriz de costos', items:['Dimensionamiento y % en funnel','TPS','Latencia','Concurrencia','Tokens','Costos']},
     {key:'compliance_reporteria', label:'XXXX', items:['Reportería','Observabilidad y monitoreo']},
   ]},
   {name:'Seguridad de Información', c:[true,true,true,true], art:[
-    {key:'si_requerimientos_plantilla', label:'XXXX', items:['Flujo funcional de la solución','Requerimientos funcionales']},
-    {key:'si_checklist_plantilla', label:'XXXX', items:['Ficha de estándar de seguridad de la solución','Requerimientos adicionales para sistemas externos','Requerimientos para aplicaciones de uso para clientes']},
+    {key:'si_requerimientos_plantilla', label:'Documentación de requerimientos técnicos y funcionales', items:['Flujo funcional de la solución','Requerimientos funcionales']},
+    {key:'si_checklist_plantilla', label:'Checklist Seguridad de Información', items:['Ficha de estándar de seguridad de la solución','Requerimientos adicionales para sistemas externos','Requerimientos para aplicaciones de uso para clientes']},
   ]},
   {name:'Arquitectura', c:[false,true,true,true], art:[
-    {key:'arq_integraciones', label:'XXXX', items:['Diagrama de arquitectura de servicio TI','Integraciones y flujo de datos','Inventario y responsabilidades']},
-    {key:'arq_ficha_tecnica', label:'XXXX', items:['Detalle de aplicación','Responsabilidades','Data Center','Infraestructura','Servidor de aplicación','Servidor de Base de Datos','Seguridad y accesos','Usuarios']},
-    {key:'arq_modelo_gobernanza', label:'XXXX', items:['Roles en operatividad','Funcionalidades habilitadas','Matriz de grupos, roles, perfiles y responsabilidades']},
+    {key:'arq_integraciones', label:'Arquitectura del Caso de Uso', items:['Diagrama de arquitectura de servicio TI','Integraciones y flujo de datos','Inventario y responsabilidades']},
+    {key:'arq_ficha_tecnica', label:'Diagrama y ficha técnica', items:['Detalle de aplicación','Responsabilidades','Data Center','Infraestructura','Servidor de aplicación','Servidor de Base de Datos','Seguridad y accesos','Usuarios']},
+    {key:'arq_modelo_gobernanza', label:'Modelo de Gobernanza', items:['Roles en operatividad','Funcionalidades habilitadas','Matriz de grupos, roles, perfiles y responsabilidades']},
   ]},
   {name:'Calidad de Datos',          c:[true, true, true, true], art:[
-    {key:'calidad_reglas', label:'XXXX', items:['Glosario de datos','Reglas de calidad técnicas y específicas','Trazabilidad']},
+    {key:'calidad_reglas', label:'Documentación de reglas de calidad y trazabilidad', items:['Glosario de datos','Reglas de calidad técnicas y específicas','Trazabilidad']},
   ]},
   {name:'Legal', c:[false,true,true,true], art:[
     {key:'legal_plantilla', label:'XXXX', items:['Evaluación regulatoria y contractual','Documentación LAFT si aplica','Obligaciones con terceros/clientes']},
   ]},
   {name:'Procesos', c:[false,true,true,true], art:[
-    {key:'procesos_plantilla', label:'XXXX', items:['Problemática','Alcance del proyecto','Diagrama de situación actual','Diagrama de situación propuesta','Beneficios e impacto en documentación']},
+    {key:'procesos_plantilla', label:'Documentación de situación actual vs propuesta', items:['Problemática','Alcance del proyecto','Diagrama de situación actual','Diagrama de situación propuesta','Beneficios e impacto en documentación']},
   ]},
   {name:'Continuidad de Negocio', c:[false,true,true,true], art:[
     {key:'continuidad_plantilla', label:'XXXX', items:['Plan de continuidad','SLA y certificados de proveedores','Matriz de soporte y atención']},
   ]},
   {name:'Riesgo Operacional', c:[false,true,true,true], art:[
-    {key:'riesgo_op_plantilla', label:'XXXX', items:['Responsables','Fechas de compromiso y de entrega']},
+    {key:'riesgo_op_plantilla', label:'Checklist RO Evaluación GIR', items:['Responsables','Fechas de compromiso y de entrega']},
   ]},
   {name:'Gestión de proveedores (E)', c:[false,true,true,true], art:[
-    {key:'proveedores_plantilla', label:'XXXX', items:['Contratos y SLA de proveedores','Certificados del proveedor']},
+    {key:'proveedores_plantilla', label:'Gestión de proveedores', items:['Contratos y SLA de proveedores','Certificados del proveedor']},
   ]},
   {name:'Gestión de Riesgos', c:[false,false,true,true], art:[
-    {key:'gestion_riesgos_plantilla', label:'XXXX', items:['Reglas de negocio']},
-    {key:'gestion_riesgos_dimensionamiento', label:'XXXX', items:['Detalle del proyecto','Despliegue y capacitaciones','Seguimiento y evaluación','Seguimiento y control']},
+    {key:'gestion_riesgos_plantilla', label:'Documentación de reglas de negocio', items:['Reglas de negocio']},
+    {key:'gestion_riesgos_dimensionamiento', label:'Ficha técnica', items:['Detalle del proyecto','Despliegue y capacitaciones','Seguimiento y evaluación','Seguimiento y control']},
   ]},
   {name:'Contabilidad', c:[false,false,true,true], art:[
     {key:'contabilidad_plantilla', label:'XXXX', items:['Evaluación impacto contable/tributario','Matriz de costos']},
@@ -789,7 +789,7 @@ document.addEventListener('keydown',e=>{
           <div style="flex:1;min-width:0">
             <div class="admin-art-name" style="display:flex;align-items:center;gap:6px">
               <span style="font-size:10px;background:var(--nv-l);color:var(--nv);border:1px solid var(--nv-m);border-radius:4px;padding:1px 6px;font-weight:700;white-space:nowrap">Plantilla</span>
-              <span id="lbl_reg_iniciativa_plantilla">XXXX</span>
+              <span id="lbl_reg_iniciativa_plantilla">Formulario para registro de iniciativa</span>
             </div>
             <div style="margin:6px 0 4px 8px;display:flex;flex-direction:column;gap:2px">
               <div class="admin-sub-item">↳ Nombre de iniciativa</div>
@@ -799,11 +799,11 @@ document.addEventListener('keydown',e=>{
             </div>
             <div style="margin-top:4px;display:flex;align-items:center;gap:6px;padding-top:6px;border-top:1px solid var(--bdr)">
               <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Nombre plantilla</span>
-              <input type="text" class="admin-url-input" id="name_reg_iniciativa_plantilla" placeholder="Nombre visible del botón..." value="XXXX" oninput="updateArtLabel('reg_iniciativa_plantilla',this.value)" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+              <input type="text" class="admin-url-input" id="name_reg_iniciativa_plantilla" placeholder="Nombre visible del botón..." value="Formulario para registro de iniciativa" oninput="updateArtLabel('reg_iniciativa_plantilla',this.value)" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
             </div>
             <div style="margin-top:5px;display:flex;gap:6px;align-items:center">
               <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Enlace</span>
-              <input type="url" class="admin-url-input" id="url_reg_iniciativa_plantilla" placeholder="https://..." value="" oninput="artLinks['reg_iniciativa_plantilla']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+              <input type="url" class="admin-url-input" id="url_reg_iniciativa_plantilla" placeholder="https://..." value="https://forms.office.com/r/JBfekCzq45" oninput="artLinks['reg_iniciativa_plantilla']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
               <button onclick="copyUrl('reg_iniciativa_plantilla')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
             </div>
           </div>
@@ -818,18 +818,22 @@ document.addEventListener('keydown',e=>{
           <div style="flex:1;min-width:0">
             <div class="admin-art-name" style="display:flex;align-items:center;gap:6px">
               <span style="font-size:10px;background:var(--nv-l);color:var(--nv);border:1px solid var(--nv-m);border-radius:4px;padding:1px 6px;font-weight:700;white-space:nowrap">Plantilla</span>
-              <span id="lbl_lpdp_plantilla">XXXX</span>
+              <span id="lbl_lpdp_plantilla">Inventario de datos personales y sensibilidad</span>
             </div>
             <div style="margin:6px 0 4px 8px;display:flex;flex-direction:column;gap:2px">
-              <div class="admin-sub-item">↳ Clasificación y sensibilidad de datos</div>
+              <div class="admin-sub-item">↳ Definición</div>
+              <div class="admin-sub-item">↳ Tipo de dato y flag de sensible y criticidad</div>
+              <div class="admin-sub-item">↳ Tratamiento, retención y seguridad</div>
+              <div class="admin-sub-item">↳ Fuente</div>
+              <div class="admin-sub-item">↳ Uso de IA</div>
             </div>
             <div style="margin-top:4px;display:flex;align-items:center;gap:6px;padding-top:6px;border-top:1px solid var(--bdr)">
               <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Nombre plantilla</span>
-              <input type="text" class="admin-url-input" id="name_lpdp_plantilla" placeholder="Nombre visible del botón..." value="XXXX" oninput="updateArtLabel('lpdp_plantilla',this.value)" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+              <input type="text" class="admin-url-input" id="name_lpdp_plantilla" placeholder="Nombre visible del botón..." value="Inventario de datos personales y sensibilidad" oninput="updateArtLabel('lpdp_plantilla',this.value)" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
             </div>
             <div style="margin-top:5px;display:flex;gap:6px;align-items:center">
               <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Enlace</span>
-              <input type="url" class="admin-url-input" id="url_lpdp_plantilla" placeholder="https://..." value="" oninput="artLinks['lpdp_plantilla']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+              <input type="url" class="admin-url-input" id="url_lpdp_plantilla" placeholder="https://..." value="https://efectivasa-my.sharepoint.com/:x:/g/personal/rparedesr_efectiva_com_pe/IQAiSc0ocQvMR4CQz9eYnT6CAbdJmXSN229__0TqRKpcxmk?e=aXIoP1" oninput="artLinks['lpdp_plantilla']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
               <button onclick="copyUrl('lpdp_plantilla')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
             </div>
           </div>
@@ -844,7 +848,7 @@ document.addEventListener('keydown',e=>{
           <div style="flex:1;min-width:0">
             <div class="admin-art-name" style="display:flex;align-items:center;gap:6px">
               <span style="font-size:10px;background:var(--nv-l);color:var(--nv);border:1px solid var(--nv-m);border-radius:4px;padding:1px 6px;font-weight:700;white-space:nowrap">Plantilla</span>
-              <span id="lbl_compliance_pretesting">XXXX</span>
+              <span id="lbl_compliance_pretesting">Informe de pre testing</span>
             </div>
             <div style="margin:6px 0 4px 8px;display:flex;flex-direction:column;gap:2px">
               <div class="admin-sub-item">↳ Resultados de observabilidad</div>
@@ -854,11 +858,11 @@ document.addEventListener('keydown',e=>{
             </div>
             <div style="margin-top:4px;display:flex;align-items:center;gap:6px;padding-top:6px;border-top:1px solid var(--bdr)">
               <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Nombre plantilla</span>
-              <input type="text" class="admin-url-input" id="name_compliance_pretesting" placeholder="Nombre visible del botón..." value="XXXX" oninput="updateArtLabel('compliance_pretesting',this.value)" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+              <input type="text" class="admin-url-input" id="name_compliance_pretesting" placeholder="Nombre visible del botón..." value="Informe de pre testing" oninput="updateArtLabel('compliance_pretesting',this.value)" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
             </div>
             <div style="margin-top:5px;display:flex;gap:6px;align-items:center">
               <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Enlace</span>
-              <input type="url" class="admin-url-input" id="url_compliance_pretesting" placeholder="https://..." value="" oninput="artLinks['compliance_pretesting']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+              <input type="url" class="admin-url-input" id="url_compliance_pretesting" placeholder="https://..." value="https://raw.githubusercontent.com/efectiva-riesgos-lab/compliance-analitica/refs/heads/main/documentos/COMPLIANCE%20-%20Informe%20de%20pre%20testing.docx" oninput="artLinks['compliance_pretesting']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
               <button onclick="copyUrl('compliance_pretesting')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
             </div>
           </div>
@@ -868,7 +872,7 @@ document.addEventListener('keydown',e=>{
           <div style="flex:1;min-width:0">
             <div class="admin-art-name" style="display:flex;align-items:center;gap:6px">
               <span style="font-size:10px;background:var(--nv-l);color:var(--nv);border:1px solid var(--nv-m);border-radius:4px;padding:1px 6px;font-weight:700;white-space:nowrap">Plantilla</span>
-              <span id="lbl_compliance_costos">XXXX</span>
+              <span id="lbl_compliance_costos">Matriz de costos</span>
             </div>
             <div style="margin:6px 0 4px 8px;display:flex;flex-direction:column;gap:2px">
               <div class="admin-sub-item">↳ Dimensionamiento y % en funnel</div>
@@ -880,11 +884,11 @@ document.addEventListener('keydown',e=>{
             </div>
             <div style="margin-top:4px;display:flex;align-items:center;gap:6px;padding-top:6px;border-top:1px solid var(--bdr)">
               <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Nombre plantilla</span>
-              <input type="text" class="admin-url-input" id="name_compliance_costos" placeholder="Nombre visible del botón..." value="XXXX" oninput="updateArtLabel('compliance_costos',this.value)" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+              <input type="text" class="admin-url-input" id="name_compliance_costos" placeholder="Nombre visible del botón..." value="Matriz de costos" oninput="updateArtLabel('compliance_costos',this.value)" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
             </div>
             <div style="margin-top:5px;display:flex;gap:6px;align-items:center">
               <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Enlace</span>
-              <input type="url" class="admin-url-input" id="url_compliance_costos" placeholder="https://..." value="" oninput="artLinks['compliance_costos']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+              <input type="url" class="admin-url-input" id="url_compliance_costos" placeholder="https://..." value="https://raw.githubusercontent.com/efectiva-riesgos-lab/compliance-analitica/refs/heads/main/documentos/COMPLIANCE%20-%20Matriz%20de%20costos.xlsx" oninput="artLinks['compliance_costos']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
               <button onclick="copyUrl('compliance_costos')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
             </div>
           </div>
@@ -921,7 +925,7 @@ document.addEventListener('keydown',e=>{
           <div style="flex:1;min-width:0">
             <div class="admin-art-name" style="display:flex;align-items:center;gap:6px">
               <span style="font-size:10px;background:var(--nv-l);color:var(--nv);border:1px solid var(--nv-m);border-radius:4px;padding:1px 6px;font-weight:700;white-space:nowrap">Plantilla</span>
-              <span id="lbl_si_requerimientos_plantilla">XXXX</span>
+              <span id="lbl_si_requerimientos_plantilla">Documentación de requerimientos técnicos y funcionales</span>
             </div>
             <div style="margin:6px 0 4px 8px;display:flex;flex-direction:column;gap:2px">
               <div class="admin-sub-item">↳ Flujo funcional de la solución</div>
@@ -929,11 +933,11 @@ document.addEventListener('keydown',e=>{
             </div>
             <div style="margin-top:4px;display:flex;align-items:center;gap:6px;padding-top:6px;border-top:1px solid var(--bdr)">
               <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Nombre plantilla</span>
-              <input type="text" class="admin-url-input" id="name_si_requerimientos_plantilla" placeholder="Nombre visible del botón..." value="XXXX" oninput="updateArtLabel('si_requerimientos_plantilla',this.value)" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+              <input type="text" class="admin-url-input" id="name_si_requerimientos_plantilla" placeholder="Nombre visible del botón..." value="Documentación de requerimientos técnicos y funcionales" oninput="updateArtLabel('si_requerimientos_plantilla',this.value)" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
             </div>
             <div style="margin-top:5px;display:flex;gap:6px;align-items:center">
               <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Enlace</span>
-              <input type="url" class="admin-url-input" id="url_si_requerimientos_plantilla" placeholder="https://..." value="" oninput="artLinks['si_requerimientos_plantilla']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+              <input type="url" class="admin-url-input" id="url_si_requerimientos_plantilla" placeholder="https://..." value="https://efectivasa-my.sharepoint.com/:w:/g/personal/rparedesr_efectiva_com_pe/IQBxNW1cVT53RLa-EM3E7IgIAclfbzIYK5fqo3x0ildeaXY?e=AI80et" oninput="artLinks['si_requerimientos_plantilla']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
               <button onclick="copyUrl('si_requerimientos_plantilla')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
             </div>
           </div>
@@ -943,7 +947,7 @@ document.addEventListener('keydown',e=>{
           <div style="flex:1;min-width:0">
             <div class="admin-art-name" style="display:flex;align-items:center;gap:6px">
               <span style="font-size:10px;background:var(--nv-l);color:var(--nv);border:1px solid var(--nv-m);border-radius:4px;padding:1px 6px;font-weight:700;white-space:nowrap">Plantilla</span>
-              <span id="lbl_si_checklist_plantilla">XXXX</span>
+              <span id="lbl_si_checklist_plantilla">Checklist Seguridad de Información</span>
             </div>
             <div style="margin:6px 0 4px 8px;display:flex;flex-direction:column;gap:2px">
               <div class="admin-sub-item">↳ Ficha de estándar de seguridad de la solución</div>
@@ -952,11 +956,11 @@ document.addEventListener('keydown',e=>{
             </div>
             <div style="margin-top:4px;display:flex;align-items:center;gap:6px;padding-top:6px;border-top:1px solid var(--bdr)">
               <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Nombre plantilla</span>
-              <input type="text" class="admin-url-input" id="name_si_checklist_plantilla" placeholder="Nombre visible del botón..." value="XXXX" oninput="updateArtLabel('si_checklist_plantilla',this.value)" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+              <input type="text" class="admin-url-input" id="name_si_checklist_plantilla" placeholder="Nombre visible del botón..." value="Checklist Seguridad de Información" oninput="updateArtLabel('si_checklist_plantilla',this.value)" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
             </div>
             <div style="margin-top:5px;display:flex;gap:6px;align-items:center">
               <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Enlace</span>
-              <input type="url" class="admin-url-input" id="url_si_checklist_plantilla" placeholder="https://..." value="" oninput="artLinks['si_checklist_plantilla']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+              <input type="url" class="admin-url-input" id="url_si_checklist_plantilla" placeholder="https://..." value="https://raw.githubusercontent.com/efectiva-riesgos-lab/compliance-analitica/refs/heads/main/documentos/SEGURIDAD%20-%20Checklist%20de%20Seguridad%20de%20Informaci%C3%B3n.xlsx" oninput="artLinks['si_checklist_plantilla']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
               <button onclick="copyUrl('si_checklist_plantilla')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
             </div>
           </div>
@@ -973,7 +977,7 @@ document.addEventListener('keydown',e=>{
           <div style="flex:1;min-width:0">
             <div class="admin-art-name" style="display:flex;align-items:center;gap:6px">
               <span style="font-size:10px;background:var(--nv-l);color:var(--nv);border:1px solid var(--nv-m);border-radius:4px;padding:1px 6px;font-weight:700;white-space:nowrap">Plantilla</span>
-              <span id="lbl_arq_integraciones">XXXX</span>
+              <span id="lbl_arq_integraciones">Arquitectura del Caso de Uso</span>
             </div>
             <div style="margin:6px 0 4px 8px;display:flex;flex-direction:column;gap:2px">
               <div class="admin-sub-item">↳ Diagrama de arquitectura de servicio TI</div>
@@ -982,11 +986,11 @@ document.addEventListener('keydown',e=>{
             </div>
             <div style="margin-top:4px;display:flex;align-items:center;gap:6px;padding-top:6px;border-top:1px solid var(--bdr)">
               <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Nombre plantilla</span>
-              <input type="text" class="admin-url-input" id="name_arq_integraciones" placeholder="Nombre visible del botón..." value="XXXX" oninput="updateArtLabel('arq_integraciones',this.value)" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+              <input type="text" class="admin-url-input" id="name_arq_integraciones" placeholder="Nombre visible del botón..." value="Arquitectura del Caso de Uso" oninput="updateArtLabel('arq_integraciones',this.value)" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
             </div>
             <div style="margin-top:5px;display:flex;gap:6px;align-items:center">
               <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Enlace</span>
-              <input type="url" class="admin-url-input" id="url_arq_integraciones" placeholder="https://..." value="" oninput="artLinks['arq_integraciones']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+              <input type="url" class="admin-url-input" id="url_arq_integraciones" placeholder="https://..." value="https://raw.githubusercontent.com/efectiva-riesgos-lab/compliance-analitica/refs/heads/main/documentos/AQUITECTURA%20-%20Arquitectura%20del%20Caso%20de%20Uso.docx" oninput="artLinks['arq_integraciones']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
               <button onclick="copyUrl('arq_integraciones')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
             </div>
           </div>
@@ -998,7 +1002,7 @@ document.addEventListener('keydown',e=>{
           <div style="flex:1;min-width:0">
             <div class="admin-art-name" style="display:flex;align-items:center;gap:6px">
               <span style="font-size:10px;background:var(--nv-l);color:var(--nv);border:1px solid var(--nv-m);border-radius:4px;padding:1px 6px;font-weight:700;white-space:nowrap">Plantilla</span>
-              <span id="lbl_arq_ficha_tecnica">XXXX</span>
+              <span id="lbl_arq_ficha_tecnica">Diagrama y ficha técnica</span>
             </div>
             <div style="margin:6px 0 4px 8px;display:flex;flex-direction:column;gap:2px">
               <div class="admin-sub-item">↳ Detalle de aplicación</div>
@@ -1012,11 +1016,11 @@ document.addEventListener('keydown',e=>{
             </div>
             <div style="margin-top:4px;display:flex;align-items:center;gap:6px;padding-top:6px;border-top:1px solid var(--bdr)">
               <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Nombre plantilla</span>
-              <input type="text" class="admin-url-input" id="name_arq_ficha_tecnica" placeholder="Nombre visible del botón..." value="XXXX" oninput="updateArtLabel('arq_ficha_tecnica',this.value)" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+              <input type="text" class="admin-url-input" id="name_arq_ficha_tecnica" placeholder="Nombre visible del botón..." value="Diagrama y ficha técnica" oninput="updateArtLabel('arq_ficha_tecnica',this.value)" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
             </div>
             <div style="margin-top:5px;display:flex;gap:6px;align-items:center">
               <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Enlace</span>
-              <input type="url" class="admin-url-input" id="url_arq_ficha_tecnica" placeholder="https://..." value="" oninput="artLinks['arq_ficha_tecnica']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+              <input type="url" class="admin-url-input" id="url_arq_ficha_tecnica" placeholder="https://..." value="https://raw.githubusercontent.com/efectiva-riesgos-lab/compliance-analitica/refs/heads/main/documentos/ARQUITECTURA%20-%20Diagrama%20y%20ficha%20t%C3%A9cnica.xlsx" oninput="artLinks['arq_ficha_tecnica']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
               <button onclick="copyUrl('arq_ficha_tecnica')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
             </div>
           </div>
@@ -1028,7 +1032,7 @@ document.addEventListener('keydown',e=>{
           <div style="flex:1;min-width:0">
             <div class="admin-art-name" style="display:flex;align-items:center;gap:6px">
               <span style="font-size:10px;background:var(--nv-l);color:var(--nv);border:1px solid var(--nv-m);border-radius:4px;padding:1px 6px;font-weight:700;white-space:nowrap">Plantilla</span>
-              <span id="lbl_arq_modelo_gobernanza">XXXX</span>
+              <span id="lbl_arq_modelo_gobernanza">Modelo de Gobernanza</span>
             </div>
             <div style="margin:6px 0 4px 8px;display:flex;flex-direction:column;gap:2px">
               <div class="admin-sub-item">↳ Roles en operatividad</div>
@@ -1037,11 +1041,11 @@ document.addEventListener('keydown',e=>{
             </div>
             <div style="margin-top:4px;display:flex;align-items:center;gap:6px;padding-top:6px;border-top:1px solid var(--bdr)">
               <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Nombre plantilla</span>
-              <input type="text" class="admin-url-input" id="name_arq_modelo_gobernanza" placeholder="Nombre visible del botón..." value="XXXX" oninput="updateArtLabel('arq_modelo_gobernanza',this.value)" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+              <input type="text" class="admin-url-input" id="name_arq_modelo_gobernanza" placeholder="Nombre visible del botón..." value="Modelo de Gobernanza" oninput="updateArtLabel('arq_modelo_gobernanza',this.value)" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
             </div>
             <div style="margin-top:5px;display:flex;gap:6px;align-items:center">
               <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Enlace</span>
-              <input type="url" class="admin-url-input" id="url_arq_modelo_gobernanza" placeholder="https://..." value="" oninput="artLinks['arq_modelo_gobernanza']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+              <input type="url" class="admin-url-input" id="url_arq_modelo_gobernanza" placeholder="https://..." value="https://raw.githubusercontent.com/efectiva-riesgos-lab/compliance-analitica/refs/heads/main/documentos/ARQUITECTURA%20-%20Modelo%20de%20Gobernanza.pptx" oninput="artLinks['arq_modelo_gobernanza']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
               <button onclick="copyUrl('arq_modelo_gobernanza')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
             </div>
           </div>
@@ -1057,7 +1061,7 @@ document.addEventListener('keydown',e=>{
           <div style="flex:1;min-width:0">
             <div class="admin-art-name" style="display:flex;align-items:center;gap:6px">
               <span style="font-size:10px;background:var(--nv-l);color:var(--nv);border:1px solid var(--nv-m);border-radius:4px;padding:1px 6px;font-weight:700;white-space:nowrap">Plantilla</span>
-              <span id="lbl_calidad_reglas">XXXX</span>
+              <span id="lbl_calidad_reglas">Documentación de reglas de calidad y trazabilidad</span>
             </div>
             <div style="margin:6px 0 4px 8px;display:flex;flex-direction:column;gap:2px">
               <div class="admin-sub-item">↳ Glosario de datos</div>
@@ -1066,11 +1070,11 @@ document.addEventListener('keydown',e=>{
             </div>
             <div style="margin-top:4px;display:flex;align-items:center;gap:6px;padding-top:6px;border-top:1px solid var(--bdr)">
               <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Nombre plantilla</span>
-              <input type="text" class="admin-url-input" id="name_calidad_reglas" placeholder="Nombre visible del botón..." value="XXXX" oninput="updateArtLabel('calidad_reglas',this.value)" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+              <input type="text" class="admin-url-input" id="name_calidad_reglas" placeholder="Nombre visible del botón..." value="Documentación de reglas de calidad y trazabilidad" oninput="updateArtLabel('calidad_reglas',this.value)" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
             </div>
             <div style="margin-top:5px;display:flex;gap:6px;align-items:center">
               <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Enlace</span>
-              <input type="url" class="admin-url-input" id="url_calidad_reglas" placeholder="https://..." value="" oninput="artLinks['calidad_reglas']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+              <input type="url" class="admin-url-input" id="url_calidad_reglas" placeholder="https://..." value="https://raw.githubusercontent.com/efectiva-riesgos-lab/compliance-analitica/refs/heads/main/documentos/CALIDAD%20-%20Documentaci%C3%B3n%20de%20reglas%20de%20calidad%20y%20trazabilidad.xlsx" oninput="artLinks['calidad_reglas']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
               <button onclick="copyUrl('calidad_reglas')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
             </div>
           </div>
@@ -1113,7 +1117,7 @@ document.addEventListener('keydown',e=>{
           <div style="flex:1;min-width:0">
             <div class="admin-art-name" style="display:flex;align-items:center;gap:6px">
               <span style="font-size:10px;background:var(--nv-l);color:var(--nv);border:1px solid var(--nv-m);border-radius:4px;padding:1px 6px;font-weight:700;white-space:nowrap">Plantilla</span>
-              <span id="lbl_procesos_plantilla">XXXX</span>
+              <span id="lbl_procesos_plantilla">Documentación de situación actual vs propuesta</span>
             </div>
             <div style="margin:6px 0 4px 8px;display:flex;flex-direction:column;gap:2px">
               <div class="admin-sub-item">↳ Problemática</div>
@@ -1124,11 +1128,11 @@ document.addEventListener('keydown',e=>{
             </div>
             <div style="margin-top:4px;display:flex;align-items:center;gap:6px;padding-top:6px;border-top:1px solid var(--bdr)">
               <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Nombre plantilla</span>
-              <input type="text" class="admin-url-input" id="name_procesos_plantilla" placeholder="Nombre visible del botón..." value="XXXX" oninput="updateArtLabel('procesos_plantilla',this.value)" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+              <input type="text" class="admin-url-input" id="name_procesos_plantilla" placeholder="Nombre visible del botón..." value="Documentación de situación actual vs propuesta" oninput="updateArtLabel('procesos_plantilla',this.value)" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
             </div>
             <div style="margin-top:5px;display:flex;gap:6px;align-items:center">
               <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Enlace</span>
-              <input type="url" class="admin-url-input" id="url_procesos_plantilla" placeholder="https://..." value="" oninput="artLinks['procesos_plantilla']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+              <input type="url" class="admin-url-input" id="url_procesos_plantilla" placeholder="https://..." value="https://raw.githubusercontent.com/efectiva-riesgos-lab/compliance-analitica/refs/heads/main/documentos/PROCESOS%20-%20Documentaci%C3%B3n%20de%20situaci%C3%B3n%20actual%20vs%20propuesta.docx" oninput="artLinks['procesos_plantilla']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
               <button onclick="copyUrl('procesos_plantilla')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
             </div>
           </div>
@@ -1171,7 +1175,7 @@ document.addEventListener('keydown',e=>{
           <div style="flex:1;min-width:0">
             <div class="admin-art-name" style="display:flex;align-items:center;gap:6px">
               <span style="font-size:10px;background:var(--nv-l);color:var(--nv);border:1px solid var(--nv-m);border-radius:4px;padding:1px 6px;font-weight:700;white-space:nowrap">Plantilla</span>
-              <span id="lbl_riesgo_op_plantilla">XXXX</span>
+              <span id="lbl_riesgo_op_plantilla">Checklist RO Evaluación GIR</span>
             </div>
             <div style="margin:6px 0 4px 8px;display:flex;flex-direction:column;gap:2px">
               <div class="admin-sub-item">↳ Responsables</div>
@@ -1179,11 +1183,11 @@ document.addEventListener('keydown',e=>{
             </div>
             <div style="margin-top:4px;display:flex;align-items:center;gap:6px;padding-top:6px;border-top:1px solid var(--bdr)">
               <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Nombre plantilla</span>
-              <input type="text" class="admin-url-input" id="name_riesgo_op_plantilla" placeholder="Nombre visible del botón..." value="XXXX" oninput="updateArtLabel('riesgo_op_plantilla',this.value)" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+              <input type="text" class="admin-url-input" id="name_riesgo_op_plantilla" placeholder="Nombre visible del botón..." value="Checklist RO Evaluación GIR" oninput="updateArtLabel('riesgo_op_plantilla',this.value)" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
             </div>
             <div style="margin-top:5px;display:flex;gap:6px;align-items:center">
               <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Enlace</span>
-              <input type="url" class="admin-url-input" id="url_riesgo_op_plantilla" placeholder="https://..." value="" oninput="artLinks['riesgo_op_plantilla']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+              <input type="url" class="admin-url-input" id="url_riesgo_op_plantilla" placeholder="https://..." value="https://raw.githubusercontent.com/efectiva-riesgos-lab/compliance-analitica/refs/heads/main/documentos/RO%20-%20Checklist%20RO%20Evaluaci%C3%B3n%20GIR.xlsx" oninput="artLinks['riesgo_op_plantilla']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
               <button onclick="copyUrl('riesgo_op_plantilla')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
             </div>
           </div>
@@ -1198,7 +1202,7 @@ document.addEventListener('keydown',e=>{
           <div style="flex:1;min-width:0">
             <div class="admin-art-name" style="display:flex;align-items:center;gap:6px">
               <span style="font-size:10px;background:var(--nv-l);color:var(--nv);border:1px solid var(--nv-m);border-radius:4px;padding:1px 6px;font-weight:700;white-space:nowrap">Plantilla</span>
-              <span id="lbl_proveedores_plantilla">XXXX</span>
+              <span id="lbl_proveedores_plantilla">Gestión de proveedores</span>
             </div>
             <div style="margin:6px 0 4px 8px;display:flex;flex-direction:column;gap:2px">
               <div class="admin-sub-item">↳ Contratos y SLA de proveedores</div>
@@ -1206,11 +1210,11 @@ document.addEventListener('keydown',e=>{
             </div>
             <div style="margin-top:4px;display:flex;align-items:center;gap:6px;padding-top:6px;border-top:1px solid var(--bdr)">
               <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Nombre plantilla</span>
-              <input type="text" class="admin-url-input" id="name_proveedores_plantilla" placeholder="Nombre visible del botón..." value="XXXX" oninput="updateArtLabel('proveedores_plantilla',this.value)" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+              <input type="text" class="admin-url-input" id="name_proveedores_plantilla" placeholder="Nombre visible del botón..." value="Gestión de proveedores" oninput="updateArtLabel('proveedores_plantilla',this.value)" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
             </div>
             <div style="margin-top:5px;display:flex;gap:6px;align-items:center">
               <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Enlace</span>
-              <input type="url" class="admin-url-input" id="url_proveedores_plantilla" placeholder="https://..." value="" oninput="artLinks['proveedores_plantilla']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+              <input type="url" class="admin-url-input" id="url_proveedores_plantilla" placeholder="https://..." value="https://raw.githubusercontent.com/efectiva-riesgos-lab/compliance-analitica/refs/heads/main/documentos/PROVEEDORES%20-%20Gesti%C3%B3n%20de%20proveedores.xlsx" oninput="artLinks['proveedores_plantilla']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
               <button onclick="copyUrl('proveedores_plantilla')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
             </div>
           </div>
@@ -1225,18 +1229,18 @@ document.addEventListener('keydown',e=>{
           <div style="flex:1;min-width:0">
             <div class="admin-art-name" style="display:flex;align-items:center;gap:6px">
               <span style="font-size:10px;background:var(--nv-l);color:var(--nv);border:1px solid var(--nv-m);border-radius:4px;padding:1px 6px;font-weight:700;white-space:nowrap">Plantilla</span>
-              <span id="lbl_gestion_riesgos_plantilla">XXXX</span>
+              <span id="lbl_gestion_riesgos_plantilla">Documentación de reglas de negocio</span>
             </div>
             <div style="margin:6px 0 4px 8px;display:flex;flex-direction:column;gap:2px">
               <div class="admin-sub-item">↳ Reglas de negocio</div>
             </div>
             <div style="margin-top:4px;display:flex;align-items:center;gap:6px;padding-top:6px;border-top:1px solid var(--bdr)">
               <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Nombre plantilla</span>
-              <input type="text" class="admin-url-input" id="name_gestion_riesgos_plantilla" placeholder="Nombre visible del botón..." value="XXXX" oninput="updateArtLabel('gestion_riesgos_plantilla',this.value)" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+              <input type="text" class="admin-url-input" id="name_gestion_riesgos_plantilla" placeholder="Nombre visible del botón..." value="Documentación de reglas de negocio" oninput="updateArtLabel('gestion_riesgos_plantilla',this.value)" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
             </div>
             <div style="margin-top:5px;display:flex;gap:6px;align-items:center">
               <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Enlace</span>
-              <input type="url" class="admin-url-input" id="url_gestion_riesgos_plantilla" placeholder="https://..." value="" oninput="artLinks['gestion_riesgos_plantilla']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+              <input type="url" class="admin-url-input" id="url_gestion_riesgos_plantilla" placeholder="https://..." value="https://raw.githubusercontent.com/efectiva-riesgos-lab/compliance-analitica/refs/heads/main/documentos/RIESGOS%20-%20Documentaci%C3%B3n%20de%20reglas%20de%20negocio.docx" oninput="artLinks['gestion_riesgos_plantilla']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
               <button onclick="copyUrl('gestion_riesgos_plantilla')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
             </div>
           </div>
@@ -1246,7 +1250,7 @@ document.addEventListener('keydown',e=>{
           <div style="flex:1;min-width:0">
             <div class="admin-art-name" style="display:flex;align-items:center;gap:6px">
               <span style="font-size:10px;background:var(--nv-l);color:var(--nv);border:1px solid var(--nv-m);border-radius:4px;padding:1px 6px;font-weight:700;white-space:nowrap">Plantilla</span>
-              <span id="lbl_gestion_riesgos_dimensionamiento">XXXX</span>
+              <span id="lbl_gestion_riesgos_dimensionamiento">Ficha técnica</span>
             </div>
             <div style="margin:6px 0 4px 8px;display:flex;flex-direction:column;gap:2px">
               <div class="admin-sub-item">↳ Detalle del proyecto</div>
@@ -1256,11 +1260,11 @@ document.addEventListener('keydown',e=>{
             </div>
             <div style="margin-top:4px;display:flex;align-items:center;gap:6px;padding-top:6px;border-top:1px solid var(--bdr)">
               <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Nombre plantilla</span>
-              <input type="text" class="admin-url-input" id="name_gestion_riesgos_dimensionamiento" placeholder="Nombre visible del botón..." value="XXXX" oninput="updateArtLabel('gestion_riesgos_dimensionamiento',this.value)" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+              <input type="text" class="admin-url-input" id="name_gestion_riesgos_dimensionamiento" placeholder="Nombre visible del botón..." value="Ficha técnica" oninput="updateArtLabel('gestion_riesgos_dimensionamiento',this.value)" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
             </div>
             <div style="margin-top:5px;display:flex;gap:6px;align-items:center">
               <span style="font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap">Enlace</span>
-              <input type="url" class="admin-url-input" id="url_gestion_riesgos_dimensionamiento" placeholder="https://..." value="" oninput="artLinks['gestion_riesgos_dimensionamiento']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
+              <input type="url" class="admin-url-input" id="url_gestion_riesgos_dimensionamiento" placeholder="https://..." value="https://raw.githubusercontent.com/efectiva-riesgos-lab/compliance-analitica/refs/heads/main/documentos/RIESGOS%20-%20Ficha%20t%C3%A9cnica.docx" oninput="artLinks['gestion_riesgos_dimensionamiento']=this.value;saveArtLinks()" style="flex:1;font-size:11px;padding:4px 8px;border:1px solid var(--bdr2);border-radius:5px;outline:none;font-family:inherit;color:var(--tx)">
               <button onclick="copyUrl('gestion_riesgos_dimensionamiento')" style="font-size:11px;padding:4px 9px;background:none;border:1px solid var(--bdr2);border-radius:5px;cursor:pointer;color:var(--tx2);white-space:nowrap">Copiar</button>
             </div>
           </div>
